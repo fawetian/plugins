@@ -1,7 +1,7 @@
 {
   "name": "git-ops",
   "version": "1.0.0",
-  "description": "Git 操作快捷指令，支持 ga、gc、gp、gpl，强制使用 Conventional Commits 格式，中文 commit message",
+  "description": "Git 操作快捷指令，支持 ga（add）、gc（commit）、gp（push）、gpl（pull）",
   "author": {
     "name": "fawetian"
   },
