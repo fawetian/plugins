@@ -57,6 +57,8 @@ Recommended external plugin/skill sources:
 
 | Source | Description |
 |--------|-------------|
+| [obra/superpowers](https://github.com/obra/superpowers) | Agentic skills framework & development methodology |
+| [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel's official agent skills (React, Next.js, design) |
 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | Baoyu skills collection |
 | [anthropics/skills](https://github.com/anthropics/skills) | Official Anthropic skills |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Official Claude plugins |
@@ -67,6 +69,7 @@ Contributions are welcome! Please submit a pull request to add your plugin.
 
 ## Documentation
 
-- [Plugins Development Guide](https://code.claude.com/docs/plugins)
-- [Plugin Marketplaces](https://code.claude.com/docs/plugin-marketplaces)
-- [Skills Development Guide](https://code.claude.com/docs/skills)
+- [Plugins Development Guide](https://code.claude.com/docs/en/plugins)
+- [Plugins Reference](https://code.claude.com/docs/en/plugins-reference)
+- [Discover Plugins](https://code.claude.com/docs/en/discover-plugins)
+- [Skills Development Guide](https://code.claude.com/docs/en/skills)

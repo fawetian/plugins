@@ -57,6 +57,8 @@ plugin-name/
 
 | 源 | 描述 |
 |----|------|
+| [obra/superpowers](https://github.com/obra/superpowers) | Agentic 技能框架与开发方法论 |
+| [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel 官方技能集合（React、Next.js、设计指南） |
 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 宝玉技能集合 |
 | [anthropics/skills](https://github.com/anthropics/skills) | Anthropic 官方技能 |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Claude 官方插件 |
