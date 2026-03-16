@@ -1,6 +1,8 @@
 # Claude Code Plugins Marketplace
 
-A curated collection of high-quality plugins for Claude Code.
+My personal plugin marketplace for Claude Code.
+
+[中文文档](./README_CN.md)
 
 ## Add Marketplace
 
@@ -49,10 +51,22 @@ plugin-name/
 └── README.md            # Documentation
 ```
 
+## External Sources
+
+Recommended external plugin/skill sources:
+
+| Source | Description |
+|--------|-------------|
+| [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | Baoyu skills collection |
+| [anthropics/skills](https://github.com/anthropics/skills) | Official Anthropic skills |
+| [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Official Claude plugins |
+
 ## Contributing
 
 Contributions are welcome! Please submit a pull request to add your plugin.
 
 ## Documentation
 
-For more information on developing Claude Code plugins, see the [official documentation](https://code.claude.com/docs/plugins).
+- [Plugins Development Guide](https://code.claude.com/docs/plugins)
+- [Plugin Marketplaces](https://code.claude.com/docs/plugin-marketplaces)
+- [Skills Development Guide](https://code.claude.com/docs/skills)
