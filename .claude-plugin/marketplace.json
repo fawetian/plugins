@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "git-ops",
-      "source": "./git-ops",
+      "source": "./plugins/git-ops",
       "description": "Git 操作快捷指令，支持 ga（add）、gc（commit）、gp（push）、gpl（pull）",
       "version": "1.0.0",
       "author": {
