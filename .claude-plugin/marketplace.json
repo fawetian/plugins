@@ -1,0 +1,13 @@
+{
+  "name": "fawetian-plugins",
+  "owner": {
+    "name": "fawetian",
+    "email": ""
+  },
+  "metadata": {
+    "description": "A curated collection of high-quality plugins for Claude Code",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": []
+}
