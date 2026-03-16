@@ -9,5 +9,16 @@
     "version": "1.0.0",
     "pluginRoot": "./plugins"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "git-ops",
+      "source": "./git-ops",
+      "description": "Git 操作快捷指令，支持 ga、gc、gp、gpl，强制使用 Conventional Commits 格式，中文 commit message",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["git", "conventional-commits", "chinese", "workflow"]
+    }
+  ]
 }
