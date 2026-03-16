@@ -1,7 +1,7 @@
 ---
 name: code-review
 description: Automated code review for pull requests or local changes using multiple specialized agents with confidence-based scoring. Use when user asks for /code-review, wants to review a PR, or review local uncommitted changes.
-source: https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review
+userInvocable: true
 ---
 
 # Code Review

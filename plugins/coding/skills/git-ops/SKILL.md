@@ -1,6 +1,7 @@
 ---
 name: git-ops
 description: Git shortcuts: ga(add), gc(commit), gp(push), gpl(pull). Triggers: ga, gc, gp, gpl, "commit", "push", "pull", "stage", "add".
+userInvocable: true
 ---
 
 # Git Operation Shortcuts

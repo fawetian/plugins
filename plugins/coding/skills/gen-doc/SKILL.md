@@ -1,6 +1,7 @@
 ---
 name: gen-doc
 description: Use when the user invokes "gen-doc", "/gen-doc", or mentions "generate API docs", "update API documentation", "API changed", "generate OpenAPI", or "sync swagger". Automatically detects REST API changes and generates/updates an OpenAPI 3.0 document.
+userInvocable: true
 ---
 
 # gen-doc

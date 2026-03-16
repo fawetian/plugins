@@ -1,6 +1,7 @@
 ---
 name: code-research
 description: Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, core mechanisms, data flow, or key algorithms. Trigger: code-research.
+userInvocable: true
 ---
 
 # Code Research

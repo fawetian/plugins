@@ -1,6 +1,7 @@
 ---
 name: code-annotator
 description: This skill should be used when the user invokes "code-annotator" or "/code-annotator". Automatically adds comprehensive Chinese comments to source code files.
+userInvocable: true
 ---
 
 # Code Annotator
