@@ -68,6 +68,25 @@ Filter out issues with score < 80. Then output results based on mode:
 - Write results to `docs/code-review/{datetime}/review.md` where datetime is in `YYYY-MM-DD_HH-mm-ss` format
 - Output a summary to user with the file path
 
+## Review Criteria
+
+Use these guidelines when evaluating code:
+
+### Engineering Principles
+
+- **DRY** - Actively flag code duplication.
+- **Testing** - Well-tested code is non-negotiable; prefer more tests over fewer.
+- **Right-sized engineering** - Neither under-engineered (brittle, hacky) nor over-engineered (premature abstractions, unnecessary complexity).
+- **Edge cases** - Prefer handling more edge cases, not fewer; thoughtful > fast.
+- **Explicit over clever** - Clarity wins over cleverness.
+- **Minimal diff** - Achieve goals with minimal new abstractions and files touched.
+
+### Documentation & Diagrams
+
+- **ASCII diagrams** - Highly valued for data flow, state machines, dependency graphs, processing pipelines, and decision trees. Use freely in design docs.
+- **Complex logic** - Embed ASCII diagrams in code comments where appropriate: Models (data relationships, state transitions), Controllers (request flow), Services (processing pipelines), Tests (setup and rationale).
+- **Diagram maintenance** - When modifying code near ASCII diagram comments, verify diagrams are still accurate. Update them as part of the same commit. Stale diagrams are worse than no diagrams - they actively mislead. Flag any stale diagrams encountered during review, even if outside direct scope.
+
 ## False positives to avoid
 
 - Pre-existing issues or code outside the PR changes.
