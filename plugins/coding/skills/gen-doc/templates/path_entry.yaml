@@ -1,0 +1,22 @@
+/path/to/endpoint:
+  get:
+    summary: Brief description
+    parameters:
+      - name: param_name
+        in: query  # or path, header, cookie
+        required: false
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: {}
+    responses:
+      '200':
+        description: Success
+        content:
+          application/json:
+            schema:
+              type: object

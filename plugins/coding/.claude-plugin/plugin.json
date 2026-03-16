@@ -1,0 +1,17 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "description": "代码质量工具集：代码研究、注释、审查、简化",
+  "author": {
+    "name": "fawetian"
+  },
+  "license": "MIT",
+  "keywords": ["code", "review", "research", "annotation", "simplify", "quality"],
+  "skills": [
+    "./skills/code-research",
+    "./skills/code-annotator",
+    "./skills/code-review",
+    "./skills/code-simplifier",
+    "./skills/gen-doc"
+  ]
+}

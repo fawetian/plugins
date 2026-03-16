@@ -19,6 +19,16 @@
         "name": "fawetian"
       },
       "keywords": ["git", "conventional-commits", "chinese", "workflow"]
+    },
+    {
+      "name": "coding",
+      "source": "./plugins/coding",
+      "description": "代码质量工具集：代码研究、注释、审查、简化",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["code", "review", "research", "annotation", "simplify", "quality"]
     }
   ]
 }
