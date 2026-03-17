@@ -73,3 +73,4 @@ Contributions are welcome! Please submit a pull request to add your plugin.
 - [Plugins Reference](https://code.claude.com/docs/en/plugins-reference)
 - [Discover Plugins](https://code.claude.com/docs/en/discover-plugins)
 - [Skills Development Guide](https://code.claude.com/docs/en/skills)
+- [Rules & Memory](https://code.claude.com/docs/en/memory)

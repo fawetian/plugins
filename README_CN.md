@@ -72,3 +72,4 @@ plugin-name/
 - [插件开发指南](https://code.claude.com/docs/zh-CN/plugins)
 - [插件市场配置](https://code.claude.com/docs/zh-CN/plugin-marketplaces)
 - [技能开发指南](https://code.claude.com/docs/zh-CN/skills)
+- [规则与记忆](https://code.claude.com/docs/zh-CN/memory)
