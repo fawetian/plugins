@@ -1,0 +1,23 @@
+{
+  "skill_name": "code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review the latest commit in the current repository using code-review",
+      "expected_output": "A code review report with issues found, confidence scores, and recommendations",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run a code review on my uncommitted changes",
+      "expected_output": "A local mode review that saves results to docs/code-review/",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I want to review PR #123 for potential bugs and CLAUDE.md violations",
+      "expected_output": "A PR mode review that posts a comment via gh",
+      "files": []
+    }
+  ]
+}
