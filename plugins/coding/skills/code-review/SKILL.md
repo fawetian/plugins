@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Automated code review for pull requests or local changes using multiple specialized agents with confidence-based scoring. Use when user asks for /code-review, wants to review a PR, or review local uncommitted changes.
+description: Automated code review for pull requests or local changes using multiple specialized agents with confidence-based scoring. ONLY triggers when user explicitly types "code-review".
 userInvocable: true
 ---
 
@@ -37,6 +37,10 @@ Return paths to relevant CLAUDE.md files: the root CLAUDE.md plus any CLAUDE.md 
 ### Step 3: Summarize the Change
 
 ### Step 4: Independent Reviews (5 parallel agents)
+
+Launch all 5 agents concurrently using the Agent tool with `run_in_background: true`. The agents will run in parallel and you will be notified when each completes.
+
+**Important**: Do NOT use TaskOutput to wait for agents. Let them run in the background and you will receive automatic notifications when they complete.
 
 Each agent returns issues plus rationale:
 - Agent 1: CLAUDE.md compliance.
