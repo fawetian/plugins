@@ -30,10 +30,17 @@ Once the marketplace is added, install plugins:
 
 ```
 plugins/
-├── .claude-plugin/
-│   └── marketplace.json    # Marketplace configuration
 ├── plugins/                # Internal plugins
-└── external_plugins/       # Third-party plugins
+│   └── coding/
+├── external_plugins/       # Third-party plugins
+└── rules/                  # Reusable Claude Code Rules
+    ├── common/             # Language-agnostic principles
+    ├── golang/             # Go specific rules
+    ├── python/             # Python specific rules
+    ├── typescript/         # TypeScript/JavaScript rules
+    ├── rust/               # Rust specific rules
+    ├── shell/              # Shell/Bash/Zsh rules
+    └── swift/              # Swift specific rules
 ```
 
 ## Plugin Structure
@@ -66,6 +73,21 @@ Recommended external plugin/skill sources:
 ## Contributing
 
 Contributions are welcome! Please submit a pull request to add your plugin.
+
+## Rules (Cross-Project)
+
+The `rules/` directory contains reusable Claude Code Rules for multiple languages. These can be copied to other projects or your global `~/.claude/rules/` directory.
+
+```bash
+# Copy to global rules
+cp -r rules/common ~/.claude/rules/
+cp -r rules/rust ~/.claude/rules/
+
+# Or copy to project-specific rules
+cp -r rules/python .claude/rules/
+```
+
+See [rules/README.md](./rules/README.md) for details.
 
 ## Documentation
 

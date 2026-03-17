@@ -30,10 +30,17 @@
 
 ```
 plugins/
-├── .claude-plugin/
-│   └── marketplace.json    # 市场配置
 ├── plugins/                # 内部插件
-└── external_plugins/       # 第三方插件
+│   └── coding/
+├── external_plugins/       # 第三方插件
+└── rules/                  # 可复用的 Claude Code Rules
+    ├── common/             # 语言无关的通用规则
+    ├── golang/             # Go 专用规则
+    ├── python/             # Python 专用规则
+    ├── typescript/         # TypeScript/JavaScript 规则
+    ├── rust/               # Rust 专用规则
+    ├── shell/              # Shell/Bash/Zsh 规则
+    └── swift/              # Swift 专用规则
 ```
 
 ## 插件结构
@@ -66,6 +73,21 @@ plugin-name/
 ## 参与贡献
 
 欢迎贡献代码！请提交 Pull Request 来添加你的插件。
+
+## Rules (跨项目复用)
+
+`rules/` 目录包含可复用的 Claude Code Rules，支持多种语言。可复制到其他项目或全局 `~/.claude/rules/` 目录使用。
+
+```bash
+# 复制到全局规则
+cp -r rules/common ~/.claude/rules/
+cp -r rules/rust ~/.claude/rules/
+
+# 或复制到项目专用规则
+cp -r rules/python .claude/rules/
+```
+
+详情参见 [rules/README.md](./rules/README.md)。
 
 ## 官方文档
 
