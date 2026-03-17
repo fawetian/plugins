@@ -6,12 +6,13 @@
     "name": "fawetian"
   },
   "license": "MIT",
-  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "git"],
+  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "git", "translate"],
   "skills": [
     "./skills/code-research",
     "./skills/code-annotator",
     "./skills/code-review",
     "./skills/code-simplifier",
+    "./skills/code-translate",
     "./skills/gen-doc",
     "./skills/git-ops"
   ]

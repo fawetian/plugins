@@ -1,0 +1,153 @@
+{
+  "name": "code-translate",
+  "version": "1.0.0",
+  "description": "Evaluations for code-translate skill trigger accuracy and output quality",
+  "evals": [
+    {
+      "name": "trigger-positive-code-translate",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly types 'code-translate'",
+      "prompts": [
+        {
+          "input": "code-translate /path/to/project",
+          "expected": true,
+          "reason": "Explicit command invocation"
+        },
+        {
+          "input": "/code-translate /path/to/project",
+          "expected": true,
+          "reason": "Slash command invocation"
+        },
+        {
+          "input": "Please use code-translate to translate my docs",
+          "expected": true,
+          "reason": "Explicit mention of code-translate"
+        },
+        {
+          "input": "Run code-translate --incremental on this folder",
+          "expected": true,
+          "reason": "Explicit mention with flags"
+        },
+        {
+          "input": "code-translate --status /my/project",
+          "expected": true,
+          "reason": "Status command"
+        },
+        {
+          "input": "code-translate --resume /path",
+          "expected": true,
+          "reason": "Resume command"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general-translation",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for general translation requests",
+      "prompts": [
+        {
+          "input": "Translate this document to Chinese",
+          "expected": false,
+          "reason": "General translation request without code-translate"
+        },
+        {
+          "input": "Can you translate the README to 中文",
+          "expected": false,
+          "reason": "Chinese translation request without code-translate"
+        },
+        {
+          "input": "How do I translate markdown files?",
+          "expected": false,
+          "reason": "Question about translation without code-translate"
+        },
+        {
+          "input": "Help me translate docs to Chinese",
+          "expected": false,
+          "reason": "Help request without code-translate"
+        },
+        {
+          "input": "I need to translate documentation",
+          "expected": false,
+          "reason": "Translation need without code-translate"
+        },
+        {
+          "input": "translate docs in my project",
+          "expected": false,
+          "reason": "Implicit request without code-translate"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unrelated",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for unrelated requests",
+      "prompts": [
+        {
+          "input": "Help me write code",
+          "expected": false,
+          "reason": "Code writing request"
+        },
+        {
+          "input": "Fix this bug",
+          "expected": false,
+          "reason": "Bug fix request"
+        },
+        {
+          "input": "Add a new feature",
+          "expected": false,
+          "reason": "Feature request"
+        },
+        {
+          "input": "How do I implement i18n?",
+          "expected": false,
+          "reason": "i18n discussion"
+        },
+        {
+          "input": "What's the best translation library?",
+          "expected": false,
+          "reason": "Library recommendation"
+        },
+        {
+          "input": "Refactor this code",
+          "expected": false,
+          "reason": "Refactoring request"
+        }
+      ]
+    },
+    {
+      "name": "output-quality-translation-rules",
+      "type": "output",
+      "description": "Verify translation follows the rules",
+      "checks": [
+        {
+          "name": "yaml-frontmatter-preserved",
+          "description": "YAML frontmatter should be preserved unchanged"
+        },
+        {
+          "name": "technical-terms-english",
+          "description": "Technical terms (API, HTTP, JSON, Claude, etc.) should remain in English"
+        },
+        {
+          "name": "code-blocks-preserved",
+          "description": "Code blocks should not be translated"
+        },
+        {
+          "name": "inline-code-preserved",
+          "description": "Inline code should not be translated"
+        },
+        {
+          "name": "links-url-preserved",
+          "description": "Link URLs should remain unchanged"
+        },
+        {
+          "name": "directory-structure-preserved",
+          "description": "Output directory structure should match input"
+        },
+        {
+          "name": "chinese-punctuation",
+          "description": "Should use Chinese punctuation marks"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "path": "sample-api-doc.md",
+    "wordCount": 326,
+    "hash": "f5070b18",
+    "detectedLang": "english"
+  }
+,
+  {
+    "path": "sample-guide.md",
+    "wordCount": 654,
+    "hash": "d3f74c55",
+    "detectedLang": "english"
+  }
+,
+  {
+    "path": "sample-readme.md",
+    "wordCount": 427,
+    "hash": "abc7d3ab",
+    "detectedLang": "english"
+  }
+
+]
