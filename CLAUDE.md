@@ -47,6 +47,11 @@ plugins/
 - **Skills**: Use YAML frontmatter with `name` and `description` fields for triggering
 - **Commit format**: Conventional Commits with Chinese descriptions (for git-ops plugin)
 - **Documentation**: Always update both English and Chinese versions when modifying any documentation files
+- **Version Bumping**: When modifying skill content, MUST bump plugin version in `plugin.json`:
+  - `PATCH` (1.0.x): Bug fixes, minor skill content tweaks
+  - `MINOR` (1.x.0): New skills, new features, significant skill changes
+  - `MAJOR` (x.0.0): Breaking changes, major restructure
+  - This is required for Claude Code to detect plugin updates via `/plugin update`
 
 ## Adding New Plugins
 

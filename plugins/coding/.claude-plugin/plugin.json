@@ -1,6 +1,6 @@
 {
   "name": "coding",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作",
   "author": {
     "name": "fawetian"

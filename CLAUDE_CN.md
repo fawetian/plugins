@@ -47,6 +47,11 @@ plugins/
 - **技能**: 使用包含 `name` 和 `description` 字段的 YAML frontmatter 以便触发
 - **提交格式**: 使用中文描述的约定式提交（针对 git-ops 插件）
 - **文档同步**: 修改任何文档文件时必须同时更新中英文两个版本
+- **版本号更新**: 修改 skill 内容后，必须更新 `plugin.json` 中的版本号：
+  - `PATCH` (1.0.x): Bug 修复、skill 内容小调整
+  - `MINOR` (1.x.0): 新增 skill、新功能、skill 重大改动
+  - `MAJOR` (x.0.0): 破坏性变更、重大重构
+  - 这是 Claude Code 通过 `/plugin update` 检测插件更新的必要条件
 
 ## 添加新插件
 
