@@ -16,6 +16,7 @@ There are only two core questions when researching code: **What is this module**
 
 ## Constraints
 
+- **Output Language**: All research output must be in **Chinese** (中文)
 - **Use Mermaid for diagrams**: All architecture diagrams, flowcharts, and relationship diagrams must be drawn using Mermaid syntax.
 
 ## Workflow
@@ -24,7 +25,7 @@ There are only two core questions when researching code: **What is this module**
 
 Read README, directory structure, entry files, dependency files to establish initial understanding of the project.
 
-Then create `docs/research/RESEARCH_PLAN.md`, breaking down research tasks into several **independent topics**. Reference template: [templates/research_plan.md](templates/research_plan.md)
+Then create `docs/code-research/RESEARCH_PLAN.md`, breaking down research tasks into several **independent topics**. Reference template: [templates/research_plan.md](templates/research_plan.md)
 
 After the plan is written, confirm with user or execute directly (depending on the situation).
 
@@ -47,7 +48,7 @@ Output templates for each topic are in the `templates/` directory:
 
 ### Phase 3: Summary & Integration
 
-After all topics are complete, add a research summary at the top of `RESEARCH_PLAN.md`: project core value, index of each topic document, design highlights worth noting.
+After all topics are complete, add a research summary at the top of `docs/code-research/RESEARCH_PLAN.md`: project core value, index of each topic document, design highlights worth noting.
 
 ---
 
