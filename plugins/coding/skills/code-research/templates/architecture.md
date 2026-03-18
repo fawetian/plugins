@@ -1,41 +1,41 @@
-# Architecture Overview
+# 架构全景
 
-## Project Overview
+## 项目概述
 
-**What is it**: [What this project is, explain in one sentence]
-**Why does it exist**: [What problem does it solve? Without it, how would developers/users handle this problem?]
-**Core design philosophy**: [What is the most critical design decision in the entire project]
-
----
-
-## Module Breakdown
-
-Each module is explained with the following structure:
-
-### [Module Name]
-
-**What is it**: [What is the responsibility of this module/directory, one sentence]
-**Why does it exist**: [Why separate this part out? What would happen if its logic was stuffed into other modules?]
-**Main files**: [List core files and their specific responsibilities]
+**它是什么**：[一句话说明这个项目是什么]
+**为什么存在**：[它解决了什么问题？如果没有它，开发者/用户会如何处理这个问题？]
+**核心设计理念**：[整个项目最关键的设计决策是什么]
 
 ---
 
-## Module Dependencies
+## 模块拆解
+
+每个模块按以下结构说明：
+
+### [模块名称]
+
+**它是什么**：[这个模块/目录的职责是什么，一句话说明]
+**为什么存在**：[为什么要单独拆出这部分？如果把它逻辑塞进其他模块会怎样？]
+**主要文件**：[列出核心文件及各自职责]
+
+---
+
+## 模块依赖关系
 
 ```mermaid
 graph TD
-    [Use Mermaid to draw dependencies between modules]
+    [使用 Mermaid 绘制模块间的依赖关系]
 ```
 
 ---
 
-## Core Abstractions
+## 核心抽象
 
-[List the most important interfaces/classes/types in the project, explain why they are core - usually the most referenced or defining system boundaries]
+[列出项目中最重要的接口/类/类型，说明为什么它们是核心——通常是被引用最多或定义了系统边界的]
 
 ---
 
-## Extension Mechanisms
+## 扩展机制
 
-**What is it**: [What extension points does the project provide - plugins, middleware, hooks, interfaces, etc.]
-**Why designed this way**: [Why choose this extension method over others]
+**它是什么**：[项目提供了哪些扩展点——插件、中间件、钩子、接口等]
+**为什么这么设计**：[为什么选择这种扩展方式而不是其他方式]

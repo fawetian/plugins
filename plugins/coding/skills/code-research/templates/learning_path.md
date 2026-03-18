@@ -1,33 +1,33 @@
-# Code Reading Path
+# 代码阅读路径
 
-## Quick Understanding (Read these files in order)
+## 快速理解（按顺序阅读这些文件）
 
-[List 3-5 most core files, each explaining: reason to read it first + what you'll understand after reading]
+[列出 3-5 个最核心的文件，每个说明：为什么先读它 + 读完后你会理解什么]
 
-1. `[file path]` — [Why read it first] → [What you'll understand after reading]
+1. `[文件路径]` — [为什么先读它] → [读完后你会理解什么]
 2. ...
 
 ---
 
-## Index by Goal
+## 按目标索引
 
-### Want to understand overall architecture
-[Files + key locations]
+### 想理解整体架构
+[文件 + 关键位置]
 
-### Want to understand [core feature A]
-[Files + key locations]
+### 想理解 [核心功能 A]
+[文件 + 关键位置]
 
-### Want to extend / contribute code
-[Modules to understand + potential entry points]
-
----
-
-## Code Snippets Worth Deep Learning
-
-[3-5 particularly elegant or representative implementations, explaining why they're worth learning, what can be learned from them]
+### 想扩展 / 贡献代码
+[需要理解的模块 + 潜在入口点]
 
 ---
 
-## Confusing Areas
+## 值得深入学习的代码片段
 
-[Designs that are hard to understand at first glance, first explain why confusing, then explain the underlying reasons]
+[3-5 个特别优雅或有代表性的实现，说明为什么值得学习，能学到什么]
+
+---
+
+## 令人困惑的地方
+
+[第一眼难以理解的设计，先解释为什么困惑，再解释背后的原因]

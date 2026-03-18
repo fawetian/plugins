@@ -1,32 +1,32 @@
-# Data Flow & State Management
+# 数据流与状态管理
 
-## Core Data Structures
+## 核心数据结构
 
-Each core data structure is explained with the following structure:
+每个核心数据结构按以下结构说明：
 
-### [Structure Name]
+### [结构名称]
 
-**What is it**: [What concept does this data structure represent]
-**Why modeled this way**: [Why use this structure instead of others? What problem does this design solve?]
-**Field description**: [Meaning of important fields, especially non-intuitive ones]
-
----
-
-## Data Lifecycle
-
-**Where does it come from**: [Source of data - user input, external API, database, files, etc.]
-**What transformations does it go through**: [Main processing steps of data in the system]
-**Where does it go**: [Final destination of data - persistence, returned to user, passed to downstream]
+**它是什么**：[这个数据结构代表什么概念]
+**为什么这样建模**：[为什么用这种结构而不是其他？这种设计解决了什么问题？]
+**字段说明**：[重要字段的含义，特别是那些不直观的字段]
 
 ---
 
-## State Management
+## 数据生命周期
 
-**What is it**: [What states does the system maintain]
-**Why managed this way**: [Why choose this state management method? Centralized or distributed? Is there global state, why?]
+**它从哪里来**：[数据来源——用户输入、外部 API、数据库、文件等]
+**经历什么转换**：[数据在系统中的主要处理步骤]
+**到哪里去**：[数据的最终去向——持久化、返回给用户、传递给下游]
 
 ---
 
-## Concurrency & Consistency
+## 状态管理
 
-[If there are multi-threaded/coroutine/async operations, explain how shared data is protected and why this method was chosen]
+**它是什么**：[系统维护了哪些状态]
+**为什么这样管理**：[为什么选择这种状态管理方式？集中式还是分布式？是否有全局状态，为什么？]
+
+---
+
+## 并发与一致性
+
+[如果存在多线程/协程/异步操作，解释共享数据如何保护以及为什么选择这种方法]

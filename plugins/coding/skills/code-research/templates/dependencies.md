@@ -1,31 +1,31 @@
-# Dependencies & Ecosystem
+# 依赖与生态
 
-## Core Dependencies
+## 核心依赖
 
-Each core dependency is explained with the following structure:
+每个核心依赖按以下结构说明：
 
-### [Dependency Name]
+### [依赖名称]
 
-**What is it**: [What is this library/framework]
-**Why choose it**: [Why choose this over alternatives? What specific problem does it solve?]
-**Role in project**: [What responsibilities does it bear, which parts of the project depend on it]
-
----
-
-## Intentionally Unused Solutions
-
-[The project chooses not to use certain common solutions (frameworks, protocols, tools), explain why - this often reflects the project's core design tradeoffs]
+**它是什么**：[这个库/框架是什么]
+**为什么选择它**：[为什么选择它而不是替代品？它解决了什么具体问题？]
+**项目中的角色**：[它承担什么职责，项目的哪些部分依赖它]
 
 ---
 
-## External System Integration
+## 有意不使用的方案
 
-**Where are the integration points**: [What external systems does the project interact with - databases, message queues, third-party APIs, etc.]
-**Why boundaries are drawn this way**: [Why draw system boundaries here]
+[项目选择不使用某些常见方案（框架、协议、工具），解释原因——这往往反映了项目的核心设计权衡]
 
 ---
 
-## Project Positioning
+## 外部系统集成
 
-**Position among similar tools**: [Compared to similar projects, what are the core advantages and tradeoffs of this project]
-**Intentionally unsupported features**: [What things does the project deliberately not do, why]
+**集成点在哪里**：[项目与哪些外部系统交互——数据库、消息队列、第三方 API 等]
+**为什么这样划分边界**：[为什么在这里划分系统边界]
+
+---
+
+## 项目定位
+
+**在同类工具中的位置**：[与类似项目相比，这个项目的核心优势和权衡是什么]
+**有意不支持的功能**：[项目故意不做哪些事情，为什么]

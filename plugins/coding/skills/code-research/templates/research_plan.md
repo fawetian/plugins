@@ -1,33 +1,33 @@
-# Research Plan
+# 研究计划
 
-## Project Overview
+## 项目概述
 
-**What is it**: [One sentence describing what this project is]
-**What problem does it solve**: [What problem does its existence solve, what would happen without it]
-**Who uses it**: [Who is using it, how do they use it]
+**它是什么**：[一句话说明这个项目是什么]
+**解决什么问题**：[它的存在解决了什么问题，没有它会怎样]
+**谁在使用**：[谁在使用它，他们如何使用]
 
-## Research Topics
+## 研究专题
 
-### Topic A: Architecture Overview
-- Goal: Understand what modules the project consists of, what each module is, why it exists
-- Output: docs/code-research/01_architecture.md
+### 专题 A：架构全景
+- 目标：理解项目由哪些模块组成，每个模块是什么、为什么存在
+- 输出：docs/code-research/01_architecture.md
 
-### Topic B: Core Mechanism - [Feature Name]
-- Goal: Understand what this feature is, why it's designed this way, complete call chain
-- Output: docs/code-research/02_mechanism_[name].md
+### 专题 B：核心机制 - [功能名称]
+- 目标：理解这个功能是什么、为什么这么设计、完整调用链
+- 输出：docs/code-research/02_mechanism_[名称].md
 
-### Topic C: Data Flow & State Management
-- Goal: What are the core data structures, why modeled this way, how data flows
-- Output: docs/code-research/03_data_flow.md
+### 专题 C：数据流与状态管理
+- 目标：核心数据结构是什么、为什么这样建模、数据如何流动
+- 输出：docs/code-research/03_data_flow.md
 
-### Topic D: Dependencies & Ecosystem
-- Goal: What are the core dependencies, why choose them over alternatives
-- Output: docs/code-research/04_dependencies.md
+### 专题 D：依赖与生态
+- 目标：核心依赖是什么、为什么选择它们而不是替代品
+- 输出：docs/code-research/04_dependencies.md
 
-### Topic E: Learning Path (execute last, depends on above topics)
-- Goal: Summarize recommended reading order
-- Output: docs/code-research/05_learning_path.md
+### 专题 E：学习路径（最后执行，依赖以上专题）
+- 目标：总结推荐阅读顺序
+- 输出：docs/code-research/05_learning_path.md
 
-## Unresolved Questions
+## 待解决疑问
 
-(Add during research process, don't skip)
+（研究过程中添加，不要跳过）

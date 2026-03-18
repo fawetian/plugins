@@ -1,32 +1,32 @@
-# Core Mechanism: [Feature Name]
+# 核心机制：[功能名称]
 
-## What is this mechanism
+## 这是什么机制
 
-**What is it**: [One sentence explaining what this feature/mechanism is]
-**Why is it needed**: [Without this mechanism, what problem would the system have? What pain point does it solve?]
-**Design core**: [What is the most critical design decision of this mechanism, why this way instead of others]
+**它是什么**：[一句话说明这个功能/机制是什么]
+**为什么需要它**：[没有这个机制，系统会出现什么问题？它解决了什么痛点？]
+**设计核心**：[这个机制最关键的设计决策是什么，为什么这样而不是其他方式]
 
 ---
 
-## Call Chain
+## 调用链
 
-[Starting from user trigger point, trace layer by layer to underlying implementation]
+[从用户触发点开始，逐层追踪到底层实现]
 
 ```
-User action / API call
-  → Entry function (file:line)
-    → Core logic (file:line)
-      → Underlying operation (file:line)
+用户操作 / API 调用
+  → 入口函数（文件:行号）
+    → 核心逻辑（文件:行号）
+      → 底层操作（文件:行号）
 ```
 
 ---
 
-## Key Implementation
+## 关键实现
 
-[Explain the most important code logic in your own words - not restating the code, but clearly explaining what it's doing and why]
+[用自己的话解释最重要的代码逻辑——不是复述代码，而是清楚说明它在做什么以及为什么]
 
 ---
 
-## Design Decisions
+## 设计决策
 
-[What design choices in this implementation are worth noting? Why this way instead of simpler/more common approaches?]
+[这个实现中有哪些设计选择值得关注？为什么这样而不是更简单/更常见的方式？]
