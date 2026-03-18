@@ -16,7 +16,7 @@ There are only two core questions when researching code: **What is this module**
 
 ## Constraints
 
-- **Output Language**: All research output must be in **Chinese** (中文)
+- **ALL output must be in Chinese (中文)**: All documents, research reports, diagrams, and comments must be written in Chinese. No English allowed in the output.
 - **Use Mermaid for diagrams**: All architecture diagrams, flowcharts, and relationship diagrams must be drawn using Mermaid syntax.
 
 ## Workflow
@@ -37,6 +37,7 @@ Each Agent's prompt should include:
 - Clear research objectives
 - File/module scope to focus on
 - Output file path
+- **CRITICAL: ALL content must be written in Chinese (中文)**
 - **Each module must answer What/Why first, then discuss implementation**
 
 Output templates for each topic are in the `templates/` directory:
