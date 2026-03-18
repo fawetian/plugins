@@ -1,12 +1,12 @@
 {
   "name": "coding",
-  "version": "1.0.1",
-  "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作",
+  "version": "1.1.1",
+  "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作、模式指南",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
-  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "git", "translate"],
+  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "git", "translate", "patterns", "tdd", "security", "testing"],
   "skills": [
     "./skills/code-research",
     "./skills/code-annotator",
@@ -14,6 +14,14 @@
     "./skills/code-simplifier",
     "./skills/code-translate",
     "./skills/gen-doc",
-    "./skills/git-ops"
+    "./skills/git-ops",
+    "./skills/rust-patterns",
+    "./skills/golang-patterns",
+    "./skills/python-patterns",
+    "./skills/security-review",
+    "./skills/e2e-testing",
+    "./skills/tdd-workflow",
+    "./skills/postgres-patterns",
+    "./skills/database-migrations"
   ]
 }
