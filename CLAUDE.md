@@ -18,6 +18,8 @@ plugins/
     └── {plugin-name}/
         ├── .claude-plugin/
         │   └── plugin.json # Plugin manifest (skills array references skill directories)
+        ├── agents/         # Agent definitions (optional)
+        │   └── {agent}.md  # Agent with YAML frontmatter
         ├── skills/         # Skill definitions
         │   └── {skill}/
         │       ├── SKILL.md
@@ -33,12 +35,13 @@ plugins/
 2. **docs/SKILL_CN.md in Chinese** - Independent file, not loaded by plugin system, for human reference
 3. **Keep both versions in sync** - Same content, different languages, update both on every change
 
-## Before Adding New Skills/Plugins
+## Before Adding New Skills/Plugins/Agents
 
 **Read the official documentation first** to understand the specifications:
-- Plugins: https://code.claude.com/docs/zh-CN/plugins
-- Skills: https://code.claude.com/docs/zh-CN/skills
-- Marketplaces: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Plugins: https://code.claude.com/docs/en/plugins
+- Skills: https://code.claude.com/docs/en/skills
+- Agents: https://code.claude.com/docs/en/sub-agents
+- Marketplaces: https://code.claude.com/docs/en/plugin-marketplaces
 
 ## Key Conventions
 
@@ -60,8 +63,35 @@ plugins/
 3. Create skill files in `skills/` with YAML frontmatter
 4. Register plugin in `marketplace.json` plugins array
 
+## Agent Conventions
+
+1. **Agent file naming** - Use lowercase with hyphens: `{agent-name}.md`
+2. **YAML frontmatter required** - Must include `name` and `description` fields
+3. **Clear description** - Claude uses description to decide when to delegate tasks
+4. **Model selection** - Use `haiku` for fast read-only tasks, `inherit` for complex tasks
+5. **Tool restrictions** - Use `tools` (allowlist) or `disallowedTools` (denylist) to limit capabilities
+
+### Agent Frontmatter Fields
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Unique identifier using lowercase letters and hyphens |
+| `description` | Yes | When Claude should delegate to this agent |
+| `tools` | No | Tools the agent can use (inherits all if omitted) |
+| `disallowedTools` | No | Tools to deny from inherited or specified list |
+| `model` | No | Model: `sonnet`, `opus`, `haiku`, or `inherit` (default) |
+| `permissionMode` | No | Permission mode: `default`, `acceptEdits`, `dontAsk`, `bypassPermissions`, `plan` |
+| `maxTurns` | No | Maximum agentic turns before agent stops |
+| `skills` | No | Skills to preload into agent's context at startup |
+| `mcpServers` | No | MCP servers available to this agent |
+| `hooks` | No | Lifecycle hooks scoped to this agent |
+| `memory` | No | Persistent memory scope: `user`, `project`, or `local` |
+| `background` | No | Set to `true` to always run as background task |
+| `isolation` | No | Set to `worktree` to run in temporary git worktree |
+
 ## Official Documentation
 
-- Plugins: https://code.claude.com/docs/zh-CN/plugins
-- Skills: https://code.claude.com/docs/zh-CN/skills
-- Marketplaces: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Plugins: https://code.claude.com/docs/en/plugins
+- Skills: https://code.claude.com/docs/en/skills
+- Agents: https://code.claude.com/docs/en/sub-agents
+- Marketplaces: https://code.claude.com/docs/en/plugin-marketplaces

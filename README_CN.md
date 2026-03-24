@@ -33,7 +33,12 @@ plugins/
 ├── plugins/                # 内部插件
 │   └── coding/
 ├── external_plugins/       # 第三方插件
+├── agents/                 # Agent 定义（19 个）
+│   ├── zh-CN/              # 中文翻译
+│   │   └── *.md
+│   └── *.md                # 英文版
 └── rules/                  # 可复用的 Claude Code Rules
+    ├── zh-CN/              # 中文翻译
     ├── common/             # 语言无关的通用规则
     ├── golang/             # Go 专用规则
     ├── python/             # Python 专用规则
@@ -57,6 +62,70 @@ plugin-name/
 ├── skills/              # 技能定义（可选）
 └── README.md            # 文档
 ```
+
+## Agents（子智能体）
+
+Agents 是处理特定类型任务的专门 AI 助手。每个 agent 在自己的上下文窗口中运行，具有自定义系统提示、特定的工具访问权限和独立的权限。
+
+### Agent 优势
+
+- **保留上下文** - 将探索和实现保持在主对话之外
+- **强制执行约束** - 限制 agent 可以使用的工具
+- **重用配置** - 通过插件跨项目共享 agents
+- **专门化行为** - 为特定领域使用专注的系统提示
+- **控制成本** - 将任务路由到更快、更便宜的模型（如 Haiku）
+
+### Agent 结构
+
+Agents 使用带有 YAML frontmatter 的 Markdown 文件定义：
+
+```
+agents/
+├── {agent-name}.md          # 英文版
+└── zh-CN/
+    └── {agent-name}.md      # 中文版
+```
+
+Agent 文件示例：
+
+```markdown
+---
+name: code-reviewer
+description: 专家级代码审查专家。主动审查代码的质量、安全性和可维护性。
+tools: Read, Grep, Glob, Bash
+model: inherit
+---
+
+你是一位资深代码审查专家，确保代码质量和安全性达到高标准。
+```
+
+### 可用的 Agents
+
+| Agent | 用途 | 优先级 |
+|-------|------|--------|
+| `code-reviewer` | 代码质量、安全性、可维护性审查 | P0 |
+| `architect` | 系统设计、可扩展性、技术决策 | P0 |
+| `planner` | 实现计划、步骤分解 | P0 |
+| `security-reviewer` | 安全漏洞检测和修复 | P0 |
+| `build-error-resolver` | TypeScript/构建错误解决 | P1 |
+| `python-reviewer` | Python 代码审查（PEP 8、类型提示、安全） | P1 |
+| `go-reviewer` | Go 代码审查（惯用法、并发、错误处理） | P1 |
+| `go-build-resolver` | Go 构建/vet 错误解决 | P1 |
+| `rust-reviewer` | Rust 代码审查（所有权、生命周期、unsafe） | P1 |
+| `rust-build-resolver` | Rust 编译/借用检查器错误解决 | P1 |
+| `database-reviewer` | PostgreSQL 查询优化、schema 设计、RLS | P1 |
+| `tdd-guide` | 测试驱动开发方法论 | P1 |
+| `refactor-cleaner` | 死代码清理、依赖删除 | P2 |
+| `doc-updater` | 文档和代码地图更新 | P2 |
+| `docs-lookup` | 通过 Context7 查询库/框架文档 | P2 |
+| `e2e-runner` | 端到端测试（Agent Browser、Playwright） | P2 |
+| `harness-optimizer` | Agent harness 配置优化 | P2 |
+| `loop-operator` | 自主循环监控和干预 | P2 |
+
+### 官方文档
+
+设计 agent 时，**务必参考官方最新文档**了解规范：
+- [Subagents 文档](https://code.claude.com/docs/zh-CN/sub-agents)
 
 ## 外部源
 
