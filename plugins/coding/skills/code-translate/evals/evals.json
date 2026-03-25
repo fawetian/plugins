@@ -118,6 +118,7 @@
       "name": "output-quality-translation-rules",
       "type": "output",
       "description": "Verify translation follows the rules",
+      "prompt": "code-translate /tmp/test-docs",
       "checks": [
         {
           "name": "yaml-frontmatter-preserved",

@@ -91,6 +91,19 @@ plugins/
 | `background` | No | Set to `true` to always run as background task |
 | `isolation` | No | Set to `worktree` to run in temporary git worktree |
 
+## Skill Evaluation
+
+Each skill can have an `evals/evals.json` file for automated testing. The test suite lives in `tests/`.
+
+```bash
+./tests/run-all.sh --structure    # Quick structure check (no Claude needed)
+./tests/run-all.sh --dry-run      # List all discoverable tests
+./tests/run-all.sh --trigger --skill git-ops  # Test specific skill
+./tests/run-all.sh                # Run all 5 layers
+```
+
+When adding a new skill, create `evals/evals.json` with trigger prompts (positive + negative). See `tests/lib/eval-schema.json` for the schema and `tests/README.md` for details.
+
 ## MCP Integration
 
 For integrating MCP servers into plugins, see the official example skill:

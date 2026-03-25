@@ -1,23 +1,86 @@
 {
-  "skill_name": "code-review",
+  "name": "code-review",
+  "version": "1.0.0",
+  "description": "Evaluations for code-review skill trigger accuracy and output quality",
   "evals": [
     {
-      "id": 1,
-      "prompt": "Review the latest commit in the current repository using code-review",
-      "expected_output": "A code review report with issues found, confidence scores, and recommendations",
-      "files": []
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly mentions code-review",
+      "prompts": [
+        {
+          "input": "code-review",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "Run code-review on my changes",
+          "expected": true,
+          "reason": "Explicit mention with context"
+        },
+        {
+          "input": "Review the latest commit using code-review",
+          "expected": true,
+          "reason": "Explicit mention in sentence"
+        },
+        {
+          "input": "I want to review PR #123 with code-review",
+          "expected": true,
+          "reason": "PR review with explicit skill name"
+        }
+      ]
     },
     {
-      "id": 2,
-      "prompt": "Run a code review on my uncommitted changes",
-      "expected_output": "A local mode review that saves results to docs/code-review/",
-      "files": []
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for general review or code reading requests",
+      "prompts": [
+        {
+          "input": "Review this document for grammar",
+          "expected": false,
+          "reason": "Document review, not code review"
+        },
+        {
+          "input": "Can you read my code and explain it",
+          "expected": false,
+          "reason": "Code explanation, not review"
+        },
+        {
+          "input": "What does this function do",
+          "expected": false,
+          "reason": "Code understanding question"
+        },
+        {
+          "input": "Help me write better code",
+          "expected": false,
+          "reason": "Code writing assistance"
+        },
+        {
+          "input": "Fix this bug in my code",
+          "expected": false,
+          "reason": "Bug fix request, not review"
+        }
+      ]
     },
     {
-      "id": 3,
-      "prompt": "I want to review PR #123 for potential bugs and CLAUDE.md violations",
-      "expected_output": "A PR mode review that posts a comment via gh",
-      "files": []
+      "name": "output-quality-review-report",
+      "type": "output",
+      "description": "Verify review output contains expected sections",
+      "prompt": "Run code-review on the latest commit",
+      "checks": [
+        {
+          "name": "has-issues-section",
+          "description": "Output should contain issues or findings"
+        },
+        {
+          "name": "has-confidence-score",
+          "description": "Output should include confidence scores for findings"
+        },
+        {
+          "name": "has-recommendations",
+          "description": "Output should provide actionable recommendations"
+        }
+      ]
     }
   ]
 }

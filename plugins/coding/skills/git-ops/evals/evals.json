@@ -1,0 +1,110 @@
+{
+  "name": "git-ops",
+  "version": "1.0.0",
+  "description": "Evaluations for git-ops skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-shortcuts",
+      "type": "trigger",
+      "description": "Skill should trigger on git shortcut commands",
+      "prompts": [
+        {
+          "input": "gc",
+          "expected": true,
+          "reason": "Git commit shortcut"
+        },
+        {
+          "input": "gp",
+          "expected": true,
+          "reason": "Git push shortcut"
+        },
+        {
+          "input": "ga",
+          "expected": true,
+          "reason": "Git add shortcut"
+        },
+        {
+          "input": "gpl",
+          "expected": true,
+          "reason": "Git pull shortcut"
+        }
+      ]
+    },
+    {
+      "name": "trigger-positive-natural",
+      "type": "trigger",
+      "description": "Skill should trigger on natural git operation requests",
+      "prompts": [
+        {
+          "input": "commit my changes",
+          "expected": true,
+          "reason": "Natural commit request"
+        },
+        {
+          "input": "push to remote",
+          "expected": true,
+          "reason": "Natural push request"
+        },
+        {
+          "input": "pull latest changes",
+          "expected": true,
+          "reason": "Natural pull request"
+        },
+        {
+          "input": "stage all files",
+          "expected": true,
+          "reason": "Natural add/stage request"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-learning",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for git learning or explanation requests",
+      "prompts": [
+        {
+          "input": "How does git work",
+          "expected": false,
+          "reason": "Git learning question"
+        },
+        {
+          "input": "Explain git rebase",
+          "expected": false,
+          "reason": "Git concept explanation"
+        },
+        {
+          "input": "What is the difference between merge and rebase",
+          "expected": false,
+          "reason": "Git concept comparison"
+        },
+        {
+          "input": "Help me learn git",
+          "expected": false,
+          "reason": "Learning request"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unrelated",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for unrelated requests",
+      "prompts": [
+        {
+          "input": "Fix this bug",
+          "expected": false,
+          "reason": "Bug fix request"
+        },
+        {
+          "input": "Write a function to sort an array",
+          "expected": false,
+          "reason": "Code writing request"
+        },
+        {
+          "input": "Review my code",
+          "expected": false,
+          "reason": "Code review request"
+        }
+      ]
+    }
+  ]
+}

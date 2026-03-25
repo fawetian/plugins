@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill Eval Schema",
+  "description": "Unified schema for skill evaluation tests",
+  "type": "object",
+  "required": ["name", "version", "evals"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Skill name (must match skill directory name)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Eval version in semver format"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this eval covers"
+    },
+    "evals": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/triggerEval" },
+          { "$ref": "#/$defs/outputEval" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "triggerEval": {
+      "type": "object",
+      "required": ["name", "type", "prompts"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "const": "trigger" },
+        "description": { "type": "string" },
+        "prompts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["input", "expected"],
+            "properties": {
+              "input": { "type": "string", "description": "The user prompt to test" },
+              "expected": { "type": "boolean", "description": "true = should trigger, false = should NOT trigger" },
+              "reason": { "type": "string", "description": "Why this expectation" }
+            }
+          }
+        }
+      }
+    },
+    "outputEval": {
+      "type": "object",
+      "required": ["name", "type", "prompt", "checks"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "const": "output" },
+        "description": { "type": "string" },
+        "prompt": { "type": "string", "description": "The prompt to run" },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "pattern": { "type": "string", "description": "Optional grep pattern to assert in output" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

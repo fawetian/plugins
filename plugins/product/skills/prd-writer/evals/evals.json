@@ -1,0 +1,66 @@
+{
+  "name": "prd-writer",
+  "version": "1.0.0",
+  "description": "Evaluations for prd-writer skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly requests PRD writing",
+      "prompts": [
+        {
+          "input": "prd-writer",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "Write a PRD for a user authentication system",
+          "expected": true,
+          "reason": "Explicit PRD writing request"
+        },
+        {
+          "input": "Create a product requirements document for the new feature",
+          "expected": true,
+          "reason": "Full name PRD request"
+        },
+        {
+          "input": "Help me write a PRD",
+          "expected": true,
+          "reason": "PRD help request"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-other-docs",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-PRD document requests",
+      "prompts": [
+        {
+          "input": "Write documentation for this API",
+          "expected": false,
+          "reason": "API documentation, not PRD"
+        },
+        {
+          "input": "Create a README for this project",
+          "expected": false,
+          "reason": "README, not PRD"
+        },
+        {
+          "input": "What is a PRD",
+          "expected": false,
+          "reason": "Question about PRD concept"
+        },
+        {
+          "input": "Write a technical design document",
+          "expected": false,
+          "reason": "Technical doc, not product requirements"
+        },
+        {
+          "input": "Help me plan my product roadmap",
+          "expected": false,
+          "reason": "Roadmap planning, not PRD writing"
+        }
+      ]
+    }
+  ]
+}
