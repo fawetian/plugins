@@ -13,8 +13,8 @@
     {
       "name": "coding",
       "source": "./plugins/coding",
-      "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作",
-      "version": "1.1.1",
+      "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作、模式指南，内置专项审查和构建修复 Agents",
+      "version": "1.2.0",
       "author": {
         "name": "fawetian"
       },
@@ -23,12 +23,12 @@
     {
       "name": "product",
       "source": "./plugins/product",
-      "description": "产品经理工具集：需求分析、PRD撰写、用户故事、产品规划",
-      "version": "1.0.0",
+      "description": "产品经理工具集：需求分析、PRD撰写、用户故事、产品规划，内置规划和架构设计 Agents",
+      "version": "1.1.0",
       "author": {
         "name": "fawetian"
       },
-      "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile"]
+      "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile", "agents", "planning", "architecture"]
     },
     {
       "name": "cli",
