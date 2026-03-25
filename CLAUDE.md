@@ -24,6 +24,7 @@ plugins/
         │   └── {skill}/
         │       ├── SKILL.md
         │       └── docs/
+        │           ├── README.md       # Human-facing docs (installation, usage, etc.)
         │           └── SKILL_CN.md
         └── evals/          # Skill evaluation tests
             └── evals.json
@@ -33,7 +34,8 @@ plugins/
 
 1. **SKILL.md in English** - AI loads and executes this file; English avoids context pollution
 2. **docs/SKILL_CN.md in Chinese** - Independent file, not loaded by plugin system, for human reference
-3. **Keep both versions in sync** - Same content, different languages, update both on every change
+3. **docs/README.md** - All human-facing documentation (installation, configuration, usage examples) goes here
+4. **Keep SKILL.md and SKILL_CN.md in sync** - Same content, different languages, update both on every change
 
 ## Before Adding New Skills/Plugins/Agents
 
@@ -88,6 +90,11 @@ plugins/
 | `memory` | No | Persistent memory scope: `user`, `project`, or `local` |
 | `background` | No | Set to `true` to always run as background task |
 | `isolation` | No | Set to `worktree` to run in temporary git worktree |
+
+## MCP Integration
+
+For integrating MCP servers into plugins, see the official example skill:
+- https://github.com/anthropics/claude-plugins-official/blob/main/plugins/plugin-dev/skills/mcp-integration/SKILL.md
 
 ## Official Documentation
 

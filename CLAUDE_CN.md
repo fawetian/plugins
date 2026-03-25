@@ -24,6 +24,7 @@ plugins/
         │   └── {skill}/
         │       ├── SKILL.md
         │       └── docs/
+        │           ├── README.md       # 给人看的文档（安装、使用说明等）
         │           └── SKILL_CN.md
         └── evals/          # 技能评估测试
             └── evals.json
@@ -32,8 +33,9 @@ plugins/
 ## Skill 规范
 
 1. **SKILL.md 使用英文** - AI 加载执行，避免污染上下文
-2. **docs/SKILL_CN.md 使用中文** - 独立文件，不被插件系统加载
-3. **两个版本保持同步** - 内容一致，仅语言不同，每次改动 2 个版本同步修改
+2. **docs/SKILL_CN.md 使用中文** - 独立文件，不被插件系统加载，供人工参考
+3. **docs/README.md** - 所有给人看的文档（安装、配置、使用示例等）统一放在此文件
+4. **SKILL.md 与 SKILL_CN.md 保持同步** - 内容一致，仅语言不同，每次改动 2 个版本同步修改
 
 ## 新增 Skill/Plugin/Agent 前
 
@@ -88,6 +90,11 @@ plugins/
 | `memory` | 否 | 持久内存范围：`user`、`project` 或 `local` |
 | `background` | 否 | 设置为 `true` 以始终作为后台任务运行 |
 | `isolation` | 否 | 设置为 `worktree` 以在临时 git worktree 中运行 |
+
+## MCP 集成
+
+关于如何在插件中集成 MCP 服务器，请参考官方示例技能：
+- https://github.com/anthropics/claude-plugins-official/blob/main/plugins/plugin-dev/skills/mcp-integration/SKILL.md
 
 ## 官方文档
 

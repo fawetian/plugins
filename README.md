@@ -158,6 +158,51 @@ cp -r rules/python .claude/rules/
 
 See [rules/README.md](./rules/README.md) for details.
 
+## MCP Integration
+
+### Minimal Example: Wrap MCP Server as Plugin
+
+The simplest way to create a plugin is to wrap an existing MCP server. Example from [official GitHub plugin](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/github):
+
+**File structure:**
+```
+github/
+├── .claude-plugin/
+│   └── plugin.json    # Plugin metadata
+└── .mcp.json          # MCP server configuration
+```
+
+**`.claude-plugin/plugin.json`:**
+```json
+{
+  "name": "github",
+  "description": "Official GitHub MCP server for repository management. Create issues, manage pull requests, review code, search repositories, and interact with GitHub's full API directly from Claude Code.",
+  "author": {
+    "name": "GitHub"
+  }
+}
+```
+
+**`.mcp.json`:**
+```json
+{
+  "github": {
+    "type": "http",
+    "url": "https://api.githubcopilot.com/mcp/",
+    "headers": {
+      "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
+    }
+  }
+}
+```
+
+That's it! No skills, agents, or commands needed - the MCP server provides all functionality.
+
+### Advanced MCP Integration
+
+For integrating MCP servers with custom skills and logic, see:
+- [MCP Integration Skill Example](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/plugin-dev/skills/mcp-integration/SKILL.md)
+
 ## Documentation
 
 - [Plugins Development Guide](https://code.claude.com/docs/en/plugins)

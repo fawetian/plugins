@@ -29,6 +29,16 @@
         "name": "fawetian"
       },
       "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile"]
+    },
+    {
+      "name": "cli",
+      "source": "./plugins/cli",
+      "description": "本地 CLI 工具集：飞书、阿里云等命令行工具的 AI 使用指南",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["cli", "feishu", "lark", "aliyun", "alicloud", "ecs", "oss"]
     }
   ]
 }

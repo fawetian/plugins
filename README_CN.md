@@ -158,6 +158,51 @@ cp -r rules/python .claude/rules/
 
 详情参见 [rules/README.md](./rules/README.md)。
 
+## MCP 集成
+
+### 极简示例：将 MCP 服务器封装为插件
+
+创建插件最简单的方式是封装现有的 MCP 服务器。示例来自[官方 GitHub 插件](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/github)：
+
+**文件结构：**
+```
+github/
+├── .claude-plugin/
+│   └── plugin.json    # 插件元数据
+└── .mcp.json          # MCP 服务器配置
+```
+
+**`.claude-plugin/plugin.json`：**
+```json
+{
+  "name": "github",
+  "description": "Official GitHub MCP server for repository management. Create issues, manage pull requests, review code, search repositories, and interact with GitHub's full API directly from Claude Code.",
+  "author": {
+    "name": "GitHub"
+  }
+}
+```
+
+**`.mcp.json`：**
+```json
+{
+  "github": {
+    "type": "http",
+    "url": "https://api.githubcopilot.com/mcp/",
+    "headers": {
+      "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
+    }
+  }
+}
+```
+
+就这样！无需 skills、agents 或 commands — MCP 服务器提供所有功能。
+
+### 高级 MCP 集成
+
+如需集成 MCP 服务器并添加自定义技能和逻辑，请参考：
+- [MCP 集成技能示例](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/plugin-dev/skills/mcp-integration/SKILL.md)
+
 ## 官方文档
 
 - [插件开发指南](https://code.claude.com/docs/zh-CN/plugins)
