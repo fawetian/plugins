@@ -1,7 +1,7 @@
 {
   "name": "coding",
-  "version": "1.1.1",
-  "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作、模式指南",
+  "version": "1.2.0",
+  "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
   },

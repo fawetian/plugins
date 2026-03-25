@@ -44,7 +44,7 @@ Launch all 5 agents concurrently using the Agent tool with `run_in_background: t
 
 Each agent returns issues plus rationale:
 - Agent 1: CLAUDE.md compliance.
-- Agent 2: obvious bugs in the diff only (avoid extra context).
+- Agent 2: use `subagent_type: "superpowers:code-reviewer"` — code quality, security, and bug review of the diff.
 - Agent 3: git blame or history context.
 - Agent 4: prior PRs/commits touching these files (use `git log` for local mode).
 - Agent 5: code comments in modified files.
