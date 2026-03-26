@@ -1,0 +1,61 @@
+{
+  "name": "rust-patterns",
+  "version": "1.0.0",
+  "description": "Evaluations for rust-patterns skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly requests Rust best practices or patterns",
+      "prompts": [
+        {
+          "input": "rust-patterns",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "How should I handle errors idiomatically in Rust?",
+          "expected": true,
+          "reason": "Rust idiomatic error handling with Result/? is a core topic of this skill"
+        },
+        {
+          "input": "Help me design the ownership and borrowing for this Rust struct",
+          "expected": true,
+          "reason": "Ownership and borrowing are central to this skill"
+        },
+        {
+          "input": "How do I use thiserror and anyhow in my Rust library?",
+          "expected": true,
+          "reason": "thiserror/anyhow error crates are explicitly covered in this skill"
+        },
+        {
+          "input": "Refactor this Rust code to use idiomatic iterator chains instead of loops",
+          "expected": true,
+          "reason": "Prefer iterator chains over loops is a key Rust idiom in this skill"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-Rust or general programming requests",
+      "prompts": [
+        {
+          "input": "How do I manage memory in C++?",
+          "expected": false,
+          "reason": "C++ memory management, not Rust patterns"
+        },
+        {
+          "input": "How do I install Rust on Windows?",
+          "expected": false,
+          "reason": "Installation question, not about Rust coding patterns"
+        },
+        {
+          "input": "What is the difference between a thread and a process?",
+          "expected": false,
+          "reason": "General OS concept, not Rust-specific patterns"
+        }
+      ]
+    }
+  ]
+}

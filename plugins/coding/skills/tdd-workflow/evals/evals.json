@@ -1,0 +1,61 @@
+{
+  "name": "tdd-workflow",
+  "version": "1.0.0",
+  "description": "Evaluations for tdd-workflow skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when writing tests, new features, or following TDD",
+      "prompts": [
+        {
+          "input": "tdd-workflow",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "Help me write unit tests for this new feature using TDD",
+          "expected": true,
+          "reason": "Explicit TDD request for new feature — primary use case"
+        },
+        {
+          "input": "I need to add integration tests for my API endpoint",
+          "expected": true,
+          "reason": "Integration test creation is a listed activation scenario"
+        },
+        {
+          "input": "Write tests first before implementing this user authentication feature",
+          "expected": true,
+          "reason": "Tests-before-code is the core TDD workflow this skill enforces"
+        },
+        {
+          "input": "How do I refactor this function while keeping existing tests green?",
+          "expected": true,
+          "reason": "Refactoring with test coverage is a listed activation scenario"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for questions unrelated to test writing or TDD",
+      "prompts": [
+        {
+          "input": "What does this test failure message mean?",
+          "expected": false,
+          "reason": "Debugging a test failure, not writing tests or following TDD workflow"
+        },
+        {
+          "input": "How do I set up Jest in a Next.js project?",
+          "expected": false,
+          "reason": "Test framework setup/configuration, not a TDD development workflow"
+        },
+        {
+          "input": "Explain how mocking works in unit testing",
+          "expected": false,
+          "reason": "Conceptual explanation of mocking, not a request to write tests or apply TDD"
+        }
+      ]
+    }
+  ]
+}

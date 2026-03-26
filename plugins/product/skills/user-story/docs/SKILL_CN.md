@@ -1,3 +1,9 @@
+---
+name: user-story
+description: 用户故事创建与管理助手。用于编写用户故事、创建验收标准或管理产品 Backlog 时使用。触发词："用户故事"、"写故事"、"验收标准"、"backlog"、"故事地图"。
+userInvocable: true
+---
+
 # 用户故事助手
 
 遵循敏捷最佳实践创建和管理用户故事的工具。

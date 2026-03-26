@@ -1,0 +1,61 @@
+{
+  "name": "e2e-testing",
+  "version": "1.0.0",
+  "description": "Evaluations for e2e-testing skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-playwright",
+      "type": "trigger",
+      "description": "Skill should trigger on E2E test writing and Playwright related requests",
+      "prompts": [
+        {
+          "input": "Write a Playwright E2E test for the login flow",
+          "expected": true,
+          "reason": "Explicit Playwright E2E test writing request"
+        },
+        {
+          "input": "Set up the Page Object Model for our checkout page tests",
+          "expected": true,
+          "reason": "POM setup is a core pattern covered by the skill"
+        },
+        {
+          "input": "Our E2E tests are flaky in CI, how do I fix race conditions in Playwright?",
+          "expected": true,
+          "reason": "Flaky test strategies are explicitly covered by the skill"
+        },
+        {
+          "input": "Configure Playwright to run tests on Chrome, Firefox, and Safari with retry on failure",
+          "expected": true,
+          "reason": "Playwright configuration with multi-browser and retry settings"
+        },
+        {
+          "input": "Add E2E test CI/CD integration with artifact upload to GitHub Actions",
+          "expected": true,
+          "reason": "CI/CD integration for E2E tests is covered by the skill"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unit-tests",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for unit or integration test requests",
+      "prompts": [
+        {
+          "input": "Write unit tests for this utility function using Jest",
+          "expected": false,
+          "reason": "Unit testing task, not E2E testing"
+        },
+        {
+          "input": "Add integration tests for the API endpoints using supertest",
+          "expected": false,
+          "reason": "API integration tests, not browser E2E tests"
+        },
+        {
+          "input": "How do I mock a database in my tests?",
+          "expected": false,
+          "reason": "Mocking for unit/integration tests, not E2E browser testing"
+        }
+      ]
+    }
+  ]
+}

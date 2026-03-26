@@ -1,0 +1,61 @@
+{
+  "name": "requirement-analysis",
+  "version": "1.0.0",
+  "description": "Evaluations for requirement-analysis skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user asks to analyze or validate requirements",
+      "prompts": [
+        {
+          "input": "analyze requirements",
+          "expected": true,
+          "reason": "Exact trigger phrase listed in skill description"
+        },
+        {
+          "input": "Help me with requirement analysis for this new feature",
+          "expected": true,
+          "reason": "Explicit requirement analysis request"
+        },
+        {
+          "input": "validate requirements for the payment module",
+          "expected": true,
+          "reason": "Exact trigger phrase 'validate requirements'"
+        },
+        {
+          "input": "Break down these complex requirements into actionable items",
+          "expected": true,
+          "reason": "Exact trigger phrase 'break down requirements'"
+        },
+        {
+          "input": "I need to analyze user needs and validate the product idea before we start building",
+          "expected": true,
+          "reason": "Analyzing user needs and validating product ideas is a listed use case"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for implementation or technical tasks",
+      "prompts": [
+        {
+          "input": "Implement the login feature",
+          "expected": false,
+          "reason": "Implementation request, not requirement analysis"
+        },
+        {
+          "input": "What are the system requirements to run this software?",
+          "expected": false,
+          "reason": "Asking about system/hardware requirements, not product requirement analysis"
+        },
+        {
+          "input": "Write a user story for the dashboard",
+          "expected": false,
+          "reason": "User story creation is a different skill (user-story), not requirement analysis"
+        }
+      ]
+    }
+  ]
+}

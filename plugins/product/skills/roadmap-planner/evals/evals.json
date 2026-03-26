@@ -1,0 +1,61 @@
+{
+  "name": "roadmap-planner",
+  "version": "1.0.0",
+  "description": "Evaluations for roadmap-planner skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user asks to create or plan a product roadmap",
+      "prompts": [
+        {
+          "input": "roadmap",
+          "expected": true,
+          "reason": "Exact trigger word listed in skill description"
+        },
+        {
+          "input": "Help me create a product roadmap for next year",
+          "expected": true,
+          "reason": "Exact trigger phrase 'product roadmap' in creation context"
+        },
+        {
+          "input": "I need a release plan for our Q3 features",
+          "expected": true,
+          "reason": "Exact trigger phrase 'release plan'"
+        },
+        {
+          "input": "Help me define our product strategy for the next two quarters",
+          "expected": true,
+          "reason": "Exact trigger phrase 'product strategy'"
+        },
+        {
+          "input": "Create a quarterly plan showing our feature pipeline and milestones",
+          "expected": true,
+          "reason": "Exact trigger phrase 'quarterly plan' for feature planning"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for project tracking or sprint planning requests",
+      "prompts": [
+        {
+          "input": "What tasks are in the current sprint?",
+          "expected": false,
+          "reason": "Sprint tracking question, not product roadmap planning"
+        },
+        {
+          "input": "Create a Gantt chart for this project timeline",
+          "expected": false,
+          "reason": "Project management timeline, not product roadmap strategy"
+        },
+        {
+          "input": "Write user stories for the authentication epic",
+          "expected": false,
+          "reason": "User story creation is a different skill, not roadmap planning"
+        }
+      ]
+    }
+  ]
+}

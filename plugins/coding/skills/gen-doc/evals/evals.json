@@ -1,0 +1,78 @@
+{
+  "name": "gen-doc",
+  "version": "1.0.0",
+  "description": "Evaluations for gen-doc skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit-commands",
+      "type": "trigger",
+      "description": "Skill should trigger on explicit gen-doc invocations and API doc generation requests",
+      "prompts": [
+        {
+          "input": "/gen-doc",
+          "expected": true,
+          "reason": "Explicit /gen-doc command invocation"
+        },
+        {
+          "input": "gen-doc",
+          "expected": true,
+          "reason": "Direct skill name invocation"
+        },
+        {
+          "input": "/gen-doc full",
+          "expected": true,
+          "reason": "Full mode gen-doc command"
+        },
+        {
+          "input": "generate API docs for the changed endpoints",
+          "expected": true,
+          "reason": "Natural language API doc generation request matches skill trigger"
+        },
+        {
+          "input": "The API changed, update the OpenAPI documentation",
+          "expected": true,
+          "reason": "API changed trigger phrase explicitly listed in skill description"
+        }
+      ]
+    },
+    {
+      "name": "trigger-positive-openapi",
+      "type": "trigger",
+      "description": "Skill should trigger on OpenAPI and swagger related doc requests",
+      "prompts": [
+        {
+          "input": "generate OpenAPI spec for this project",
+          "expected": true,
+          "reason": "generate OpenAPI trigger phrase in skill description"
+        },
+        {
+          "input": "sync swagger docs with the current codebase",
+          "expected": true,
+          "reason": "sync swagger trigger phrase in skill description"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unrelated-docs",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-API documentation requests",
+      "prompts": [
+        {
+          "input": "Write a README for this project",
+          "expected": false,
+          "reason": "README documentation, not API/OpenAPI docs"
+        },
+        {
+          "input": "Add JSDoc comments to this function",
+          "expected": false,
+          "reason": "Inline code documentation, not OpenAPI spec generation"
+        },
+        {
+          "input": "Create a wiki page explaining the architecture",
+          "expected": false,
+          "reason": "Architecture documentation, not REST API doc generation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "python-patterns",
+  "version": "1.0.0",
+  "description": "Evaluations for python-patterns skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly requests Python best practices or patterns",
+      "prompts": [
+        {
+          "input": "python-patterns",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "Help me write idiomatic Python code for this function",
+          "expected": true,
+          "reason": "Requesting idiomatic Python — core use case of this skill"
+        },
+        {
+          "input": "How should I use type hints in Python for this class?",
+          "expected": true,
+          "reason": "Type hints are a key focus of this skill"
+        },
+        {
+          "input": "Refactor this Python code to follow PEP 8 and best practices",
+          "expected": true,
+          "reason": "PEP 8 and Python best practices are covered by this skill"
+        },
+        {
+          "input": "What is the Pythonic way to handle exceptions in this code?",
+          "expected": true,
+          "reason": "Pythonic exception handling patterns are covered by this skill"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for general programming requests unrelated to Python patterns",
+      "prompts": [
+        {
+          "input": "Fix this JavaScript async/await bug",
+          "expected": false,
+          "reason": "JavaScript request, not Python"
+        },
+        {
+          "input": "How do I install Python on my machine?",
+          "expected": false,
+          "reason": "Installation question, not about Python coding patterns"
+        },
+        {
+          "input": "Explain what a for loop does",
+          "expected": false,
+          "reason": "Basic programming concept explanation, not Python-specific best practices"
+        }
+      ]
+    }
+  ]
+}

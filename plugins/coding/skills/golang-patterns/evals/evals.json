@@ -1,0 +1,61 @@
+{
+  "name": "golang-patterns",
+  "version": "1.0.0",
+  "description": "Evaluations for golang-patterns skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-go-code",
+      "type": "trigger",
+      "description": "Skill should trigger on Go code writing, reviewing, or refactoring requests",
+      "prompts": [
+        {
+          "input": "Write a worker pool in Go using goroutines and channels",
+          "expected": true,
+          "reason": "Writing new Go code with concurrency patterns"
+        },
+        {
+          "input": "Review this Go code for idiomatic patterns and best practices",
+          "expected": true,
+          "reason": "Reviewing Go code for idiomatic patterns"
+        },
+        {
+          "input": "Refactor this Go package to use dependency injection instead of global state",
+          "expected": true,
+          "reason": "Refactoring Go code to follow patterns covered by the skill"
+        },
+        {
+          "input": "How should I structure error handling in this Go service?",
+          "expected": true,
+          "reason": "Go error handling patterns are a core part of the skill"
+        },
+        {
+          "input": "Design the package structure for a new Go HTTP service following standard layout",
+          "expected": true,
+          "reason": "Designing Go package/module structure matches skill activation criteria"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-non-go",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-Go code requests",
+      "prompts": [
+        {
+          "input": "Write a Python async function to fetch data from an API",
+          "expected": false,
+          "reason": "Python code request, not Go"
+        },
+        {
+          "input": "How do I handle errors in TypeScript with try/catch?",
+          "expected": false,
+          "reason": "TypeScript error handling, not Go"
+        },
+        {
+          "input": "Explain how goroutines work conceptually",
+          "expected": false,
+          "reason": "Conceptual explanation of Go concepts, not actively writing or reviewing Go code"
+        }
+      ]
+    }
+  ]
+}

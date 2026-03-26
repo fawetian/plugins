@@ -91,6 +91,19 @@ plugins/
 | `background` | 否 | 设置为 `true` 以始终作为后台任务运行 |
 | `isolation` | 否 | 设置为 `worktree` 以在临时 git worktree 中运行 |
 
+## Skill 评估
+
+每个 skill 可以有一个 `evals/evals.json` 文件用于自动化测试。测试套件位于 `tests/` 目录。
+
+```bash
+./tests/run-all.sh --structure    # 快速结构检查（无需 Claude）
+./tests/run-all.sh --dry-run      # 列出所有可发现的测试
+./tests/run-all.sh --trigger --skill git-ops  # 测试特定 skill
+./tests/run-all.sh                # 运行全部 5 层测试
+```
+
+添加新 skill 时，创建包含触发提示词（正向 + 负向）的 `evals/evals.json`。schema 参见 `tests/lib/eval-schema.json`，详情参见 `tests/README.md`。
+
 ## MCP 集成
 
 关于如何在插件中集成 MCP 服务器，请参考官方示例技能：

@@ -1,0 +1,61 @@
+{
+  "name": "feishu-cli",
+  "version": "1.0.0",
+  "description": "Evaluations for feishu-cli skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to interact with Feishu (Lark) platform",
+      "prompts": [
+        {
+          "input": "feishu-cli",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "Send a message to the engineering group on 飞书",
+          "expected": true,
+          "reason": "飞书 (Chinese name for Feishu) is an explicit trigger keyword"
+        },
+        {
+          "input": "Create a new Feishu doc with the meeting notes",
+          "expected": true,
+          "reason": "Feishu doc creation is a listed module (doc) and 'feishu doc' is a trigger"
+        },
+        {
+          "input": "Get the latest pages from our Lark wiki knowledge base",
+          "expected": true,
+          "reason": "Lark (international name for Feishu) and wiki are listed trigger keywords"
+        },
+        {
+          "input": "Create a task in Feishu for the upcoming sprint review",
+          "expected": true,
+          "reason": "'feishu task' is a listed trigger keyword and task creation is a supported module"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for other messaging platforms or unrelated tasks",
+      "prompts": [
+        {
+          "input": "Send a Slack message to the #engineering channel",
+          "expected": false,
+          "reason": "Slack is a different messaging platform, not Feishu"
+        },
+        {
+          "input": "Create a document in Notion",
+          "expected": false,
+          "reason": "Notion is a different platform, not Feishu"
+        },
+        {
+          "input": "How does a wiki work in general?",
+          "expected": false,
+          "reason": "General wiki concept question, not a Feishu platform operation"
+        }
+      ]
+    }
+  ]
+}

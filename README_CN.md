@@ -29,23 +29,25 @@
 ## 目录结构
 
 ```
-plugins/
-├── plugins/                # 内部插件
-│   └── coding/
-├── external_plugins/       # 第三方插件
-├── agents/                 # Agent 定义（19 个）
-│   ├── zh-CN/              # 中文翻译
-│   │   └── *.md
-│   └── *.md                # 英文版
-└── rules/                  # 可复用的 Claude Code Rules
-    ├── zh-CN/              # 中文翻译
-    ├── common/             # 语言无关的通用规则
-    ├── golang/             # Go 专用规则
-    ├── python/             # Python 专用规则
-    ├── typescript/         # TypeScript/JavaScript 规则
-    ├── rust/               # Rust 专用规则
-    ├── shell/              # Shell/Bash/Zsh 规则
-    └── swift/              # Swift 专用规则
+.claude-plugin/
+│   └── marketplace.json    # 市场清单
+plugins/                    # 每个子目录是一个独立插件
+├── coding/                 # 代码质量工具集（15 个 skill、11 个 agent）
+├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
+├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
+└── devops/                 # 开发者工具 - 文档查询、代码清理、配置优化（5 个 agent）
+rules/                      # 可复用的 Claude Code Rules
+├── common/                 # 语言无关的通用规则
+├── me/                     # 用户个性化配置模板
+├── golang/                 # Go 专用规则
+├── python/                 # Python 专用规则
+├── typescript/             # TypeScript/JavaScript 规则
+├── rust/                   # Rust 专用规则
+├── shell/                  # Shell/Bash/Zsh 规则
+├── swift/                  # Swift 专用规则
+└── zh-CN/                  # 中文翻译（镜像上方结构）
+tests/                      # Skill 评估测试套件
+docs/                       # 生成的文档和 review 报告
 ```
 
 ## 插件结构

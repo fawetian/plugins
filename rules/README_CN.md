@@ -6,46 +6,39 @@
 
 ```
 rules/
-├── common/          # 语言无关的原则（始终安装）
-│   ├── coding-style.md
-│   ├── git-workflow.md
-│   ├── testing.md
-│   ├── performance.md
-│   ├── patterns.md
-│   ├── hooks.md
+├── common/              # 语言无关的原则（始终安装）
 │   ├── agents.md
-│   └── security.md
-├── typescript/      # TypeScript/JavaScript 专用
-├── python/          # Python 专用
-├── golang/          # Go 专用
-├── rust/            # Rust 专用
-├── shell/           # Shell/Bash/Zsh 专用
-└── swift/           # Swift 专用
+│   ├── coding-style.md
+│   ├── development-workflow.md
+│   ├── git-workflow.md
+│   ├── hooks.md
+│   ├── patterns.md
+│   ├── performance.md
+│   ├── security.md
+│   ├── testing.md
+│   └── versioning.md
+├── me/                  # 用户个性化配置（可选）
+│   ├── CLAUDE.md        # 入口文件 —— 引入 USER、SOUL、TOOLS
+│   ├── USER.md          # 身份、技术栈、当前关注
+│   ├── SOUL.md          # 回复风格、代码风格、禁止事项
+│   └── TOOLS.md        # 编辑器、OS、开发工具、CLI 工具
+├── typescript/          # TypeScript/JavaScript 专用
+├── python/              # Python 专用
+├── golang/              # Go 专用
+├── rust/                # Rust 专用
+├── shell/               # Shell/Bash/Zsh 专用
+├── swift/               # Swift 专用
+└── zh-CN/              # 中文翻译（镜像上方目录结构）
 ```
 
 - **common/** 包含通用原则 —— 不包含语言特定的代码示例。
 - **语言目录** 扩展通用规则，包含框架特定的模式、工具和代码示例。每个文件引用其通用对应文件。
+- **me/** 包含用户个性化配置模板。填写 `USER.md`、`SOUL.md`、`TOOLS.md`，然后将 `CLAUDE.md` 复制到 `~/.claude/CLAUDE.md`。
+- **zh-CN/** 镜像完整目录结构，提供中文翻译版本。
 
 ## 安装
 
-### 方式一：安装脚本（推荐）
-
-```bash
-# 安装 common + 一个或多个语言专用规则集
-./install.sh typescript
-./install.sh python
-./install.sh golang
-./install.sh rust
-./install.sh shell
-./install.sh swift
-
-# 同时安装多个语言
-./install.sh typescript python
-```
-
-### 方式二：手动安装
-
-> **重要：** 复制整个目录 —— 不要 用 `/*` 扁平化。
+> **重要：** 复制整个目录 —— 不要用 `/*` 扁平化。
 > Common 和语言专用目录包含同名文件。
 > 将它们扁平化到一个目录会导致语言专用文件覆盖通用规则，
 > 并破坏语言专用文件使用的相对 `../common/` 引用。
@@ -61,6 +54,12 @@ cp -r rules/golang ~/.claude/rules/golang
 cp -r rules/rust ~/.claude/rules/rust
 cp -r rules/shell ~/.claude/rules/shell
 cp -r rules/swift ~/.claude/rules/swift
+
+# （可选）安装用户个性化配置 —— 先填写模板内容
+cp rules/me/CLAUDE.md ~/.claude/CLAUDE.md
+cp rules/me/USER.md   ~/.claude/USER.md
+cp rules/me/SOUL.md   ~/.claude/SOUL.md
+cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 
 # 注意！！！根据实际项目需求配置；此处配置仅供参考。
 ```

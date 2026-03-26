@@ -1,0 +1,61 @@
+{
+  "name": "security-review",
+  "version": "1.0.0",
+  "description": "Evaluations for security-review skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when implementing security-sensitive features",
+      "prompts": [
+        {
+          "input": "security-review",
+          "expected": true,
+          "reason": "Exact skill name"
+        },
+        {
+          "input": "I'm adding user authentication to this API endpoint — review it for security issues",
+          "expected": true,
+          "reason": "Authentication implementation is a primary trigger for this skill"
+        },
+        {
+          "input": "Help me store API keys and secrets securely in this application",
+          "expected": true,
+          "reason": "Secrets management is a core security concern this skill addresses"
+        },
+        {
+          "input": "Review this file upload handler for security vulnerabilities",
+          "expected": true,
+          "reason": "File upload handling is explicitly listed as a trigger scenario"
+        },
+        {
+          "input": "I need to implement payment processing — what security checks do I need?",
+          "expected": true,
+          "reason": "Payment feature implementation is a listed trigger scenario"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for general coding or performance requests",
+      "prompts": [
+        {
+          "input": "How do I center a div in CSS?",
+          "expected": false,
+          "reason": "CSS layout question, not security related"
+        },
+        {
+          "input": "Optimize this SQL query for better performance",
+          "expected": false,
+          "reason": "Performance optimization, not a security concern"
+        },
+        {
+          "input": "What is the difference between REST and GraphQL?",
+          "expected": false,
+          "reason": "Architecture comparison question, not security review"
+        }
+      ]
+    }
+  ]
+}

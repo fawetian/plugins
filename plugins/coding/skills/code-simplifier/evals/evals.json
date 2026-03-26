@@ -1,0 +1,61 @@
+{
+  "name": "code-simplifier",
+  "version": "1.0.0",
+  "description": "Evaluations for code-simplifier skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-simplify",
+      "type": "trigger",
+      "description": "Skill should trigger on requests to simplify or clean up code",
+      "prompts": [
+        {
+          "input": "Simplify this code while keeping the same behavior",
+          "expected": true,
+          "reason": "Direct request to simplify code preserving functionality"
+        },
+        {
+          "input": "This function is too complex, can you refactor it for clarity?",
+          "expected": true,
+          "reason": "Refactor for clarity matches skill purpose"
+        },
+        {
+          "input": "Clean up the recently modified code and reduce nesting",
+          "expected": true,
+          "reason": "Clean up with reduced nesting matches skill's enhance clarity goal"
+        },
+        {
+          "input": "The code I just wrote has too many nested ternary operators, please improve readability",
+          "expected": true,
+          "reason": "Nested ternary issue is explicitly called out in skill"
+        },
+        {
+          "input": "Remove redundant abstractions and consolidate this logic",
+          "expected": true,
+          "reason": "Removing redundant abstractions matches skill's simplification approach"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unrelated",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for requests that are not about simplifying code",
+      "prompts": [
+        {
+          "input": "Add a new feature to this module",
+          "expected": false,
+          "reason": "Adding features, not simplifying existing code"
+        },
+        {
+          "input": "Write unit tests for this function",
+          "expected": false,
+          "reason": "Test writing task, not code simplification"
+        },
+        {
+          "input": "Explain what this code does",
+          "expected": false,
+          "reason": "Explanation request, not simplification"
+        }
+      ]
+    }
+  ]
+}

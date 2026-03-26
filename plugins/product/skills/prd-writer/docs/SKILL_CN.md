@@ -1,3 +1,9 @@
+---
+name: prd-writer
+description: 专业的产品需求文档（PRD）撰写助手。用于创建产品需求文档、功能规格或详细产品文档时使用。触发词：prd、"产品需求"、"写PRD"、"创建PRD"、"功能规格"。
+userInvocable: true
+---
+
 # PRD 撰写助手
 
 专业的产品需求文档(PRD)撰写助手。

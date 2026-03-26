@@ -41,14 +41,14 @@
       "keywords": ["cli", "feishu", "lark", "aliyun", "alicloud", "ecs", "oss"]
     },
     {
-      "name": "devtools",
-      "source": "./plugins/devtools",
+      "name": "devops",
+      "source": "./plugins/devops",
       "description": "开发者工具集：文档查询、代码清理、配置优化、循环监控",
       "version": "1.0.0",
       "author": {
         "name": "fawetian"
       },
-      "keywords": ["devtools", "documentation", "refactor", "optimization", "agents"]
+      "keywords": ["devops", "documentation", "refactor", "optimization", "agents"]
     }
   ]
 }

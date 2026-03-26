@@ -1,0 +1,61 @@
+{
+  "name": "user-story",
+  "version": "1.0.0",
+  "description": "Evaluations for user-story skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user asks to write user stories or manage backlog",
+      "prompts": [
+        {
+          "input": "user story",
+          "expected": true,
+          "reason": "Exact trigger phrase listed in skill description"
+        },
+        {
+          "input": "Write user stories for the new checkout feature",
+          "expected": true,
+          "reason": "Explicit 'write stories' trigger in context of a feature"
+        },
+        {
+          "input": "Help me define acceptance criteria for the search functionality",
+          "expected": true,
+          "reason": "Exact trigger phrase 'acceptance criteria'"
+        },
+        {
+          "input": "I need to create a user story mapping session for our onboarding flow",
+          "expected": true,
+          "reason": "Exact trigger phrase 'user story mapping'"
+        },
+        {
+          "input": "Organize and prioritize our product backlog",
+          "expected": true,
+          "reason": "Exact trigger phrase 'backlog' in product management context"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for implementation or requirement analysis tasks",
+      "prompts": [
+        {
+          "input": "Implement the user registration feature",
+          "expected": false,
+          "reason": "Implementation request, not user story writing"
+        },
+        {
+          "input": "Analyze requirements for the new dashboard",
+          "expected": false,
+          "reason": "Requirement analysis is a different skill, not user story creation"
+        },
+        {
+          "input": "Tell me about agile story points estimation techniques",
+          "expected": false,
+          "reason": "Educational question about agile concepts, not a request to create user stories"
+        }
+      ]
+    }
+  ]
+}

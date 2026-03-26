@@ -1,0 +1,61 @@
+{
+  "name": "aliyun",
+  "version": "1.0.0",
+  "description": "Evaluations for aliyun skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to interact with Alibaba Cloud services",
+      "prompts": [
+        {
+          "input": "aliyun ecs DescribeInstances",
+          "expected": true,
+          "reason": "Direct aliyun CLI command invocation"
+        },
+        {
+          "input": "List all ECS instances in cn-hangzhou region on Alibaba Cloud",
+          "expected": true,
+          "reason": "ECS and Alibaba Cloud are explicit triggers for this skill"
+        },
+        {
+          "input": "Upload a file to my OSS bucket on 阿里云",
+          "expected": true,
+          "reason": "OSS and 阿里云 (Chinese name) are listed trigger keywords"
+        },
+        {
+          "input": "Show me the RDS database instances in my aliyun account",
+          "expected": true,
+          "reason": "RDS and aliyun are both listed trigger keywords"
+        },
+        {
+          "input": "Deploy a function to Alibaba Cloud FC serverless",
+          "expected": true,
+          "reason": "FC (Function Compute) and serverless are listed trigger keywords"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for other cloud providers or unrelated tasks",
+      "prompts": [
+        {
+          "input": "List my AWS EC2 instances",
+          "expected": false,
+          "reason": "AWS is a different cloud provider, not Alibaba Cloud"
+        },
+        {
+          "input": "Deploy to Google Cloud Run",
+          "expected": false,
+          "reason": "Google Cloud is a different cloud provider, not Alibaba Cloud"
+        },
+        {
+          "input": "How does object storage work in general?",
+          "expected": false,
+          "reason": "General concept explanation, not specific to Alibaba Cloud CLI usage"
+        }
+      ]
+    }
+  ]
+}

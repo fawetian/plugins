@@ -29,23 +29,25 @@ Once the marketplace is added, install plugins:
 ## Structure
 
 ```
-plugins/
-├── plugins/                # Internal plugins
-│   └── coding/
-├── external_plugins/       # Third-party plugins
-├── agents/                 # Agent definitions (19 agents)
-│   ├── zh-CN/              # Chinese translations
-│   │   └── *.md
-│   └── *.md                # English versions
-└── rules/                  # Reusable Claude Code Rules
-    ├── zh-CN/              # Chinese translations
-    ├── common/             # Language-agnostic principles
-    ├── golang/             # Go specific rules
-    ├── python/             # Python specific rules
-    ├── typescript/         # TypeScript/JavaScript rules
-    ├── rust/               # Rust specific rules
-    ├── shell/              # Shell/Bash/Zsh rules
-    └── swift/              # Swift specific rules
+.claude-plugin/
+│   └── marketplace.json    # Marketplace manifest
+plugins/                    # Each subdirectory is a standalone plugin
+├── coding/                 # Code quality tools (15 skills, 11 agents)
+├── product/                # Product manager tools (4 skills, 2 agents)
+├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
+└── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
+rules/                      # Reusable Claude Code Rules
+├── common/                 # Language-agnostic principles
+├── me/                     # User-level personalization templates
+├── golang/                 # Go specific rules
+├── python/                 # Python specific rules
+├── typescript/             # TypeScript/JavaScript rules
+├── rust/                   # Rust specific rules
+├── shell/                  # Shell/Bash/Zsh rules
+├── swift/                  # Swift specific rules
+└── zh-CN/                  # Chinese translations (mirrors above)
+tests/                      # Skill evaluation test suite
+docs/                       # Generated documentation and reviews
 ```
 
 ## Plugin Structure

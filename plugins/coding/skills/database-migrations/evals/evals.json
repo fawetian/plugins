@@ -1,0 +1,61 @@
+{
+  "name": "database-migrations",
+  "version": "1.0.0",
+  "description": "Evaluations for database-migrations skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-schema-changes",
+      "type": "trigger",
+      "description": "Skill should trigger on database schema change requests",
+      "prompts": [
+        {
+          "input": "Add a new column avatar_url to the users table",
+          "expected": true,
+          "reason": "Adding a column to a table requires a migration"
+        },
+        {
+          "input": "Create a migration to add an index on the email column without downtime",
+          "expected": true,
+          "reason": "Index creation migration with zero-downtime requirement"
+        },
+        {
+          "input": "I need to rename the username column to display_name safely in production",
+          "expected": true,
+          "reason": "Column rename in production requires careful migration strategy"
+        },
+        {
+          "input": "Write a Prisma migration to add the orders table with foreign key to users",
+          "expected": true,
+          "reason": "ORM migration for new table creation"
+        },
+        {
+          "input": "How do I backfill existing rows after adding a new column?",
+          "expected": true,
+          "reason": "Data backfill is a key migration use case covered by the skill"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general-db",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for general database queries or non-migration tasks",
+      "prompts": [
+        {
+          "input": "Write a SQL query to get all users ordered by created_at",
+          "expected": false,
+          "reason": "Read query, not a schema migration task"
+        },
+        {
+          "input": "How does a LEFT JOIN work?",
+          "expected": false,
+          "reason": "SQL concept question, not migration related"
+        },
+        {
+          "input": "Optimize this slow SELECT query on the orders table",
+          "expected": false,
+          "reason": "Query optimization, not a migration task"
+        }
+      ]
+    }
+  ]
+}

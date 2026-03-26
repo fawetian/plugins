@@ -5,44 +5,37 @@ Rules are organized into a **common** layer plus **language-specific** directori
 
 ```
 rules/
-├── common/          # Language-agnostic principles (always install)
-│   ├── coding-style.md
-│   ├── git-workflow.md
-│   ├── testing.md
-│   ├── performance.md
-│   ├── patterns.md
-│   ├── hooks.md
+├── common/              # Language-agnostic principles (always install)
 │   ├── agents.md
-│   └── security.md
-├── typescript/      # TypeScript/JavaScript specific
-├── python/          # Python specific
-├── golang/          # Go specific
-├── rust/            # Rust specific
-├── shell/           # Shell/Bash/Zsh specific
-└── swift/           # Swift specific
+│   ├── coding-style.md
+│   ├── development-workflow.md
+│   ├── git-workflow.md
+│   ├── hooks.md
+│   ├── patterns.md
+│   ├── performance.md
+│   ├── security.md
+│   ├── testing.md
+│   └── versioning.md
+├── me/                  # User-level personalization (optional)
+│   ├── CLAUDE.md        # Entry point — imports USER, SOUL, TOOLS
+│   ├── USER.md          # Identity, tech stack, current focus
+│   ├── SOUL.md          # Reply style, code style, prohibitions
+│   └── TOOLS.md        # Editor, OS, dev tools, CLI tools
+├── typescript/          # TypeScript/JavaScript specific
+├── python/              # Python specific
+├── golang/              # Go specific
+├── rust/                # Rust specific
+├── shell/               # Shell/Bash/Zsh specific
+├── swift/               # Swift specific
+└── zh-CN/              # Chinese translations (mirrors structure above)
 ```
 
 - **common/** contains universal principles — no language-specific code examples.
 - **Language directories** extend the common rules with framework-specific patterns, tools, and code examples. Each file references its common counterpart.
+- **me/** contains user-level personalization templates. Fill in `USER.md`, `SOUL.md`, and `TOOLS.md`, then copy `CLAUDE.md` to `~/.claude/CLAUDE.md`.
+- **zh-CN/** mirrors the full directory structure with Chinese translations.
 
 ## Installation
-
-### Option 1: Install Script (Recommended)
-
-```bash
-# Install common + one or more language-specific rule sets
-./install.sh typescript
-./install.sh python
-./install.sh golang
-./install.sh rust
-./install.sh shell
-./install.sh swift
-
-# Install multiple languages at once
-./install.sh typescript python
-```
-
-### Option 2: Manual Installation
 
 > **Important:** Copy entire directories — do NOT flatten with `/*`.
 > Common and language-specific directories contain files with the same names.
@@ -61,6 +54,12 @@ cp -r rules/golang ~/.claude/rules/golang
 cp -r rules/rust ~/.claude/rules/rust
 cp -r rules/shell ~/.claude/rules/shell
 cp -r rules/swift ~/.claude/rules/swift
+
+# (Optional) Install user personalization — fill in the templates first
+cp rules/me/CLAUDE.md ~/.claude/CLAUDE.md
+cp rules/me/USER.md   ~/.claude/USER.md
+cp rules/me/SOUL.md   ~/.claude/SOUL.md
+cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 
 # Attention ! ! ! Configure according to your actual project requirements; the configuration here is for reference only.
 ```

@@ -1,0 +1,61 @@
+{
+  "name": "postgres-patterns",
+  "version": "1.0.0",
+  "description": "Evaluations for postgres-patterns skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-postgres-tasks",
+      "type": "trigger",
+      "description": "Skill should trigger on PostgreSQL query, schema, and performance tasks",
+      "prompts": [
+        {
+          "input": "Write an optimized SQL query to paginate through a large orders table",
+          "expected": true,
+          "reason": "SQL query optimization including pagination patterns"
+        },
+        {
+          "input": "Design the schema for a multi-tenant application using Row Level Security",
+          "expected": true,
+          "reason": "Schema design with RLS is explicitly covered by the skill"
+        },
+        {
+          "input": "This Postgres query is slow, help me add the right index",
+          "expected": true,
+          "reason": "Troubleshooting slow queries and indexing matches skill activation criteria"
+        },
+        {
+          "input": "Set up connection pooling for our PostgreSQL database",
+          "expected": true,
+          "reason": "Connection pooling setup is listed as a skill activation scenario"
+        },
+        {
+          "input": "What index type should I use for a JSONB column with contains queries?",
+          "expected": true,
+          "reason": "Index selection for JSONB is in the skill's quick reference"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-non-postgres",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-PostgreSQL or unrelated database tasks",
+      "prompts": [
+        {
+          "input": "Write a MongoDB aggregation pipeline for grouping orders by status",
+          "expected": false,
+          "reason": "MongoDB task, not PostgreSQL"
+        },
+        {
+          "input": "Create a Prisma migration to add a new table",
+          "expected": false,
+          "reason": "Migration task covered by database-migrations skill, not postgres-patterns"
+        },
+        {
+          "input": "How do I connect to a MySQL database from Node.js?",
+          "expected": false,
+          "reason": "MySQL connection question, not PostgreSQL patterns"
+        }
+      ]
+    }
+  ]
+}

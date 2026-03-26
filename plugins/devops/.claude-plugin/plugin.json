@@ -1,10 +1,11 @@
 {
-  "name": "devtools",
+  "name": "devops",
   "version": "1.0.0",
   "description": "开发者工具集：文档查询、代码清理、配置优化、循环监控",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
-  "keywords": ["devtools", "documentation", "refactor", "optimization", "agents"]
+  "keywords": ["devops", "documentation", "refactor", "optimization", "agents"],
+  "agents": "./agents/"
 }

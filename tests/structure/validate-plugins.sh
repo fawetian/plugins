@@ -57,6 +57,28 @@ while IFS='|' read -r plugin_name plugin_dir; do
     echo -e "  ${GREEN}[PASS]${NC} plugin.json is valid JSON"
     TESTS_PASSED=$((TESTS_PASSED + 1))
 
+    # Check required fields: name, version, description
+    for field in name version description; do
+        field_value=$(jq -r --arg f "$field" '.[$f] // empty' "$local_plugin_json")
+        if [ -z "$field_value" ]; then
+            echo -e "  ${RED}[FAIL]${NC} plugin.json missing required field: $field"
+            TESTS_FAILED=$((TESTS_FAILED + 1))
+        else
+            echo -e "  ${GREEN}[PASS]${NC} plugin.json has required field: $field"
+            TESTS_PASSED=$((TESTS_PASSED + 1))
+        fi
+    done
+
+    # Check version format (semver: x.y.z)
+    plugin_ver=$(jq -r '.version // empty' "$local_plugin_json")
+    if [ -n "$plugin_ver" ] && ! echo "$plugin_ver" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+'; then
+        echo -e "  ${RED}[FAIL]${NC} Version '$plugin_ver' is not valid semver (x.y.z)"
+        TESTS_FAILED=$((TESTS_FAILED + 1))
+    elif [ -n "$plugin_ver" ]; then
+        echo -e "  ${GREEN}[PASS]${NC} Version format is valid semver"
+        TESTS_PASSED=$((TESTS_PASSED + 1))
+    fi
+
     # Check plugin is registered in marketplace
     if echo "$MARKETPLACE_PLUGINS" | grep -qx "$plugin_name"; then
         echo -e "  ${GREEN}[PASS]${NC} Registered in marketplace.json"

@@ -1,0 +1,83 @@
+{
+  "name": "code-annotator",
+  "version": "1.0.0",
+  "description": "Evaluations for code-annotator skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit-commands",
+      "type": "trigger",
+      "description": "Skill should trigger on explicit /code-annotator invocations",
+      "prompts": [
+        {
+          "input": "/code-annotator ./src",
+          "expected": true,
+          "reason": "Explicit code-annotator command with path"
+        },
+        {
+          "input": "code-annotator",
+          "expected": true,
+          "reason": "Direct skill name invocation"
+        },
+        {
+          "input": "/code-annotator --incremental ./src",
+          "expected": true,
+          "reason": "Incremental annotation command"
+        },
+        {
+          "input": "/code-annotator --resume ./project",
+          "expected": true,
+          "reason": "Resume interrupted annotation command"
+        },
+        {
+          "input": "/code-annotator --status ./project",
+          "expected": true,
+          "reason": "Check annotation status command"
+        }
+      ]
+    },
+    {
+      "name": "trigger-positive-natural",
+      "type": "trigger",
+      "description": "Skill should trigger on natural language annotation requests",
+      "prompts": [
+        {
+          "input": "请给这个项目的所有源文件添加中文注释",
+          "expected": true,
+          "reason": "Natural request to add Chinese comments to project files"
+        },
+        {
+          "input": "帮我给 src 目录下的代码加上中文注解",
+          "expected": true,
+          "reason": "Natural request to annotate source files with Chinese"
+        },
+        {
+          "input": "annotate all source files with Chinese comments",
+          "expected": true,
+          "reason": "English request to annotate code with Chinese comments"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-unrelated",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for unrelated requests",
+      "prompts": [
+        {
+          "input": "Add inline comments to explain this function",
+          "expected": false,
+          "reason": "General comment request not specifically invoking code-annotator"
+        },
+        {
+          "input": "Review my code for bugs",
+          "expected": false,
+          "reason": "Code review request, not annotation"
+        },
+        {
+          "input": "Explain how this algorithm works",
+          "expected": false,
+          "reason": "Explanation request, not a code annotation task"
+        }
+      ]
+    }
+  ]
+}
