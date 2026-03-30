@@ -7,10 +7,6 @@
   },
   "license": "MIT",
   "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile", "agents", "planning", "architecture"],
-  "agents": [
-    "./agents/architect",
-    "./agents/planner"
-  ],
   "skills": [
     "./skills/prd-writer",
     "./skills/requirement-analysis",
