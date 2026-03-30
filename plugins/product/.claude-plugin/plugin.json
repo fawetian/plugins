@@ -1,13 +1,16 @@
 {
   "name": "product",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "产品经理工具集：需求分析、PRD撰写、用户故事、产品规划，内置规划和架构设计 Agents",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
   "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile", "agents", "planning", "architecture"],
-  "agents": "./agents/",
+  "agents": [
+    "./agents/architect",
+    "./agents/planner"
+  ],
   "skills": [
     "./skills/prd-writer",
     "./skills/requirement-analysis",

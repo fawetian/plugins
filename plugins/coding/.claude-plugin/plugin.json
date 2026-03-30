@@ -1,13 +1,25 @@
 {
   "name": "coding",
-  "version": "1.2.0",
-  "description": "代码质量工具集：代码研究、注释、审查、简化、Git操作、模式指南，内置专项审查和构建修复 Agents",
+  "version": "1.3.1",
+  "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
-  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "git", "translate", "patterns", "tdd", "security", "testing"],
-  "agents": "./agents/",
+  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "translate", "patterns", "tdd", "security", "testing"],
+  "agents": [
+    "./agents/build-error-resolver",
+    "./agents/code-reviewer",
+    "./agents/database-reviewer",
+    "./agents/e2e-runner",
+    "./agents/go-build-resolver",
+    "./agents/go-reviewer",
+    "./agents/python-reviewer",
+    "./agents/rust-build-resolver",
+    "./agents/rust-reviewer",
+    "./agents/security-reviewer",
+    "./agents/tdd-guide"
+  ],
   "skills": [
     "./skills/code-research",
     "./skills/code-annotator",
@@ -15,7 +27,6 @@
     "./skills/code-simplifier",
     "./skills/code-translate",
     "./skills/gen-doc",
-    "./skills/git-ops",
     "./skills/rust-patterns",
     "./skills/golang-patterns",
     "./skills/python-patterns",

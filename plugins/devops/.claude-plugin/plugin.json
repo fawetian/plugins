@@ -1,11 +1,17 @@
 {
   "name": "devops",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "开发者工具集：文档查询、代码清理、配置优化、循环监控",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
   "keywords": ["devops", "documentation", "refactor", "optimization", "agents"],
-  "agents": "./agents/"
+  "agents": [
+    "./agents/doc-updater",
+    "./agents/docs-lookup",
+    "./agents/harness-optimizer",
+    "./agents/loop-operator",
+    "./agents/refactor-cleaner"
+  ]
 }
