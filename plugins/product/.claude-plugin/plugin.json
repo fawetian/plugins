@@ -1,6 +1,6 @@
 {
   "name": "product",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "产品经理工具集：需求分析、PRD撰写、用户故事、产品规划，内置规划和架构设计 Agents",
   "author": {
     "name": "fawetian"

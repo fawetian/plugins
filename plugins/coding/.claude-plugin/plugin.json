@@ -1,6 +1,6 @@
 {
   "name": "coding",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
