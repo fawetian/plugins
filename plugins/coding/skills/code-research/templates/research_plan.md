@@ -24,9 +24,13 @@
 - 目标：核心依赖是什么、为什么选择它们而不是替代品
 - 输出：docs/code-research/04_dependencies.md
 
-### 专题 E：学习路径（最后执行，依赖以上专题）
+### 专题 E：核心工作流
+- 目标：追踪核心端到端业务流程和关键模块内部执行流程
+- 输出：docs/code-research/05_workflow.md
+
+### 专题 F：学习路径（最后执行，依赖以上专题）
 - 目标：总结推荐阅读顺序
-- 输出：docs/code-research/05_learning_path.md
+- 输出：docs/code-research/06_learning_path.md
 
 ## 待解决疑问
 

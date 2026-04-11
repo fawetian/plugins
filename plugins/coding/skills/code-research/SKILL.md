@@ -45,6 +45,7 @@ Output templates for each topic are in the `templates/` directory:
 - [templates/mechanism.md](templates/mechanism.md) — Core Mechanisms
 - [templates/data_flow.md](templates/data_flow.md) — Data Flow & State
 - [templates/dependencies.md](templates/dependencies.md) — Dependencies & Ecosystem
+- [templates/workflow.md](templates/workflow.md) — Core Workflows
 - [templates/learning_path.md](templates/learning_path.md) — Learning Path
 
 ### Phase 3: Summary & Integration
@@ -70,4 +71,5 @@ After all topics are complete, add a research summary at the top of `docs/code-r
 - **"Give me a rough understanding"** → Only do architecture topic
 - **"I want to understand feature X"** → Focus on breaking down X's mechanism topic
 - **"I want to contribute code"** → Complete all topics
+- **"How does this system work?"** → Architecture topic + Workflow topic
 - **"Compare two projects"** → Do architecture topic for both projects, then write comparison analysis

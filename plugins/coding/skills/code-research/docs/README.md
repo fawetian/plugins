@@ -50,4 +50,5 @@ code-research 我想为这个项目贡献代码
 - `mechanism.md` — 核心机制说明
 - `data_flow.md` — 数据流与状态管理
 - `dependencies.md` — 依赖关系与生态
+- `workflow.md` — 核心工作流（端到端业务流程 + 模块内部执行流程）
 - `learning_path.md` — 学习路径建议
