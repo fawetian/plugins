@@ -1,6 +1,6 @@
 ---
 name: thinking-selector
-description: Thinking tool selector — helps choose the right mental model for a given problem. Use when unsure which thinking framework to apply, when facing a complex problem that needs structured thinking, or when wanting to explore available thinking tools. Triggers: "thinking tool", "思维工具", "which framework", "how should I think about", "用什么方法思考", "帮我分析", "structured thinking".
+description: Thinking tool selector — helps choose the right mental model for a given problem. Use when unsure which thinking framework to apply, when facing a complex problem that needs structured thinking, or when wanting to explore available thinking tools. Triggers: "thinking tool", "思维工具", "which framework", "how should I think about", "用什么方法思考", "怎样思考", "structured thinking", "选择思维框架".
 userInvocable: true
 ---
 

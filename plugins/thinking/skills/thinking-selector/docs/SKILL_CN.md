@@ -1,6 +1,6 @@
 ---
 name: thinking-selector
-description: 思维工具选择器 — 帮你为特定问题选择合适的心智模型。当不确定该用哪个思维框架、面对需要结构化思考的复杂问题、或想了解可用的思维工具时使用。触发词："thinking tool"、"思维工具"、"which framework"、"how should I think about"、"用什么方法思考"、"帮我分析"、"structured thinking"。
+description: 思维工具选择器 — 帮你为特定问题选择合适的心智模型。当不确定该用哪个思维框架、面对需要结构化思考的复杂问题、或想了解可用的思维工具时使用。触发词："thinking tool"、"思维工具"、"which framework"、"how should I think about"、"用什么方法思考"、"怎样思考"、"structured thinking"、"选择思维框架"。
 userInvocable: true
 ---
 

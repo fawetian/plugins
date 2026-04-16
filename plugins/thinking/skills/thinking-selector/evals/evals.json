@@ -9,9 +9,9 @@
       "description": "Skill should trigger when user is unsure which thinking tool to use",
       "prompts": [
         {
-          "input": "帮我分析这个问题该用什么思考方法",
+          "input": "怎样思考这个问题才能更系统？有什么框架可以帮助吗",
           "expected": true,
-          "reason": "Chinese trigger '帮我分析' + meta-question about thinking approach"
+          "reason": "Chinese trigger '怎样思考' + explicit framework discovery intent"
         },
         {
           "input": "which thinking framework should I use for this?",
@@ -49,6 +49,11 @@
           "input": "Create a product roadmap for next quarter",
           "expected": false,
           "reason": "Product planning request, should trigger roadmap-planner"
+        },
+        {
+          "input": "帮我分析这个报错",
+          "expected": false,
+          "reason": "General analysis request without explicit mention of framework/methodology choice - should trigger debugging/code-research, not tool selector"
         }
       ]
     }
