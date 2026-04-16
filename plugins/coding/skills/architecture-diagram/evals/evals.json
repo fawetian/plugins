@@ -1,0 +1,71 @@
+{
+  "name": "architecture-diagram",
+  "version": "1.0.0",
+  "description": "Evaluations for architecture-diagram skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive",
+      "type": "trigger",
+      "description": "Skill should trigger on architecture diagram and visualization requests",
+      "prompts": [
+        {
+          "input": "Create an architecture diagram for my microservices system",
+          "expected": true,
+          "reason": "Direct architecture diagram request"
+        },
+        {
+          "input": "Draw a system architecture showing React frontend, Node.js API, and PostgreSQL",
+          "expected": true,
+          "reason": "System architecture with specific components"
+        },
+        {
+          "input": "Visualize our AWS infrastructure with CloudFront, Lambda, and DynamoDB",
+          "expected": true,
+          "reason": "Cloud infrastructure visualization"
+        },
+        {
+          "input": "I need a network topology diagram for our Kubernetes cluster",
+          "expected": true,
+          "reason": "Network topology diagram explicitly requested"
+        },
+        {
+          "input": "帮我画一个微服务架构图",
+          "expected": true,
+          "reason": "Chinese architecture diagram request"
+        },
+        {
+          "input": "Generate a security diagram showing authentication and authorization flow",
+          "expected": true,
+          "reason": "Security diagram matches skill trigger words"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative",
+      "type": "trigger",
+      "description": "Skill should NOT trigger on unrelated requests",
+      "prompts": [
+        {
+          "input": "Fix the bug in my login function",
+          "expected": false,
+          "reason": "Bug fix request, not diagram"
+        },
+        {
+          "input": "Write unit tests for this module",
+          "expected": false,
+          "reason": "Testing request"
+        },
+        {
+          "input": "Refactor this function to be more readable",
+          "expected": false,
+          "reason": "Code refactoring"
+        },
+        {
+          "input": "Explain how this code works",
+          "expected": false,
+          "reason": "Code explanation request"
+        }
+      ]
+    }
+  ]
+}

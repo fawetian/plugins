@@ -1,6 +1,6 @@
 {
   "name": "coding",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
@@ -21,6 +21,7 @@
     "./skills/e2e-testing",
     "./skills/tdd-workflow",
     "./skills/postgres-patterns",
-    "./skills/database-migrations"
+    "./skills/database-migrations",
+    "./skills/architecture-diagram"
   ]
 }
