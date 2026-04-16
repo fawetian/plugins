@@ -1,0 +1,82 @@
+---
+name: second-order-thinking
+description: Second-order thinking — think beyond immediate consequences to downstream ripple effects. Use for strategic decisions, policy changes, or any action with far-reaching impact. Triggers: "second order", "二阶思维", "then what", "然后呢", "downstream effect", "下游影响", "ripple effect", "连锁反应", "unintended consequences", "意想不到的后果".
+userInvocable: true
+---
+
+# Second-Order Thinking (二阶思维)
+
+## Core Philosophy
+**Everyone can see first-order effects. Advantage comes from seeing the second and third.** Ask "And then what?" at least three times.
+
+## Constraints
+- ALL output must be in Chinese (中文)
+- Must trace at least 3 orders of consequences
+- Flag where the chain becomes speculative vs certain
+- Use `templates/second-order-analysis.md` as output structure
+
+## When to Use
+- 战略决策：技术选型、组织变革
+- 政策变更：定价调整、流程变更
+- 架构决策：迁移、重构、新依赖引入
+- 任何"看起来简单"但影响面广的决定
+
+## When NOT to Use
+- 紧急响应需要快速行动（→ `ooda-loop`）
+- 问题已经发生需要根因（→ `five-whys`）
+- 纯粹的知识学习（→ `feynman-technique`）
+
+## Workflow
+
+### Step 1: 定义决策
+> "我们正在考虑 _______ 。"
+
+### Step 2: 列出一阶效应
+这是大多数人看到的——决策的直接结果：
+
+| 一阶效应 | 性质 | 确定性 |
+|---------|------|--------|
+| ... | 正面/负面/中性 | 确定/可能/不确定 |
+
+### Step 3: 追问"然后呢？"——二阶效应
+对每个一阶效应问："这会导致什么？"
+
+| 一阶效应 | → 二阶效应 | 性质 | 确定性 |
+|---------|-----------|------|--------|
+| ... | ... | 正面/负面 | ... |
+
+### Step 4: 再问一次——三阶效应
+对关键的二阶效应继续追问：
+
+| 二阶效应 | → 三阶效应 | 性质 | 确定性 |
+|---------|-----------|------|--------|
+| ... | ... | ... | ... |
+
+### Step 5: 画出效应树
+
+```
+决策：{决策描述}
+├── [一阶] 效应 A (正面, 确定)
+│   ├── [二阶] 效应 A1 (负面, 可能) ⚠️
+│   │   └── [三阶] 效应 A1a (负面, 不确定)
+│   └── [二阶] 效应 A2 (正面, 确定)
+├── [一阶] 效应 B (负面, 确定)
+│   └── [二阶] 效应 B1 (正面, 可能) — 补偿性
+└── [一阶] 效应 C (中性)
+    └── [二阶] 效应 C1 (负面, 可能) ⚠️
+```
+
+### Step 6: 评估并决策
+- 标记所有 ⚠️ 的负面高阶效应
+- 问："知道了这些下游影响后，原始决策还值得做吗？"
+- 如果值得 → 制定缓解计划应对负面高阶效应
+- 如果不值得 → 考虑替代方案并重新分析
+
+## Output
+生成效应分析报告。使用 `templates/second-order-analysis.md` 模板。
+
+## See Also
+- `systems-thinking` — 系统思考：当效应链形成反馈回路
+- `inversion` — 反向思维：从失败路径反推
+- `margin-of-safety` — 安全边际：为不确定的高阶效应留缓冲
+- `thinking-selector` — 不确定用哪个？

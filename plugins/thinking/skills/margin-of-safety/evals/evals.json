@@ -1,0 +1,61 @@
+{
+  "name": "margin-of-safety",
+  "version": "1.0.0",
+  "description": "Evaluations for margin-of-safety skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to add buffers for uncertainty in estimates, capacity, or decisions",
+      "prompts": [
+        {
+          "input": "安全边际分析：我们应该给这个估算留多少缓冲？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '安全边际' (margin of safety) + buffer estimation"
+        },
+        {
+          "input": "How much headroom should we build into our infrastructure capacity?",
+          "expected": true,
+          "reason": "Trigger 'headroom' + over-provision strategy"
+        },
+        {
+          "input": "最坏情况下会怎样？我们需要多少缓冲来应对未知的未知？",
+          "expected": true,
+          "reason": "Chinese triggers: '最坏情况' (worst case) + 'unknown unknowns' + buffer planning"
+        },
+        {
+          "input": "Before committing to this deadline, build in margin of safety for unknowns",
+          "expected": true,
+          "reason": "Explicit trigger 'margin of safety' + uncertainty acknowledgment"
+        },
+        {
+          "input": "时间估算 3 周，我们该留多少余量才安全？",
+          "expected": true,
+          "reason": "Chinese context: time estimation + 'how much buffer' question"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for precise estimates, urgent decisions without uncertainty, or resource waste discussions",
+      "prompts": [
+        {
+          "input": "We have exact metrics showing our system can handle 100k QPS",
+          "expected": false,
+          "reason": "Certain/precise data available; margin of safety only applies under uncertainty"
+        },
+        {
+          "input": "快速决策：立即上线这个功能，没时间考虑太多",
+          "expected": false,
+          "reason": "Time pressure + impatience; should trigger OODA-loop instead"
+        },
+        {
+          "input": "This over-provisioning is wasteful. Cut the buffer completely",
+          "expected": false,
+          "reason": "Resource waste complaint; needs cost-benefit analysis, not margin-of-safety philosophy"
+        }
+      ]
+    }
+  ]
+}

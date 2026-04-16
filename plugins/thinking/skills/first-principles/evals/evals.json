@@ -1,0 +1,61 @@
+{
+  "name": "first-principles",
+  "version": "1.0.0",
+  "description": "Evaluations for first-principles skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to challenge assumptions or reason from fundamentals",
+      "prompts": [
+        {
+          "input": "用第一性原理重新审视我们的缓存策略",
+          "expected": true,
+          "reason": "Exact Chinese trigger '第一性原理'"
+        },
+        {
+          "input": "Let's apply first principles thinking to this pricing model",
+          "expected": true,
+          "reason": "Exact English trigger 'first principles'"
+        },
+        {
+          "input": "why do we assume we need a message queue here? challenge that assumption",
+          "expected": true,
+          "reason": "Trigger 'challenge assumption' + questioning default architecture"
+        },
+        {
+          "input": "重新思考我们为什么要用微服务架构",
+          "expected": true,
+          "reason": "Chinese trigger '重新思考' + challenging architectural assumption"
+        },
+        {
+          "input": "What are the fundamental assumptions behind our deployment pipeline?",
+          "expected": true,
+          "reason": "Trigger 'fundamental assumptions'"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-thinking or other-domain requests",
+      "prompts": [
+        {
+          "input": "Help me write a Python class for data processing",
+          "expected": false,
+          "reason": "Code writing request, not a thinking exercise"
+        },
+        {
+          "input": "Create a product roadmap for next quarter",
+          "expected": false,
+          "reason": "Product planning, should trigger roadmap-planner"
+        },
+        {
+          "input": "Why does this test keep failing? Do a root cause analysis",
+          "expected": false,
+          "reason": "Root cause analysis should trigger five-whys, not first-principles"
+        }
+      ]
+    }
+  ]
+}

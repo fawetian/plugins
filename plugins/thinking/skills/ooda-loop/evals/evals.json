@@ -1,0 +1,61 @@
+{
+  "name": "ooda-loop",
+  "version": "1.0.0",
+  "description": "Evaluations for ooda-loop skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user explicitly mentions OODA, rapid decision, time pressure, or competitive response",
+      "prompts": [
+        {
+          "input": "用 OODA 循环分析这个竞争对手的动作",
+          "expected": true,
+          "reason": "Exact Chinese trigger 'OODA' in rapid decision context"
+        },
+        {
+          "input": "We're in a time pressure situation and need to respond to competitor's move fast",
+          "expected": true,
+          "reason": "Triggers: 'time pressure' + 'competitive response' + 'fast'"
+        },
+        {
+          "input": "快速决策框架：observe, orient, decide, act — 我们该怎么做？",
+          "expected": true,
+          "reason": "Chinese trigger '快速决策' + OODA cycle mention"
+        },
+        {
+          "input": "Incident response: we need rapid decision-making. Help me use OODA loop",
+          "expected": true,
+          "reason": "Explicit triggers: 'rapid decision-making' + 'OODA loop'"
+        },
+        {
+          "input": "紧急决策：竞争环境下需要快速迭代，用快速决策循环怎么做？",
+          "expected": true,
+          "reason": "Multiple triggers: '紧急决策' (time pressure) + '竞争' (competitive) + '快速迭代' (fast iteration)"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for slow-analysis, reversibility, or non-competitive scenarios",
+      "prompts": [
+        {
+          "input": "Help me carefully plan our product roadmap for the next 12 months",
+          "expected": false,
+          "reason": "Long-term planning, not time-pressured; should use second-order-thinking or planning frameworks"
+        },
+        {
+          "input": "分析一下这个系统架构的反馈回路和杠杆点",
+          "expected": false,
+          "reason": "Systems thinking about structure; should trigger systems-thinking skill"
+        },
+        {
+          "input": "Before launch, let's do a thorough risk assessment of all possible failures",
+          "expected": false,
+          "reason": "Pre-launch analysis without time pressure; should use pre-mortem or margin-of-safety"
+        }
+      ]
+    }
+  ]
+}

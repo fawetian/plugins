@@ -1,0 +1,61 @@
+{
+  "name": "pareto-principle",
+  "version": "1.0.0",
+  "description": "Evaluations for pareto-principle skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to identify vital few inputs that drive majority of outcomes",
+      "prompts": [
+        {
+          "input": "用帕累托原则分析哪 20% 的工作产生了 80% 的价值",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '帕累托' (Pareto)"
+        },
+        {
+          "input": "Apply the 80/20 rule to identify which features to focus on for max impact",
+          "expected": true,
+          "reason": "Triggers: '80/20' + impact focus"
+        },
+        {
+          "input": "这些任务清单太长了，怎么找出最关键的 20% 来优先处理？",
+          "expected": true,
+          "reason": "Chinese context: long list + identify vital few"
+        },
+        {
+          "input": "Which are the vital few inputs that drive most customer satisfaction?",
+          "expected": true,
+          "reason": "Explicit trigger 'vital few' + outcome identification"
+        },
+        {
+          "input": "二八法则：哪些关键少数的因素决定了大部分的结果？",
+          "expected": true,
+          "reason": "Chinese triggers: '二八法则' + '关键少数' (vital few)"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for tasks requiring exhaustive analysis or time-based classification",
+      "prompts": [
+        {
+          "input": "I need to ensure every item on this safety checklist is completed",
+          "expected": false,
+          "reason": "Compliance/safety requires all items, not 80/20 optimization"
+        },
+        {
+          "input": "Separate these tasks into urgent vs important categories",
+          "expected": false,
+          "reason": "Time-based classification should trigger eisenhower-matrix, not pareto-principle"
+        },
+        {
+          "input": "We need a complete list of all possible risks with no items omitted",
+          "expected": false,
+          "reason": "Exhaustive analysis contradicts pareto focus; should use inversion or systems-thinking"
+        }
+      ]
+    }
+  ]
+}

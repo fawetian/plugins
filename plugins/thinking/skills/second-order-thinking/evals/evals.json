@@ -1,0 +1,61 @@
+{
+  "name": "second-order-thinking",
+  "version": "1.0.0",
+  "description": "Evaluations for second-order-thinking skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to trace downstream ripple effects and unintended consequences",
+      "prompts": [
+        {
+          "input": "二阶思维分析：如果我们做了这个决策，会产生什么连锁反应？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '二阶思维' (second-order thinking) + downstream effects"
+        },
+        {
+          "input": "Before we change pricing, think about second-order effects: what happens next?",
+          "expected": true,
+          "reason": "Explicit trigger 'second-order effects' + consequence tracing"
+        },
+        {
+          "input": "然后呢？然后呢？然后呢？——追踪这个决策的连锁反应",
+          "expected": true,
+          "reason": "Chinese trigger '然后呢' (and then what) x3 + ripple effect tracing"
+        },
+        {
+          "input": "What are the downstream implications of switching to microservices?",
+          "expected": true,
+          "reason": "Trigger 'downstream implications' + consequence analysis"
+        },
+        {
+          "input": "这个政策改变会有什么意想不到的后果吗？",
+          "expected": true,
+          "reason": "Chinese trigger '意想不到的后果' (unintended consequences)"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for immediate decisions, known consequences, or first-order analysis",
+      "prompts": [
+        {
+          "input": "We need to respond to this customer complaint right now",
+          "expected": false,
+          "reason": "Immediate action needed; should trigger OODA-loop not second-order thinking"
+        },
+        {
+          "input": "What's the direct impact of this code change on performance?",
+          "expected": false,
+          "reason": "First-order cause-effect only; doesn't require second-order analysis"
+        },
+        {
+          "input": "这是一个简单的 bug 修复，不需要复杂分析",
+          "expected": false,
+          "reason": "Simple localized fix without ripple effects; skips second-order thinking"
+        }
+      ]
+    }
+  ]
+}

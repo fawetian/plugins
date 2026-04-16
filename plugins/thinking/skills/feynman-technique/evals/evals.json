@@ -1,0 +1,61 @@
+{
+  "name": "feynman-technique",
+  "version": "1.0.0",
+  "description": "Evaluations for feynman-technique skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to learn, explain simply, or verify understanding",
+      "prompts": [
+        {
+          "input": "用大白话给我解释 Raft 共识算法",
+          "expected": true,
+          "reason": "Chinese trigger '用大白话' + explain request"
+        },
+        {
+          "input": "explain Kubernetes networking like I'm five",
+          "expected": true,
+          "reason": "English trigger 'explain like I'm five'"
+        },
+        {
+          "input": "我理解对了吗？帮我验证一下我对 CRDT 的理解",
+          "expected": true,
+          "reason": "Chinese trigger '我理解对了吗'"
+        },
+        {
+          "input": "用费曼方法帮我学习分布式事务",
+          "expected": true,
+          "reason": "Exact Chinese trigger '费曼'"
+        },
+        {
+          "input": "ELI5: how does gRPC differ from REST?",
+          "expected": true,
+          "reason": "English trigger 'ELI5'"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-learning requests",
+      "prompts": [
+        {
+          "input": "Fix the bug in the authentication middleware",
+          "expected": false,
+          "reason": "Bug fix request, not a learning exercise"
+        },
+        {
+          "input": "帮我做个 MECE 分析",
+          "expected": false,
+          "reason": "MECE request, should trigger mece skill"
+        },
+        {
+          "input": "Why does this service keep crashing? Root cause please",
+          "expected": false,
+          "reason": "Root cause analysis, should trigger five-whys"
+        }
+      ]
+    }
+  ]
+}

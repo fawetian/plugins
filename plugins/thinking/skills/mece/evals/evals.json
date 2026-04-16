@@ -1,0 +1,56 @@
+{
+  "name": "mece",
+  "version": "1.0.0",
+  "description": "Evaluations for mece skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants structured decomposition",
+      "prompts": [
+        {
+          "input": "帮我用 MECE 把这个问题拆解一下",
+          "expected": true,
+          "reason": "Exact Chinese trigger 'MECE'"
+        },
+        {
+          "input": "不重不漏地分析一下用户流失的原因",
+          "expected": true,
+          "reason": "Chinese trigger '不重不漏'"
+        },
+        {
+          "input": "I need a mutually exclusive breakdown of our revenue streams",
+          "expected": true,
+          "reason": "English trigger 'mutually exclusive'"
+        },
+        {
+          "input": "帮我做个结构化分析，把所有可能的原因分类",
+          "expected": true,
+          "reason": "Chinese trigger '结构化分析' + '分类'"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for other thinking tools or non-thinking requests",
+      "prompts": [
+        {
+          "input": "用第一性原理分析这个问题",
+          "expected": false,
+          "reason": "First principles request, not MECE"
+        },
+        {
+          "input": "Write unit tests for the auth module",
+          "expected": false,
+          "reason": "Code task, should trigger coding skills"
+        },
+        {
+          "input": "这个 bug 为什么反复出现？",
+          "expected": false,
+          "reason": "Root cause analysis, should trigger five-whys"
+        }
+      ]
+    }
+  ]
+}

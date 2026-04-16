@@ -1,0 +1,61 @@
+{
+  "name": "occam-hanlon-razor",
+  "version": "1.0.0",
+  "description": "Evaluations for occam-hanlon-razor skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user suspects analysis paralysis, over-complexity, or conspiracy thinking",
+      "prompts": [
+        {
+          "input": "用奥卡姆剃刀分析这个问题的最简单解释",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '奥卡姆' (Occam)"
+        },
+        {
+          "input": "I keep overthinking this. What's the simplest explanation for why this broke?",
+          "expected": true,
+          "reason": "Triggers: 'overthinking' (analysis paralysis) + 'simplest explanation'"
+        },
+        {
+          "input": "他是不是故意的？还是就是不知道？用汉隆剃刀分析下",
+          "expected": true,
+          "reason": "Chinese trigger '汉隆' (Hanlon) + malice vs incompetence question"
+        },
+        {
+          "input": "I'm stuck in analysis paralysis. Apply Occam's razor to cut through the complexity",
+          "expected": true,
+          "reason": "Explicit triggers: 'analysis paralysis' + 'Occam's razor'"
+        },
+        {
+          "input": "过度分析了吧？最简单的解释应该是对的",
+          "expected": true,
+          "reason": "Chinese triggers: '过度分析' (over-analysis) + simplicity principle"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for deep analysis, known adversarial scenarios, or non-explanation requests",
+      "prompts": [
+        {
+          "input": "This is a known security incident - I need to analyze all attack vectors in detail",
+          "expected": false,
+          "reason": "Known adversarial scenario; razors don't apply when malice is certain"
+        },
+        {
+          "input": "Help me debug this application using structured root cause analysis",
+          "expected": false,
+          "reason": "Systematic debugging should trigger five-whys, not razors"
+        },
+        {
+          "input": "我们需要穷尽分析所有可能性，不能遗漏任何选项",
+          "expected": false,
+          "reason": "Exhaustive analysis requirement contradicts razor philosophy; should use MECE"
+        }
+      ]
+    }
+  ]
+}

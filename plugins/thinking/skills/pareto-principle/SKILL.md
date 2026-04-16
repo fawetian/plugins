@@ -1,0 +1,74 @@
+---
+name: pareto-principle
+description: Pareto Principle (80/20 Rule) — identify the vital few inputs that drive the majority of outcomes. Use when prioritizing work, allocating resources, or cutting scope. Triggers: "pareto", "80/20", "帕累托", "二八法则", "vital few", "关键少数", "prioritize", "优先级", "focus on what matters".
+userInvocable: true
+---
+
+# Pareto Principle (帕累托 / 80-20 法则)
+
+## Core Philosophy
+**Focus on the vital few, ignore the trivial many.** Roughly 80% of outcomes come from 20% of inputs. Find that 20%.
+
+## Constraints
+- ALL output must be in Chinese (中文)
+- Always quantify (or estimate) the impact distribution
+- Don't blindly apply 80/20 — validate with data when possible
+- Use `templates/pareto-analysis.md` as output structure
+
+## When to Use
+- 资源有限需要聚焦
+- 任务清单过长需要砍 scope
+- 优化性能/成本/质量时找杠杆点
+- 评估投入产出比
+
+## When NOT to Use
+- 所有选项同等重要（安全合规清单 — 每项都必须做）
+- 需要穷尽分析不能遗漏（→ `mece`）
+- 问题不是"做什么"而是"怎么想"（→ `first-principles`）
+
+## Workflow
+
+### Step 1: 列出所有输入项
+把所有候选项 / 任务 / 因素列出来：
+
+| # | 输入项 | 预期产出/影响 | 所需投入 |
+|---|--------|-------------|---------|
+| 1 | ... | ... | ... |
+
+### Step 2: 估算影响分布
+为每个输入项打分或量化其贡献：
+- 如果有数据 → 用数据
+- 如果没有 → 用团队共识估算（T-shirt sizing: S/M/L/XL）
+
+### Step 3: 排序并画分布
+按影响从大到小排序，计算累计百分比：
+
+| 排名 | 输入项 | 影响占比 | 累计占比 |
+|------|--------|---------|---------|
+| 1 | ... | 35% | 35% |
+| 2 | ... | 25% | 60% |
+| 3 | ... | 15% | 75% |
+| ... | ... | ... | ... |
+
+### Step 4: 画线——找到"关键少数"
+在累计占比达到 ~80% 处画线：
+- **线上**：关键少数（必须做）
+- **线下**：琐碎多数（可以延后/砍掉/委派）
+
+### Step 5: 决策
+对关键少数：
+- 优先投入资源
+- 设定明确的成功标准
+
+对琐碎多数：
+- 延后 / 砍掉 / 简化 / 委派
+- 记录为什么不做（避免被重新提起时重复讨论）
+
+## Output
+生成优先级分析报告。使用 `templates/pareto-analysis.md` 模板。
+
+## See Also
+- `eisenhower-matrix` — 艾森豪威尔：按紧急/重要做进一步分类
+- `mece` — MECE：确保候选项列表不遗漏
+- `ooda-loop` — OODA：排完优先级后快速执行
+- `thinking-selector` — 不确定用哪个？

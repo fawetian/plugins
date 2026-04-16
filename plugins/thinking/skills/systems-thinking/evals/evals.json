@@ -1,0 +1,61 @@
+{
+  "name": "systems-thinking",
+  "version": "1.0.0",
+  "description": "Evaluations for systems-thinking skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user encounters feedback loops, bottlenecks, or emergent system behaviors",
+      "prompts": [
+        {
+          "input": "系统思考：为什么修复了 A 问题，B 问题反而变差了？",
+          "expected": true,
+          "reason": "Chinese trigger '系统思考' + feedback loop identification"
+        },
+        {
+          "input": "Use systems thinking to map the feedback loops in our organizational bottleneck",
+          "expected": true,
+          "reason": "Explicit trigger 'systems thinking' + 'feedback loops' + 'bottleneck'"
+        },
+        {
+          "input": "这个系统有什么杠杆点（leverage point）？我们该在哪里干预？",
+          "expected": true,
+          "reason": "Chinese trigger '杠杆点' (leverage point) + system intervention"
+        },
+        {
+          "input": "Why does increasing sales team size make them less productive? Identify the feedback loops",
+          "expected": true,
+          "reason": "Trigger 'feedback loops' + counterintuitive emergent behavior"
+        },
+        {
+          "input": "反馈回路和涌现行为：为什么简单的规则产生了复杂的结果？",
+          "expected": true,
+          "reason": "Chinese triggers: '反馈回路' (feedback loop) + '涌现' (emergent behavior)"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for linear cause-effect problems, immediate action, or single-component learning",
+      "prompts": [
+        {
+          "input": "This API endpoint is slow. What's the root cause?",
+          "expected": false,
+          "reason": "Linear problem; should trigger five-whys for root cause analysis"
+        },
+        {
+          "input": "紧急！服务宕机了，需要立即恢复",
+          "expected": false,
+          "reason": "Incident response; should trigger OODA-loop not systems-thinking"
+        },
+        {
+          "input": "Explain how this design pattern works",
+          "expected": false,
+          "reason": "Knowledge/learning request, not system behavior analysis"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "eisenhower-matrix",
+  "version": "1.0.0",
+  "description": "Evaluations for eisenhower-matrix skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user is overwhelmed and needs to classify tasks by urgency and importance",
+      "prompts": [
+        {
+          "input": "用艾森豪威尔矩阵帮我整理这些任务的优先级",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '艾森豪威尔'"
+        },
+        {
+          "input": "I'm overwhelmed with too many tasks. Help me separate urgent from important",
+          "expected": true,
+          "reason": "Triggers: 'overwhelmed' + 'urgent vs important' classification"
+        },
+        {
+          "input": "事情太多了，紧急和重要该怎么区分？需要做任务排序",
+          "expected": true,
+          "reason": "Chinese triggers: '事情太多' (overwhelmed) + '紧急重要' + '任务排序'"
+        },
+        {
+          "input": "Apply the Eisenhower matrix to prioritize this project",
+          "expected": true,
+          "reason": "Explicit English trigger 'Eisenhower matrix'"
+        },
+        {
+          "input": "我感觉一直在救火。怎样区分紧急和重要来改变这个局面？",
+          "expected": true,
+          "reason": "Chinese context: firefighting + urgent/important distinction needed"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for single-item decisions, impact-based prioritization, or deep analysis",
+      "prompts": [
+        {
+          "input": "I have one critical bug to fix right now",
+          "expected": false,
+          "reason": "Single item doesn't need matrix classification; use OODA for quick decision"
+        },
+        {
+          "input": "哪 20% 的功能贡献了最多价值？怎样优化？",
+          "expected": false,
+          "reason": "Impact-based prioritization should trigger pareto-principle"
+        },
+        {
+          "input": "Deep analysis of this system's architectural problems",
+          "expected": false,
+          "reason": "Architectural analysis should trigger systems-thinking or first-principles"
+        }
+      ]
+    }
+  ]
+}

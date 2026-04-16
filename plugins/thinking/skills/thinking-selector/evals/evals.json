@@ -1,0 +1,56 @@
+{
+  "name": "thinking-selector",
+  "version": "1.0.0",
+  "description": "Evaluations for thinking-selector skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user is unsure which thinking tool to use",
+      "prompts": [
+        {
+          "input": "帮我分析这个问题该用什么思考方法",
+          "expected": true,
+          "reason": "Chinese trigger '帮我分析' + meta-question about thinking approach"
+        },
+        {
+          "input": "which thinking framework should I use for this?",
+          "expected": true,
+          "reason": "English trigger 'which framework'"
+        },
+        {
+          "input": "I need to think about this more structured, what tools do you have?",
+          "expected": true,
+          "reason": "Trigger 'structured thinking' + tool discovery intent"
+        },
+        {
+          "input": "用什么方法思考这个架构问题比较好？",
+          "expected": true,
+          "reason": "Chinese trigger '用什么方法思考'"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for specific thinking tools or non-thinking requests",
+      "prompts": [
+        {
+          "input": "用第一性原理分析这个问题",
+          "expected": false,
+          "reason": "User already chose first-principles, should trigger that skill instead"
+        },
+        {
+          "input": "Help me write a Python class for data processing",
+          "expected": false,
+          "reason": "Code writing request, should trigger coding skills"
+        },
+        {
+          "input": "Create a product roadmap for next quarter",
+          "expected": false,
+          "reason": "Product planning request, should trigger roadmap-planner"
+        }
+      ]
+    }
+  ]
+}

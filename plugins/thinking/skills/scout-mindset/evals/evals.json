@@ -1,0 +1,61 @@
+{
+  "name": "scout-mindset",
+  "version": "1.0.0",
+  "description": "Evaluations for scout-mindset skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to actively seek truth vs defending existing beliefs",
+      "prompts": [
+        {
+          "input": "侦察兵心态分析：我是不是因为确认偏误而坚持这个想法？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '侦察兵心态' (scout mindset) + bias recognition"
+        },
+        {
+          "input": "I think my design is better, but am I biased? Help me practice scout mindset",
+          "expected": true,
+          "reason": "Explicit trigger 'scout mindset' + bias self-check"
+        },
+        {
+          "input": "我有偏见吗？有什么反证能说明我错了？",
+          "expected": true,
+          "reason": "Chinese trigger '我有偏见吗' (am I biased) + seeking disconfirming evidence"
+        },
+        {
+          "input": "Challenge my thinking: what would convince me I'm wrong about this approach?",
+          "expected": true,
+          "reason": "Trigger 'challenge my thinking' + truth-seeking stance"
+        },
+        {
+          "input": "在这个讨论中，我是在赢辩论还是在追求真相？",
+          "expected": true,
+          "reason": "Chinese context: soldier vs scout mindset distinction question"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for quick action, technical issues, or when facts are clear",
+      "prompts": [
+        {
+          "input": "紧急情况，需要立即做决定，没时间思考偏见",
+          "expected": false,
+          "reason": "Time pressure; should trigger OODA-loop not scout-mindset"
+        },
+        {
+          "input": "This API is returning 500 errors. How do I fix it?",
+          "expected": false,
+          "reason": "Technical problem with clear solution, not a belief/bias question"
+        },
+        {
+          "input": "这个政策违反了法律，没有什么立场对错之说",
+          "expected": false,
+          "reason": "Clear legal facts; scout mindset doesn't apply to objective facts"
+        }
+      ]
+    }
+  ]
+}

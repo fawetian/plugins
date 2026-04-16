@@ -1,0 +1,27 @@
+{
+  "name": "thinking",
+  "version": "0.1.0",
+  "description": "思维工具集：第一性原理、系统思考、反向思维、OODA 等 16 个心智模型，覆盖技术决策、产品决策、通用问题求解",
+  "author": { "name": "fawetian" },
+  "license": "MIT",
+  "keywords": ["thinking", "mental-models", "first-principles", "systems-thinking", "decision-making", "frameworks"],
+  "skills": [
+    "./skills/thinking-selector",
+    "./skills/first-principles",
+    "./skills/mece",
+    "./skills/five-whys",
+    "./skills/feynman-technique",
+    "./skills/ooda-loop",
+    "./skills/occam-hanlon-razor",
+    "./skills/pareto-principle",
+    "./skills/eisenhower-matrix",
+    "./skills/inversion",
+    "./skills/second-order-thinking",
+    "./skills/systems-thinking",
+    "./skills/margin-of-safety",
+    "./skills/pre-mortem",
+    "./skills/scout-mindset",
+    "./skills/steelmanning",
+    "./skills/circle-of-competence"
+  ]
+}

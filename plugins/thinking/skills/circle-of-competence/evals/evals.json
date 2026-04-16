@@ -1,0 +1,61 @@
+{
+  "name": "circle-of-competence",
+  "version": "1.0.0",
+  "description": "Evaluations for circle-of-competence skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user needs to clarify what they know vs don't know",
+      "prompts": [
+        {
+          "input": "能力圈分析：这个话题我真的懂吗？还是超出了我的专业范围？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '能力圈' (circle of competence) + expertise boundary"
+        },
+        {
+          "input": "Before I give advice on this, let me assess my circle of competence",
+          "expected": true,
+          "reason": "Explicit English trigger 'circle of competence' + self-assessment"
+        },
+        {
+          "input": "我真的懂区块链吗？还是我在能力圈外说话？",
+          "expected": true,
+          "reason": "Chinese trigger '我真的懂吗' (do I actually know) + overconfidence check"
+        },
+        {
+          "input": "Know your limits: am I qualified to make this decision or should I delegate?",
+          "expected": true,
+          "reason": "Trigger 'know your limits' + delegation decision"
+        },
+        {
+          "input": "这个领域我有 10 年经验，那个领域我完全不懂——怎样区分？",
+          "expected": true,
+          "reason": "Chinese context: core competence vs blind spots identification"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for learning new skills, analyzing specific problems, or quick decisions",
+      "prompts": [
+        {
+          "input": "How do I learn Kubernetes? What resources should I use?",
+          "expected": false,
+          "reason": "Learning request; should trigger feynman-technique to expand circle, not assess boundaries"
+        },
+        {
+          "input": "Fast decision needed on this technical issue",
+          "expected": false,
+          "reason": "Time pressure; should trigger OODA-loop or pragmatic problem-solving"
+        },
+        {
+          "input": "Why is this system slow? Help me debug",
+          "expected": false,
+          "reason": "Concrete problem-solving, not competence boundary assessment"
+        }
+      ]
+    }
+  ]
+}

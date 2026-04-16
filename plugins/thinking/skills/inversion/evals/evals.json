@@ -1,0 +1,61 @@
+{
+  "name": "inversion",
+  "version": "1.0.0",
+  "description": "Evaluations for inversion skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to identify risks by flipping the problem or asking how to fail",
+      "prompts": [
+        {
+          "input": "用反向思维分析：如果我想让这个项目彻底失败，我会做什么？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '反向思维' + 'how to guarantee failure' scenario"
+        },
+        {
+          "input": "Before we launch, let's use inversion thinking: what could kill this product?",
+          "expected": true,
+          "reason": "Explicit English trigger 'inversion thinking' + risk identification"
+        },
+        {
+          "input": "逆向思维来分析：我怎样才能搞砸这个架构迁移？",
+          "expected": true,
+          "reason": "Chinese trigger '逆向思维' (inversion) + failure scenario"
+        },
+        {
+          "input": "Instead of asking how to succeed, flip it: how would I guarantee failure?",
+          "expected": true,
+          "reason": "Explicit inversion framing: flip the problem"
+        },
+        {
+          "input": "这个方案有什么风险？用'如何失败'的角度来分析",
+          "expected": true,
+          "reason": "Chinese trigger '如何失败' (how to fail) + risk assessment context"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for normal problem-solving, time-constrained scenarios, or post-failure analysis",
+      "prompts": [
+        {
+          "input": "快速应对线上故障，需要立即行动",
+          "expected": false,
+          "reason": "Time-pressured incident; should trigger OODA-loop not inversion"
+        },
+        {
+          "input": "Why did this deployment fail? Let's do root cause analysis",
+          "expected": false,
+          "reason": "Post-failure analysis should trigger five-whys, not inversion"
+        },
+        {
+          "input": "I'm tired of overthinking. Just implement the solution now",
+          "expected": false,
+          "reason": "User wants to skip analysis; inversion doesn't apply here"
+        }
+      ]
+    }
+  ]
+}

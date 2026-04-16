@@ -1,0 +1,61 @@
+{
+  "name": "five-whys",
+  "version": "1.0.0",
+  "description": "Evaluations for five-whys skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger for root cause analysis and post-mortems",
+      "prompts": [
+        {
+          "input": "帮我做个五个为什么分析",
+          "expected": true,
+          "reason": "Exact Chinese trigger '五个为什么'"
+        },
+        {
+          "input": "Let's do a 5 whys analysis on this outage",
+          "expected": true,
+          "reason": "Exact English trigger '5 whys'"
+        },
+        {
+          "input": "为什么这个 bug 总是反复出现？做个根因分析",
+          "expected": true,
+          "reason": "Chinese trigger '为什么总是' + '根因分析'"
+        },
+        {
+          "input": "post-mortem for yesterday's deployment failure",
+          "expected": true,
+          "reason": "Trigger 'post-mortem' in incident context"
+        },
+        {
+          "input": "昨天的事故复盘一下",
+          "expected": true,
+          "reason": "Chinese trigger '复盘'"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for non-root-cause requests",
+      "prompts": [
+        {
+          "input": "Create a new API endpoint for user authentication",
+          "expected": false,
+          "reason": "Feature implementation, not root cause analysis"
+        },
+        {
+          "input": "帮我理解 Kubernetes 的网络模型",
+          "expected": false,
+          "reason": "Learning request, should trigger feynman-technique"
+        },
+        {
+          "input": "用第一性原理重新设计我们的支付系统",
+          "expected": false,
+          "reason": "First principles redesign, not root cause analysis"
+        }
+      ]
+    }
+  ]
+}

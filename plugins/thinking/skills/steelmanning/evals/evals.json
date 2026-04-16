@@ -1,0 +1,61 @@
+{
+  "name": "steelmanning",
+  "version": "1.0.0",
+  "description": "Evaluations for steelmanning skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to construct the strongest version of an opposing argument",
+      "prompts": [
+        {
+          "input": "稻草人加强分析：对方最强的论点是什么？我该怎样公平地对待它？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '稻草人加强' (steelmanning) + strongest argument"
+        },
+        {
+          "input": "Before I dismiss their proposal, let me steelman their best argument",
+          "expected": true,
+          "reason": "Explicit English trigger 'steelman' + fair opposing argument"
+        },
+        {
+          "input": "对方的最强论点是什么？用稻草人加强把它表述得更好",
+          "expected": true,
+          "reason": "Chinese context: '最强版本' (strongest version) + steelmanning request"
+        },
+        {
+          "input": "In this design review, I disagree with their approach. What's their strongest case?",
+          "expected": true,
+          "reason": "Trigger 'strongest case' + disagreement context"
+        },
+        {
+          "input": "我本能反对这个观点，但让我先构建最强版本的论证",
+          "expected": true,
+          "reason": "Chinese context: natural opposition + constructing best argument"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for refutation of factual errors, quick decisions, or identical viewpoints",
+      "prompts": [
+        {
+          "input": "Their claim is factually wrong. Let me correct the facts first",
+          "expected": false,
+          "reason": "Factual error correction; steelmanning only applies after facts are correct"
+        },
+        {
+          "input": "快速做决定，没时间听对方的论点",
+          "expected": false,
+          "reason": "Time pressure; should trigger OODA-loop not steelmanning"
+        },
+        {
+          "input": "We both agree on this approach, so let's move forward",
+          "expected": false,
+          "reason": "No disagreement/opposing argument; steelmanning not applicable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "pre-mortem",
+  "version": "1.0.0",
+  "description": "Evaluations for pre-mortem skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user imagines project failure to identify hidden risks before launch",
+      "prompts": [
+        {
+          "input": "事前验尸分析：假设这个项目失败了，可能原因是什么？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '事前验尸' (pre-mortem) + failure assumption"
+        },
+        {
+          "input": "Before we ship, imagine this product failed miserably. What went wrong?",
+          "expected": true,
+          "reason": "Trigger 'imagine failure' + pre-launch risk assessment"
+        },
+        {
+          "input": "Premortem 分析：今天是 3 个月后，这个功能彻底失败了",
+          "expected": true,
+          "reason": "Direct English trigger 'Premortem' + failure scenario"
+        },
+        {
+          "input": "假设失败了，工程、人员、流程、外部因素各方面可能出了什么问题？",
+          "expected": true,
+          "reason": "Chinese trigger '假设失败' (imagine failure) + multi-dimensional analysis"
+        },
+        {
+          "input": "发布前检查：这个项目有什么隐藏风险可能导致失败？",
+          "expected": true,
+          "reason": "Chinese context: '发布前检查' (launch readiness) + hidden risk identification"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for post-failure analysis, simple troubleshooting, or success planning",
+      "prompts": [
+        {
+          "input": "Why did the last launch fail? Let's analyze what happened",
+          "expected": false,
+          "reason": "Post-failure analysis should trigger five-whys for root cause, not pre-mortem"
+        },
+        {
+          "input": "这个 bug 怎么修复？",
+          "expected": false,
+          "reason": "Simple technical troubleshooting, not risk assessment"
+        },
+        {
+          "input": "How should we celebrate this successful project launch?",
+          "expected": false,
+          "reason": "Success planning, not failure scenario analysis"
+        }
+      ]
+    }
+  ]
+}
