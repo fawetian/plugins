@@ -46,9 +46,18 @@ code-research 我想为这个项目贡献代码
 研究结果以中文输出，保存在项目的 `docs/code-research/` 目录下：
 
 - `RESEARCH_PLAN.md` — 研究计划与汇总，包含各主题文档索引
-- `architecture.md` — 架构概览（含 Mermaid 图表）
-- `mechanism.md` — 核心机制说明
-- `data_flow.md` — 数据流与状态管理
-- `dependencies.md` — 依赖关系与生态
-- `workflow.md` — 核心工作流（端到端业务流程 + 模块内部执行流程）
-- `learning_path.md` — 学习路径建议
+- `01_architecture.md` — 架构概览（含 Mermaid 图表）
+- `02_mechanism_[名称].md` — 核心机制说明
+- `03_data_flow.md` — 数据流与状态管理
+- `04_dependencies.md` — 依赖关系与生态
+- `05_workflow.md` — 核心工作流（端到端业务流程 + 模块内部执行流程）
+- `06_learning_path.md` — 学习路径建议
+
+## 重复调用
+
+如果 `docs/code-research/` 已存在，skill 会自动检测并让用户选择：
+
+- **完整覆盖**：删除旧文件，重新研究（适合代码大幅变化后）
+- **继续未完成**：只补充缺失的专题文件（适合上次中断的研究）
+- **归档后重来**：旧文件重命名为 `_archived_日期/` 后缀，重新开始
+- **研究新专题**：在子目录 `docs/code-research/{topic}/` 下做专项研究，不影响已有研究
