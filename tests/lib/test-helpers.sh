@@ -4,6 +4,16 @@
 
 set -euo pipefail
 
+# macOS compatibility: use gtimeout if timeout not available
+if ! command -v timeout &> /dev/null; then
+    if command -v gtimeout &> /dev/null; then
+        timeout() { gtimeout "$@"; }
+    else
+        # Fallback: run without timeout (not ideal but works)
+        timeout() { shift; "$@"; }
+    fi
+fi
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -38,6 +48,7 @@ run_claude_with_plugin() {
         --plugin-dir "$plugin_dir" \
         --dangerously-skip-permissions \
         --max-turns "$max_turns" \
+        --verbose \
         --output-format stream-json \
         > "$output_file" 2>&1; then
         cat "$output_file"

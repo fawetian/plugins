@@ -38,24 +38,29 @@ rules/
 
 ## 安装
 
-> **重要：** 复制整个目录 —— 不要用 `/*` 扁平化。
+> **重要：** 保持目录结构 —— 不要用 `/*` 扁平化。
 > Common 和语言专用目录包含同名文件。
 > 将它们扁平化到一个目录会导致语言专用文件覆盖通用规则，
 > 并破坏语言专用文件使用的相对 `../common/` 引用。
 
+将仓库 clone 到固定位置（如 `~/.ai-workspace/`），然后用符号链接：
+
 ```bash
+RULES_SRC=~/.ai-workspace/rules   # 调整为你的 clone 路径
+mkdir -p ~/.claude/rules
+
 # 安装通用规则（所有项目必需）
-cp -r rules/common ~/.claude/rules/common
+ln -sf "$RULES_SRC/common" ~/.claude/rules/common
 
 # 根据项目技术栈安装语言专用规则
-cp -r rules/typescript ~/.claude/rules/typescript
-cp -r rules/python ~/.claude/rules/python
-cp -r rules/golang ~/.claude/rules/golang
-cp -r rules/rust ~/.claude/rules/rust
-cp -r rules/shell ~/.claude/rules/shell
-cp -r rules/swift ~/.claude/rules/swift
+ln -sf "$RULES_SRC/typescript" ~/.claude/rules/typescript
+ln -sf "$RULES_SRC/python" ~/.claude/rules/python
+ln -sf "$RULES_SRC/golang" ~/.claude/rules/golang
+ln -sf "$RULES_SRC/rust" ~/.claude/rules/rust
+ln -sf "$RULES_SRC/shell" ~/.claude/rules/shell
+ln -sf "$RULES_SRC/swift" ~/.claude/rules/swift
 
-# （可选）安装用户个性化配置 —— 先填写模板内容
+# （可选）安装用户个性化配置 —— 复制（不要链接），因为需要编辑这些文件
 cp rules/me/CLAUDE.md ~/.claude/CLAUDE.md
 cp rules/me/USER.md   ~/.claude/USER.md
 cp rules/me/SOUL.md   ~/.claude/SOUL.md
@@ -63,6 +68,7 @@ cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 
 # 注意！！！根据实际项目需求配置；此处配置仅供参考。
 ```
+
 
 ## Rules vs Skills
 

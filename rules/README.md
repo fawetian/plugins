@@ -37,25 +37,30 @@ rules/
 
 ## Installation
 
-> **Important:** Copy entire directories — do NOT flatten with `/*`.
+> **Important:** Keep directory structure intact — do NOT flatten with `/*`.
 > Common and language-specific directories contain files with the same names.
 > Flattening them into one directory causes language-specific files to overwrite
 > common rules, and breaks the relative `../common/` references used by
 > language-specific files.
 
+Clone the repo to a fixed location (e.g. `~/.ai-workspace/`), then symlink:
+
 ```bash
+RULES_SRC=~/.ai-workspace/rules   # adjust to your clone path
+mkdir -p ~/.claude/rules
+
 # Install common rules (required for all projects)
-cp -r rules/common ~/.claude/rules/common
+ln -sf "$RULES_SRC/common" ~/.claude/rules/common
 
 # Install language-specific rules based on your project's tech stack
-cp -r rules/typescript ~/.claude/rules/typescript
-cp -r rules/python ~/.claude/rules/python
-cp -r rules/golang ~/.claude/rules/golang
-cp -r rules/rust ~/.claude/rules/rust
-cp -r rules/shell ~/.claude/rules/shell
-cp -r rules/swift ~/.claude/rules/swift
+ln -sf "$RULES_SRC/typescript" ~/.claude/rules/typescript
+ln -sf "$RULES_SRC/python" ~/.claude/rules/python
+ln -sf "$RULES_SRC/golang" ~/.claude/rules/golang
+ln -sf "$RULES_SRC/rust" ~/.claude/rules/rust
+ln -sf "$RULES_SRC/shell" ~/.claude/rules/shell
+ln -sf "$RULES_SRC/swift" ~/.claude/rules/swift
 
-# (Optional) Install user personalization — fill in the templates first
+# (Optional) Install user personalization — copy (not link) since you'll edit these
 cp rules/me/CLAUDE.md ~/.claude/CLAUDE.md
 cp rules/me/USER.md   ~/.claude/USER.md
 cp rules/me/SOUL.md   ~/.claude/SOUL.md
@@ -63,6 +68,7 @@ cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 
 # Attention ! ! ! Configure according to your actual project requirements; the configuration here is for reference only.
 ```
+
 
 ## Rules vs Skills
 
