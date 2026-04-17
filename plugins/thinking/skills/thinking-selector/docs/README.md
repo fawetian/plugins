@@ -26,7 +26,7 @@ Don't know which thinking tool to use? Start here. The selector analyzes your pr
 
 ## How It Works
 
-1. Classifies your problem into one of 4 categories: decomposition, decision-making, risk assessment, or bias correction
+1. Classifies your problem into one of 4 categories: decomposition, decision-making, risk assessment, or cognition and argumentation
 2. Considers time constraints and information availability
 3. Recommends 1 primary tool + 1-2 complementary tools
 4. Explains WHY the match works
@@ -38,5 +38,5 @@ Don't know which thinking tool to use? Start here. The selector analyzes your pr
 ├── 需要拆解 → first-principles / mece / five-whys / feynman-technique
 ├── 需要决策 → ooda-loop / occam-hanlon-razor / pareto-principle / eisenhower-matrix
 ├── 需要预判风险 → inversion / second-order-thinking / systems-thinking / margin-of-safety / pre-mortem
-└── 需要对抗偏见 → scout-mindset / steelmanning / circle-of-competence
+└── 需要对抗偏见/审计论证 → scout-mindset / steelmanning / circle-of-competence / critical-thinking
 ```

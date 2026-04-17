@@ -41,10 +41,11 @@ userInvocable: true
 │   ├── 估算需要留缓冲？ → margin-of-safety (安全边际)
 │   └── 重要发布前的风险检查？ → pre-mortem (事前验尸)
 │
-└── 需要对抗偏见 → 进入「认知健康」
+└── 需要对抗偏见/审计论证 → 进入「认知与论证」
     ├── 可能在为已有结论找证据？ → scout-mindset (侦察兵心态)
     ├── 在反驳别人但可能不公平？ → steelmanning (稻草人加强)
-    └── 可能在能力圈外做判断？ → circle-of-competence (能力圈)
+    ├── 可能在能力圈外做判断？ → circle-of-competence (能力圈)
+    └── 需要审计论点/证据/推理的逻辑性？ → critical-thinking (批判性思维)
 ```
 
 ### 第二步：验证匹配

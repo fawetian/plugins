@@ -38,13 +38,14 @@ A curated collection of mental model skills for Claude Code — structured think
 | `margin-of-safety` | 安全边际 — 估算留缓冲 |
 | `pre-mortem` | 事前验尸 — 假设失败，倒推原因 |
 
-### Category D: Epistemic Health (认知健康)
+### Category D: Cognition & Argumentation (认知与论证)
 
 | Skill | Purpose |
 |-------|---------|
 | `scout-mindset` | 侦察兵心态 — 追求真相而非胜利 |
 | `steelmanning` | 稻草人加强 — 加强对手观点再回应 |
 | `circle-of-competence` | 能力圈 — 划清能力边界 |
+| `critical-thinking` | 批判性思维 — 审计论点、证据与推理链条 |
 
 ### Meta
 
