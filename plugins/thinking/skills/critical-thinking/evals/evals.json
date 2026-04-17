@@ -1,0 +1,81 @@
+{
+  "name": "critical-thinking",
+  "version": "1.0.0",
+  "description": "Evaluations for critical-thinking skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants to evaluate arguments, claims, or reasoning quality",
+      "prompts": [
+        {
+          "input": "批判性思维分析：这个技术方案的论证逻辑是否严密？",
+          "expected": true,
+          "reason": "Explicit Chinese trigger '批判性思维' + argument evaluation"
+        },
+        {
+          "input": "Evaluate this argument: we should use microservices because Netflix uses them",
+          "expected": true,
+          "reason": "Trigger 'evaluate this argument' + appeal to authority pattern"
+        },
+        {
+          "input": "这个推理对吗？因为上次用了 Redis 缓存性能提升了，所以这次也应该用",
+          "expected": true,
+          "reason": "Chinese trigger '这个推理对吗' + hasty generalization / post hoc pattern"
+        },
+        {
+          "input": "Help me find the logical fallacies in this proposal",
+          "expected": true,
+          "reason": "Trigger 'logical fallacies' + argument analysis context"
+        },
+        {
+          "input": "论证分析：团队说必须重写而非重构，因为技术债太多了",
+          "expected": true,
+          "reason": "Chinese trigger '论证分析' + evaluating a claim"
+        },
+        {
+          "input": "The PM says we need to ship this feature because our competitor launched it. Is this valid reasoning?",
+          "expected": true,
+          "reason": "Evaluating reasoning validity + appeal to competition pattern"
+        },
+        {
+          "input": "我刚做的这个技术决策推理过程对吗？帮我审计一下",
+          "expected": true,
+          "reason": "Self-reasoning audit — critical-thinking applies to own arguments too"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-general",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for bias self-checks, root cause analysis, or simple technical questions",
+      "prompts": [
+        {
+          "input": "我是不是有偏见？需要检视一下自己的想法",
+          "expected": false,
+          "reason": "Self-bias calibration (am I biased?); should trigger scout-mindset not critical-thinking"
+        },
+        {
+          "input": "Why does this API keep returning 500 errors?",
+          "expected": false,
+          "reason": "Root cause analysis; should trigger five-whys not critical-thinking"
+        },
+        {
+          "input": "帮我公平地理解对方的观点，然后再回应",
+          "expected": false,
+          "reason": "Fair reconstruction of opponent's argument; should trigger steelmanning"
+        },
+        {
+          "input": "从零开始重新思考这个系统的设计",
+          "expected": false,
+          "reason": "Rebuilding from scratch; should trigger first-principles"
+        },
+        {
+          "input": "How do I install React?",
+          "expected": false,
+          "reason": "Simple technical question, no argument evaluation needed"
+        }
+      ]
+    }
+  ]
+}
