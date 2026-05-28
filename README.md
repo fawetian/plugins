@@ -82,6 +82,10 @@ plugin-name/
 └── README.md            # Documentation
 ```
 
+## Adding Skills
+
+New skills should be added for both Claude and Codex by default. Follow the full maintenance checklist in [CLAUDE.md](./CLAUDE.md#adding-new-skills), including strict YAML frontmatter, bilingual docs, evals, version bumps, and both Claude/Codex validation commands.
+
 ## Agents (Subagents)
 
 Agents are specialized AI assistants that handle specific types of tasks. Each agent runs in its own context window with a custom system prompt, specific tool access, and independent permissions.

@@ -27,7 +27,7 @@ Automated testing framework for verifying skill triggering accuracy and output q
 
 | Layer | Script | What it tests | Speed |
 |-------|--------|---------------|-------|
-| 1. Structure | `structure/validate-plugins.sh` | plugin.json validity, skill/agent frontmatter, marketplace consistency | Instant |
+| 1. Structure | `structure/validate-plugins.sh` | Claude/Codex plugin.json validity, skill/agent frontmatter, marketplace consistency | Instant |
 | 2. Positive Trigger | `triggering/run-trigger-tests.sh` | Skills trigger on expected prompts | ~2min/prompt |
 | 3. Negative Trigger | `triggering/run-trigger-tests.sh` | Skills do NOT trigger on unrelated prompts | ~2min/prompt |
 | 4. Explicit Request | `explicit/run-explicit-tests.sh` | Named skill triggers + no premature actions | ~2min/prompt |
@@ -91,7 +91,12 @@ See `lib/eval-schema.json` for the full JSON Schema.
 1. Create `evals/evals.json` in the skill directory
 2. Add trigger evals (positive + negative prompts)
 3. Optionally add output quality checks
-4. Run: `./tests/run-all.sh --trigger --skill <name>`
+4. Run: `./tests/run-all.sh --structure`
+5. Run the Codex plugin validator when the parent plugin is published to Codex:
+   ```bash
+   python3 /Users/shanquan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/<plugin>
+   ```
+6. Run trigger tests when trigger behavior changed: `./tests/run-all.sh --trigger --skill <name>`
 
 ## Directory Structure
 

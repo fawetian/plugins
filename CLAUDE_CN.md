@@ -1,12 +1,12 @@
 # CLAUDE_CN.md
 
-本文件为 Claude Code (claude.ai/code) 在此仓库中工作时提供指导。
+本文件为 Claude Code (claude.ai/code) 和 Codex 在此仓库中工作时提供指导。
 
 [English](./CLAUDE.md)
 
 ## 项目概述
 
-Claude Code 插件市场 - 通过 GitHub 市场分发的插件集合。
+Claude Code / Codex 插件市场 - 通过 GitHub 市场分发的插件集合。
 
 ## 架构
 
@@ -14,10 +14,15 @@ Claude Code 插件市场 - 通过 GitHub 市场分发的插件集合。
 plugins/
 ├── .claude-plugin/
 │   └── marketplace.json    # 市场清单（pluginRoot 指向 ./plugins）
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json # Codex 市场清单
 └── plugins/                # 每个子目录是一个独立的插件
     └── {plugin-name}/
         ├── .claude-plugin/
-        │   └── plugin.json # 插件清单（skills 数组引用技能目录）
+        │   └── plugin.json # Claude 插件清单（skills 数组引用技能目录）
+        ├── .codex-plugin/
+        │   └── plugin.json # Codex 插件清单（skills: "./skills/"）
         ├── agents/         # 智能体定义（可选）
         │   └── {agent}.md  # 带有 YAML frontmatter 的智能体
         ├── skills/         # 技能定义
@@ -40,30 +45,60 @@ plugins/
 ## 新增 Skill/Plugin/Agent 前
 
 **务必先阅读官方文档**了解规范：
-- 插件: https://code.claude.com/docs/zh-CN/plugins
-- 技能: https://code.claude.com/docs/zh-CN/skills
-- 智能体: https://code.claude.com/docs/zh-CN/sub-agents
-- 市场: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Claude 插件: https://code.claude.com/docs/zh-CN/plugins
+- Claude 技能: https://code.claude.com/docs/zh-CN/skills
+- Claude 智能体: https://code.claude.com/docs/zh-CN/sub-agents
+- Claude 市场: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Codex 插件: https://developers.openai.com/codex/plugins
+- Codex 技能: https://developers.openai.com/codex/skills
 
 ## 关键约定
 
-- **市场 ID**: `fawetian-plugins`
-- **安装命令**: `/plugin install {plugin-name}@fawetian-plugins`
-- **技能**: 使用包含 `name` 和 `description` 字段的 YAML frontmatter 以便触发
+- **Claude 市场 ID**: `fawetian-plugins`
+- **Codex 市场 ID**: `fawetian-plugins-codex`
+- **Claude 安装命令**: `/plugin install {plugin-name}@fawetian-plugins`
+- **Codex 安装命令**: `codex plugin add {plugin-name}@fawetian-plugins-codex`
+- **技能**: 使用严格 YAML frontmatter，包含 `name` 和加引号的 `description` 字段以便触发
+- **双平台默认**: 新增 skill 必须同时支持 Claude 和 Codex，除非该插件明确只支持 Claude（例如 agents-only 的 `devops`）
 - **提交格式**: 使用中文描述的约定式提交（针对 git-ops 插件）
 - **文档同步**: 修改任何文档文件时必须同时更新中英文两个版本
-- **版本号更新**: 修改 skill 内容后，必须更新 `plugin.json` 中的版本号：
+- **版本号更新**: 修改 skill 内容后，如果 Claude 和 Codex manifest 都存在，必须同时更新两边 `plugin.json` 的版本号：
   - `PATCH` (1.0.x): Bug 修复、skill 内容小调整
   - `MINOR` (1.x.0): 新增 skill、新功能、skill 重大改动
   - `MAJOR` (x.0.0): 破坏性变更、重大重构
-  - 这是 Claude Code 通过 `/plugin update` 检测插件更新的必要条件
+  - `.claude-plugin/plugin.json`、`.codex-plugin/plugin.json` 和市场条目版本必须保持一致
 
 ## 添加新插件
 
 1. 在 `plugins/` 下创建目录
-2. 添加 `.claude-plugin/plugin.json`，包含 name、version、description、skills 数组
-3. 在 `skills/` 中创建带有 YAML frontmatter 的技能文件
-4. 在 `marketplace.json` 的 plugins 数组中注册插件
+2. 添加 `.claude-plugin/plugin.json`，包含 name、version、description；有 skills 时包含 skills 数组
+3. 为基于 skill 的插件添加 `.codex-plugin/plugin.json`，name/version/description 与 Claude 一致，并设置 `skills: "./skills/"`
+4. 在 `skills/` 中创建带有严格 YAML frontmatter 的技能文件
+5. 在 `.claude-plugin/marketplace.json` 中注册插件
+6. 在 `.agents/plugins/marketplace.json` 中注册基于 skill 的 Codex 插件
+7. agents-only 插件在暴露至少一个 Codex skill 前，不要注册到 Codex 市场
+
+## 添加新 Skill
+
+1. 创建 `plugins/<plugin>/skills/<skill>/SKILL.md`，使用英文。
+2. 使用严格 YAML frontmatter：
+   - `name`：小写连字符命名，并与目录名一致
+   - `description`：加引号的字符串，明确描述何时触发该 skill
+   - `userInvocable` 等可选字段也必须保持合法 YAML
+3. 添加 `docs/SKILL_CN.md` 和 `docs/README.md`，保持中英文 skill 文档同步。
+4. 添加 `evals/evals.json`，包含正向和负向触发提示词。
+5. 将 skill 路径加入 `.claude-plugin/plugin.json` 的 `skills[]`。
+6. 确认该插件存在 `.codex-plugin/plugin.json` 且使用 `skills: "./skills/"`；此布局下无需逐个更新 Codex skill 列表。
+7. 更新 Claude 和 Codex 两边插件版本，并同步更新市场中的版本。
+8. 运行：
+   ```bash
+   ./tests/run-all.sh --structure
+   python3 /Users/shanquan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/<plugin>
+   ```
+9. 如果改动影响触发行为，还要运行定向 eval：
+   ```bash
+   ./tests/run-all.sh --trigger --skill <skill>
+   ```
 
 ## Agent 规范
 
@@ -93,7 +128,7 @@ plugins/
 
 ## Skill 评估
 
-每个 skill 可以有一个 `evals/evals.json` 文件用于自动化测试。测试套件位于 `tests/` 目录。
+每个 skill 必须有一个 `evals/evals.json` 文件用于自动化测试。测试套件位于 `tests/` 目录。
 
 ```bash
 ./tests/run-all.sh --structure    # 快速结构检查（无需 Claude）
@@ -102,7 +137,7 @@ plugins/
 ./tests/run-all.sh                # 运行全部 5 层测试
 ```
 
-添加新 skill 时，创建包含触发提示词（正向 + 负向）的 `evals/evals.json`。schema 参见 `tests/lib/eval-schema.json`，详情参见 `tests/README.md`。
+添加新 skill 时，创建包含触发提示词（正向 + 负向）的 `evals/evals.json`。schema 参见 `tests/lib/eval-schema.json`，详情参见 `tests/README.md`。结构测试会同时校验 Claude 和 Codex manifest。
 
 ## MCP 集成
 
@@ -111,7 +146,9 @@ plugins/
 
 ## 官方文档
 
-- 插件: https://code.claude.com/docs/zh-CN/plugins
-- 技能: https://code.claude.com/docs/zh-CN/skills
-- 智能体: https://code.claude.com/docs/zh-CN/sub-agents
-- 市场: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Claude 插件: https://code.claude.com/docs/zh-CN/plugins
+- Claude 技能: https://code.claude.com/docs/zh-CN/skills
+- Claude 智能体: https://code.claude.com/docs/zh-CN/sub-agents
+- Claude 市场: https://code.claude.com/docs/zh-CN/plugin-marketplaces
+- Codex 插件: https://developers.openai.com/codex/plugins
+- Codex 技能: https://developers.openai.com/codex/skills

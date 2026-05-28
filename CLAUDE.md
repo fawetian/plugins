@@ -1,12 +1,12 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) and Codex when working with code in this repository.
 
 [中文版本](./CLAUDE_CN.md)
 
 ## Project Overview
 
-Claude Code Plugins Marketplace - a collection of plugins distributed via GitHub marketplace.
+Claude Code / Codex Plugins Marketplace - a collection of plugins distributed via GitHub marketplace.
 
 ## Architecture
 
@@ -14,10 +14,15 @@ Claude Code Plugins Marketplace - a collection of plugins distributed via GitHub
 plugins/
 ├── .claude-plugin/
 │   └── marketplace.json    # Marketplace manifest (pluginRoot points to ./plugins)
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json # Codex marketplace manifest
 └── plugins/                # Each subdirectory is a standalone plugin
     └── {plugin-name}/
         ├── .claude-plugin/
-        │   └── plugin.json # Plugin manifest (skills array references skill directories)
+        │   └── plugin.json # Claude plugin manifest (skills array references skill directories)
+        ├── .codex-plugin/
+        │   └── plugin.json # Codex plugin manifest (skills: "./skills/")
         ├── agents/         # Agent definitions (optional)
         │   └── {agent}.md  # Agent with YAML frontmatter
         ├── skills/         # Skill definitions
@@ -40,30 +45,60 @@ plugins/
 ## Before Adding New Skills/Plugins/Agents
 
 **Read the official documentation first** to understand the specifications:
-- Plugins: https://code.claude.com/docs/en/plugins
-- Skills: https://code.claude.com/docs/en/skills
-- Agents: https://code.claude.com/docs/en/sub-agents
-- Marketplaces: https://code.claude.com/docs/en/plugin-marketplaces
+- Claude plugins: https://code.claude.com/docs/en/plugins
+- Claude skills: https://code.claude.com/docs/en/skills
+- Claude agents: https://code.claude.com/docs/en/sub-agents
+- Claude marketplaces: https://code.claude.com/docs/en/plugin-marketplaces
+- Codex plugins: https://developers.openai.com/codex/plugins
+- Codex skills: https://developers.openai.com/codex/skills
 
 ## Key Conventions
 
-- **Marketplace ID**: `fawetian-plugins`
-- **Install command**: `/plugin install {plugin-name}@fawetian-plugins`
-- **Skills**: Use YAML frontmatter with `name` and `description` fields for triggering
+- **Claude Marketplace ID**: `fawetian-plugins`
+- **Codex Marketplace ID**: `fawetian-plugins-codex`
+- **Claude install command**: `/plugin install {plugin-name}@fawetian-plugins`
+- **Codex install command**: `codex plugin add {plugin-name}@fawetian-plugins-codex`
+- **Skills**: Use strict YAML frontmatter with `name` and quoted `description` fields for triggering
+- **Dual-platform default**: New skills must be available to both Claude and Codex unless the plugin is intentionally Claude-only (for example agents-only `devops`)
 - **Commit format**: Conventional Commits with Chinese descriptions (for git-ops plugin)
 - **Documentation**: Always update both English and Chinese versions when modifying any documentation files
-- **Version Bumping**: When modifying skill content, MUST bump plugin version in `plugin.json`:
+- **Version Bumping**: When modifying skill content, MUST bump both Claude and Codex `plugin.json` versions when both manifests exist:
   - `PATCH` (1.0.x): Bug fixes, minor skill content tweaks
   - `MINOR` (1.x.0): New skills, new features, significant skill changes
   - `MAJOR` (x.0.0): Breaking changes, major restructure
-  - This is required for Claude Code to detect plugin updates via `/plugin update`
+  - Keep `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, and marketplace entries version-consistent
 
 ## Adding New Plugins
 
 1. Create directory under `plugins/`
-2. Add `.claude-plugin/plugin.json` with name, version, description, skills array
-3. Create skill files in `skills/` with YAML frontmatter
-4. Register plugin in `marketplace.json` plugins array
+2. Add `.claude-plugin/plugin.json` with name, version, description, and a `skills` array when the plugin has skills
+3. Add `.codex-plugin/plugin.json` with matching name/version/description and `skills: "./skills/"` for skill-based plugins
+4. Create skill files in `skills/` with strict YAML frontmatter
+5. Register the plugin in `.claude-plugin/marketplace.json`
+6. Register skill-based Codex plugins in `.agents/plugins/marketplace.json`
+7. Do not register agents-only plugins in Codex until they expose at least one Codex skill
+
+## Adding New Skills
+
+1. Create `plugins/<plugin>/skills/<skill>/SKILL.md` in English.
+2. Use strict YAML frontmatter:
+   - `name`: lowercase hyphenated skill name matching the directory
+   - `description`: quoted string describing exactly when the skill should trigger
+   - Optional fields such as `userInvocable` must remain valid YAML
+3. Add `docs/SKILL_CN.md` and `docs/README.md`; keep English and Chinese skill docs in sync.
+4. Add `evals/evals.json` with positive and negative trigger prompts.
+5. Add the skill path to `.claude-plugin/plugin.json` `skills[]`.
+6. Ensure `.codex-plugin/plugin.json` exists for the plugin and uses `skills: "./skills/"`; no per-skill Codex list update is needed with this layout.
+7. Bump both Claude and Codex plugin versions, then update matching marketplace versions.
+8. Run:
+   ```bash
+   ./tests/run-all.sh --structure
+   python3 /Users/shanquan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/<plugin>
+   ```
+9. For trigger behavior changes, also run targeted evals:
+   ```bash
+   ./tests/run-all.sh --trigger --skill <skill>
+   ```
 
 ## Agent Conventions
 
@@ -93,7 +128,7 @@ plugins/
 
 ## Skill Evaluation
 
-Each skill can have an `evals/evals.json` file for automated testing. The test suite lives in `tests/`.
+Each skill must have an `evals/evals.json` file for automated testing. The test suite lives in `tests/`.
 
 ```bash
 ./tests/run-all.sh --structure    # Quick structure check (no Claude needed)
@@ -102,7 +137,7 @@ Each skill can have an `evals/evals.json` file for automated testing. The test s
 ./tests/run-all.sh                # Run all 5 layers
 ```
 
-When adding a new skill, create `evals/evals.json` with trigger prompts (positive + negative). See `tests/lib/eval-schema.json` for the schema and `tests/README.md` for details.
+When adding a new skill, create `evals/evals.json` with trigger prompts (positive + negative). See `tests/lib/eval-schema.json` for the schema and `tests/README.md` for details. Structure tests validate both Claude and Codex manifests.
 
 ## MCP Integration
 
@@ -111,7 +146,9 @@ For integrating MCP servers into plugins, see the official example skill:
 
 ## Official Documentation
 
-- Plugins: https://code.claude.com/docs/en/plugins
-- Skills: https://code.claude.com/docs/en/skills
-- Agents: https://code.claude.com/docs/en/sub-agents
-- Marketplaces: https://code.claude.com/docs/en/plugin-marketplaces
+- Claude plugins: https://code.claude.com/docs/en/plugins
+- Claude skills: https://code.claude.com/docs/en/skills
+- Claude agents: https://code.claude.com/docs/en/sub-agents
+- Claude marketplaces: https://code.claude.com/docs/en/plugin-marketplaces
+- Codex plugins: https://developers.openai.com/codex/plugins
+- Codex skills: https://developers.openai.com/codex/skills

@@ -82,6 +82,10 @@ plugin-name/
 └── README.md            # 文档
 ```
 
+## 添加 Skill
+
+新增 skill 默认需要同时支持 Claude 和 Codex。完整维护清单见 [CLAUDE_CN.md](./CLAUDE_CN.md#添加新-skill)，包括严格 YAML frontmatter、中英文文档、evals、版本号更新，以及 Claude/Codex 两边的验证命令。
+
 ## Agents（子智能体）
 
 Agents 是处理特定类型任务的专门 AI 助手。每个 agent 在自己的上下文窗口中运行，具有自定义系统提示、特定的工具访问权限和独立的权限。
