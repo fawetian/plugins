@@ -1,0 +1,40 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "本地 CLI 工具集：飞书、阿里云等命令行工具的 AI 使用指南",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "feishu",
+    "aliyun",
+    "lark",
+    "alicloud"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CLI",
+    "shortDescription": "Local CLI usage guides for Feishu and Aliyun",
+    "longDescription": "Guides Codex through local command-line workflows for Feishu, Aliyun, and related operational tools.",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Use the Feishu CLI to inspect workspace data",
+      "Help me operate Aliyun resources from the CLI"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}

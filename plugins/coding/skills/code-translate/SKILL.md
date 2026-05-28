@@ -1,6 +1,6 @@
 ---
 name: code-translate
-description: STRICT TRIGGER - Only activate when user explicitly types "code-translate". Never activate for general translation requests, i18n discussions, or documentation questions. Translates English markdown documentation to Chinese while preserving directory structure and keeping technical terms in English.
+description: "STRICT TRIGGER - Only activate when user explicitly types \"code-translate\". Never activate for general translation requests, i18n discussions, or documentation questions. Translates English markdown documentation to Chinese while preserving directory structure and keeping technical terms in English."
 userInvocable: true
 ---
 

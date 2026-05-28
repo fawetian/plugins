@@ -1,6 +1,6 @@
 ---
 name: aliyun
-description: Use aliyun CLI to interact with Alibaba Cloud services — ECS, OSS, RDS, VPC, CDN, FC, SLB, DNS, and more. Triggers: aliyun, alicloud, 阿里云, aliyun cli, ecs, oss, rds, cdn, serverless, fc, slb, alidns.
+description: "Use aliyun CLI to interact with Alibaba Cloud services — ECS, OSS, RDS, VPC, CDN, FC, SLB, DNS, and more. Triggers: aliyun, alicloud, 阿里云, aliyun cli, ecs, oss, rds, cdn, serverless, fc, slb, alidns."
 ---
 
 # aliyun — Alibaba Cloud CLI

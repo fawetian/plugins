@@ -1,6 +1,6 @@
 ---
 name: systems-thinking
-description: Systems thinking — identify feedback loops, leverage points, and emergent behavior in complex systems. Based on Donella Meadows' 12 leverage points. Use for organizational bottlenecks, complex system optimization, or understanding why interventions fail. Triggers: "systems thinking", "系统思考", "feedback loop", "反馈回路", "leverage point", "杠杆点", "emergent", "涌现", "bottleneck", "瓶颈", "why does fixing X make Y worse".
+description: "Systems thinking — identify feedback loops, leverage points, and emergent behavior in complex systems. Based on Donella Meadows' 12 leverage points. Use for organizational bottlenecks, complex system optimization, or understanding why interventions fail. Triggers: \"systems thinking\", \"系统思考\", \"feedback loop\", \"反馈回路\", \"leverage point\", \"杠杆点\", \"emergent\", \"涌现\", \"bottleneck\", \"瓶颈\", \"why does fixing X make Y worse\"."
 userInvocable: true
 ---
 

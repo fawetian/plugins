@@ -1,6 +1,6 @@
 ---
 name: inversion
-description: Inversion thinking — flip the problem and ask "how would I guarantee failure?" to find hidden risks and better solutions. Use for risk assessment, architecture decisions, or pre-launch reviews. Triggers: "inversion", "反向思维", "逆向思维", "how to fail", "如何失败", "what could go wrong", "flip the problem", "avoid failure".
+description: "Inversion thinking — flip the problem and ask \"how would I guarantee failure?\" to find hidden risks and better solutions. Use for risk assessment, architecture decisions, or pre-launch reviews. Triggers: \"inversion\", \"反向思维\", \"逆向思维\", \"how to fail\", \"如何失败\", \"what could go wrong\", \"flip the problem\", \"avoid failure\"."
 userInvocable: true
 ---
 

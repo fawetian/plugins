@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Automated code review for pull requests or local changes using multiple specialized agents with confidence-based scoring. ONLY triggers when user explicitly types "code-review".
+description: "Automated code review for pull requests or local changes using multiple specialized agents with confidence-based scoring. ONLY triggers when user explicitly types \"code-review\"."
 userInvocable: true
 ---
 

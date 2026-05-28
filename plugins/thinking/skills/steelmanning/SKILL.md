@@ -1,6 +1,6 @@
 ---
 name: steelmanning
-description: Steelmanning — construct the strongest possible version of the opposing argument before responding. Use during design reviews, PR discussions, disagreements, or when evaluating competing approaches. Triggers: "steelman", "steelmanning", "稻草人加强", "strongest argument", "最强版本", "对方的最佳论点", "fair argument", "play devil's advocate", "other side".
+description: "Steelmanning — construct the strongest possible version of the opposing argument before responding. Use during design reviews, PR discussions, disagreements, or when evaluating competing approaches. Triggers: \"steelman\", \"steelmanning\", \"稻草人加强\", \"strongest argument\", \"最强版本\", \"对方的最佳论点\", \"fair argument\", \"play devil's advocate\", \"other side\"."
 userInvocable: true
 ---
 

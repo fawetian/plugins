@@ -1,6 +1,6 @@
 ---
 name: eisenhower-matrix
-description: Eisenhower Matrix — classify tasks by urgency and importance to decide what to do, delegate, schedule, or eliminate. Use when overwhelmed with tasks, struggling to prioritize, or mixing urgent with important. Triggers: "eisenhower", "艾森豪威尔", "urgent vs important", "紧急重要", "task prioritization", "任务排序", "overwhelmed", "too many tasks", "事情太多".
+description: "Eisenhower Matrix — classify tasks by urgency and importance to decide what to do, delegate, schedule, or eliminate. Use when overwhelmed with tasks, struggling to prioritize, or mixing urgent with important. Triggers: \"eisenhower\", \"艾森豪威尔\", \"urgent vs important\", \"紧急重要\", \"task prioritization\", \"任务排序\", \"overwhelmed\", \"too many tasks\", \"事情太多\"."
 userInvocable: true
 ---
 

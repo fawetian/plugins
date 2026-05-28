@@ -1,6 +1,6 @@
 ---
 name: first-principles
-description: First principles thinking — break problems down to fundamental truths and rebuild solutions from scratch. Use when challenging assumptions, designing novel systems, or escaping analogy-based reasoning. Triggers: "first principles", "第一性原理", "fundamental assumptions", "from scratch", "challenge assumption", "why do we assume", "重新思考".
+description: "First principles thinking — break problems down to fundamental truths and rebuild solutions from scratch. Use when challenging assumptions, designing novel systems, or escaping analogy-based reasoning. Triggers: \"first principles\", \"第一性原理\", \"fundamental assumptions\", \"from scratch\", \"challenge assumption\", \"why do we assume\", \"重新思考\"."
 userInvocable: true
 ---
 

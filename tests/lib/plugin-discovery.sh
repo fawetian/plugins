@@ -22,6 +22,24 @@ discover_plugins() {
     done | sort
 }
 
+# Discover all Codex plugins under the plugins/ directory
+# Usage: discover_codex_plugins "/path/to/project/plugins"
+# Output: plugin_name|plugin_dir (one per line)
+discover_codex_plugins() {
+    local plugins_root="$1"
+
+    find "$plugins_root" -maxdepth 3 -name "plugin.json" -path "*/.codex-plugin/*" 2>/dev/null | while read -r pj; do
+        local plugin_dir
+        plugin_dir=$(dirname "$(dirname "$pj")")
+        local plugin_name
+        plugin_name=$(jq -r '.name // empty' "$pj" 2>/dev/null)
+
+        if [ -n "$plugin_name" ]; then
+            echo "${plugin_name}|${plugin_dir}"
+        fi
+    done | sort
+}
+
 # Discover all evals for a given plugin
 # Usage: discover_evals "/path/to/plugin_dir" "plugin_name"
 # Output: plugin_name|skill_name|eval_file (one per line)
@@ -90,6 +108,7 @@ discover_agents() {
 
 # Export functions
 export -f discover_plugins
+export -f discover_codex_plugins
 export -f discover_evals
 export -f discover_all_evals
 export -f discover_skills

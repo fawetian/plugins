@@ -1,6 +1,6 @@
 ---
 name: pareto-principle
-description: Pareto Principle (80/20 Rule) — identify the vital few inputs that drive the majority of outcomes. Use when prioritizing work, allocating resources, or cutting scope. Triggers: "pareto", "80/20", "帕累托", "二八法则", "vital few", "关键少数", "prioritize", "优先级", "focus on what matters".
+description: "Pareto Principle (80/20 Rule) — identify the vital few inputs that drive the majority of outcomes. Use when prioritizing work, allocating resources, or cutting scope. Triggers: \"pareto\", \"80/20\", \"帕累托\", \"二八法则\", \"vital few\", \"关键少数\", \"prioritize\", \"优先级\", \"focus on what matters\"."
 userInvocable: true
 ---
 

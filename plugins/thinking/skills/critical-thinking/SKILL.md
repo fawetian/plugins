@@ -1,6 +1,6 @@
 ---
 name: critical-thinking
-description: Critical Thinking — systematically audit claims, evidence, and reasoning chains for logical validity and soundness. Use when assessing technical proposals, evaluating competing claims, reviewing decision rationale, auditing your own reasoning, or when someone presents a convincing-sounding argument that needs scrutiny. Triggers: "critical thinking", "批判性思维", "evaluate this argument", "评估论点", "logical fallacy", "逻辑谬误", "is this reasoning valid", "这个推理对吗", "evidence quality", "证据质量", "论证分析".
+description: "Critical Thinking — systematically audit claims, evidence, and reasoning chains for logical validity and soundness. Use when assessing technical proposals, evaluating competing claims, reviewing decision rationale, auditing your own reasoning, or when someone presents a convincing-sounding argument that needs scrutiny. Triggers: \"critical thinking\", \"批判性思维\", \"evaluate this argument\", \"评估论点\", \"logical fallacy\", \"逻辑谬误\", \"is this reasoning valid\", \"这个推理对吗\", \"evidence quality\", \"证据质量\", \"论证分析\"."
 userInvocable: true
 ---
 

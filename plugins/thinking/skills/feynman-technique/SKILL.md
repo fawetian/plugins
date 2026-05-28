@@ -1,6 +1,6 @@
 ---
 name: feynman-technique
-description: Feynman Technique — explain concepts in simple language to expose gaps in understanding. Use when learning new domains, verifying comprehension, teaching others, or simplifying complex topics. Triggers: "feynman", "费曼", "explain like I'm five", "简单解释", "teach me", "用大白话说", "verify understanding", "我理解对了吗", "ELI5".
+description: "Feynman Technique — explain concepts in simple language to expose gaps in understanding. Use when learning new domains, verifying comprehension, teaching others, or simplifying complex topics. Triggers: \"feynman\", \"费曼\", \"explain like I'm five\", \"简单解释\", \"teach me\", \"用大白话说\", \"verify understanding\", \"我理解对了吗\", \"ELI5\"."
 userInvocable: true
 ---
 

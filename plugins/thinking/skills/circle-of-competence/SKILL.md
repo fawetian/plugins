@@ -1,6 +1,6 @@
 ---
 name: circle-of-competence
-description: Circle of Competence — define the boundary between what you know well and what you don't. Use when making decisions outside your domain, delegating, hiring, or when you suspect overconfidence. Triggers: "circle of competence", "能力圈", "what do I actually know", "我真的懂吗", "outside my expertise", "超出我的专业", "know your limits", "认清边界", "overconfidence".
+description: "Circle of Competence — define the boundary between what you know well and what you don't. Use when making decisions outside your domain, delegating, hiring, or when you suspect overconfidence. Triggers: \"circle of competence\", \"能力圈\", \"what do I actually know\", \"我真的懂吗\", \"outside my expertise\", \"超出我的专业\", \"know your limits\", \"认清边界\", \"overconfidence\"."
 userInvocable: true
 ---
 

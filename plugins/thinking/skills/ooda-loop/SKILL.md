@@ -1,6 +1,6 @@
 ---
 name: ooda-loop
-description: OODA Loop — Observe, Orient, Decide, Act rapid decision-making cycle. Use when under time pressure, in competitive environments, or when fast iteration beats perfect planning. Triggers: "OODA", "observe orient decide act", "快速决策", "rapid decision", "time pressure", "competitive response", "紧急决策", "fast iteration".
+description: "OODA Loop — Observe, Orient, Decide, Act rapid decision-making cycle. Use when under time pressure, in competitive environments, or when fast iteration beats perfect planning. Triggers: \"OODA\", \"observe orient decide act\", \"快速决策\", \"rapid decision\", \"time pressure\", \"competitive response\", \"紧急决策\", \"fast iteration\"."
 userInvocable: true
 ---
 

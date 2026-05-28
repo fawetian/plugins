@@ -1,6 +1,6 @@
 ---
 name: second-order-thinking
-description: Second-order thinking — think beyond immediate consequences to downstream ripple effects. Use for strategic decisions, policy changes, or any action with far-reaching impact. Triggers: "second order", "二阶思维", "then what", "然后呢", "downstream effect", "下游影响", "ripple effect", "连锁反应", "unintended consequences", "意想不到的后果".
+description: "Second-order thinking — think beyond immediate consequences to downstream ripple effects. Use for strategic decisions, policy changes, or any action with far-reaching impact. Triggers: \"second order\", \"二阶思维\", \"then what\", \"然后呢\", \"downstream effect\", \"下游影响\", \"ripple effect\", \"连锁反应\", \"unintended consequences\", \"意想不到的后果\"."
 userInvocable: true
 ---
 

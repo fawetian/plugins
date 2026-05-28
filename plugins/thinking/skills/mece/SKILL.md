@@ -1,6 +1,6 @@
 ---
 name: mece
-description: MECE (Mutually Exclusive, Collectively Exhaustive) framework — structure problems into non-overlapping, complete categories. Use when decomposing complex analyses, organizing options, or ensuring nothing is missed. Triggers: "MECE", "互斥完全", "mutually exclusive", "不重不漏", "结构化分析", "categorize", "分类分析", "break down into categories".
+description: "MECE (Mutually Exclusive, Collectively Exhaustive) framework — structure problems into non-overlapping, complete categories. Use when decomposing complex analyses, organizing options, or ensuring nothing is missed. Triggers: \"MECE\", \"互斥完全\", \"mutually exclusive\", \"不重不漏\", \"结构化分析\", \"categorize\", \"分类分析\", \"break down into categories\"."
 userInvocable: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: five-whys
-description: 5 Whys root cause analysis — iteratively ask "why?" to move from symptoms to underlying causes. Use for post-mortems, debugging recurring failures, or understanding why something keeps going wrong. Triggers: "5 whys", "five whys", "五个为什么", "root cause", "根因分析", "why does this keep happening", "为什么总是", "post-mortem", "复盘".
+description: "5 Whys root cause analysis — iteratively ask \"why?\" to move from symptoms to underlying causes. Use for post-mortems, debugging recurring failures, or understanding why something keeps going wrong. Triggers: \"5 whys\", \"five whys\", \"五个为什么\", \"root cause\", \"根因分析\", \"why does this keep happening\", \"为什么总是\", \"post-mortem\", \"复盘\"."
 userInvocable: true
 ---
 

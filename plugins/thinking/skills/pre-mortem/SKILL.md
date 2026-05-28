@@ -1,6 +1,6 @@
 ---
 name: pre-mortem
-description: Pre-mortem analysis — imagine the project has already failed and work backwards to identify why. Use before important launches, kickoffs, or major decisions. Triggers: "pre-mortem", "事前验尸", "premortem", "imagine this failed", "假设失败了", "what could kill this project", "risk review", "launch readiness", "发布前检查".
+description: "Pre-mortem analysis — imagine the project has already failed and work backwards to identify why. Use before important launches, kickoffs, or major decisions. Triggers: \"pre-mortem\", \"事前验尸\", \"premortem\", \"imagine this failed\", \"假设失败了\", \"what could kill this project\", \"risk review\", \"launch readiness\", \"发布前检查\"."
 userInvocable: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: requirement-analysis
-description: Systematic requirement analysis and validation. Use when analyzing user needs, validating product ideas, or breaking down complex requirements. Triggers: "analyze requirements", "requirement analysis", "validate requirements", "break down requirements".
+description: "Systematic requirement analysis and validation. Use when analyzing user needs, validating product ideas, or breaking down complex requirements. Triggers: \"analyze requirements\", \"requirement analysis\", \"validate requirements\", \"break down requirements\"."
 userInvocable: true
 ---
 

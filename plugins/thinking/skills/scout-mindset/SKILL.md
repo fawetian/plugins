@@ -1,6 +1,6 @@
 ---
 name: scout-mindset
-description: Scout Mindset — actively seek truth rather than defending existing beliefs. Use during code reviews, design discussions, disagreements, or when you suspect confirmation bias. Triggers: "scout mindset", "侦察兵心态", "am I biased", "我有偏见吗", "confirmation bias", "确认偏误", "devil's advocate", "challenge my thinking", "验证我的想法".
+description: "Scout Mindset — actively seek truth rather than defending existing beliefs. Use during code reviews, design discussions, disagreements, or when you suspect confirmation bias. Triggers: \"scout mindset\", \"侦察兵心态\", \"am I biased\", \"我有偏见吗\", \"confirmation bias\", \"确认偏误\", \"devil's advocate\", \"challenge my thinking\", \"验证我的想法\"."
 userInvocable: true
 ---
 

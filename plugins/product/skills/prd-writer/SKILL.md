@@ -1,6 +1,6 @@
 ---
 name: prd-writer
-description: Professional PRD (Product Requirements Document) writing assistant. Use when creating product requirement documents, feature specifications, or detailed product documentation. Triggers: prd, "product requirement", "write prd", "create prd", "feature spec".
+description: "Professional PRD (Product Requirements Document) writing assistant. Use when creating product requirement documents, feature specifications, or detailed product documentation. Triggers: prd, \"product requirement\", \"write prd\", \"create prd\", \"feature spec\"."
 userInvocable: true
 ---
 

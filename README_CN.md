@@ -1,6 +1,6 @@
-# Claude Code 插件市场
+# Claude Code / Codex 插件市场
 
-我的 Claude Code 插件市场。
+我的 Claude Code 和 Codex 插件市场。
 
 [English](./README.md)
 
@@ -26,15 +26,30 @@
 /plugin install {plugin-name}@fawetian-plugins
 ```
 
+## Codex 支持
+
+本仓库也包含面向 Codex 的 skill 插件市场：
+
+```bash
+codex plugin marketplace add .
+codex plugin add coding@fawetian-plugins-codex
+```
+
+Codex 当前发布 `coding`、`product`、`cli`、`thinking`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
+
 ## 目录结构
 
 ```
 .claude-plugin/
 │   └── marketplace.json    # 市场清单
+.agents/
+│   └── plugins/
+│       └── marketplace.json # Codex 市场清单
 plugins/                    # 每个子目录是一个独立插件
 ├── coding/                 # 代码质量工具集（15 个 skill、11 个 agent）
 ├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
 ├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
+├── thinking/               # 思维工具集（18 个 skill）
 └── devops/                 # 开发者工具 - 文档查询、代码清理、配置优化（5 个 agent）
 rules/                      # 可复用的 Claude Code Rules
 ├── common/                 # 语言无关的通用规则
@@ -57,7 +72,9 @@ docs/                       # 生成的文档和 review 报告
 ```
 plugin-name/
 ├── .claude-plugin/
-│   └── plugin.json      # 插件元数据（必需）
+│   └── plugin.json      # Claude 插件元数据
+├── .codex-plugin/
+│   └── plugin.json      # Codex 插件元数据（基于 skill 的插件）
 ├── .mcp.json            # MCP 服务器配置（可选）
 ├── commands/            # 斜杠命令（可选）
 ├── agents/              # 智能体定义（可选）

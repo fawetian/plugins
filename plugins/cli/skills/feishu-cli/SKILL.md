@@ -1,6 +1,6 @@
 ---
 name: feishu-cli
-description: Use feishu-cli to interact with Feishu (Lark) platform — documents, messages, wiki, tasks, calendar, files, permissions, comments. Triggers: feishu, lark, 飞书, feishu-cli, send message to feishu, feishu doc, feishu wiki, feishu task, feishu calendar.
+description: "Use feishu-cli to interact with Feishu (Lark) platform — documents, messages, wiki, tasks, calendar, files, permissions, comments. Triggers: feishu, lark, 飞书, feishu-cli, send message to feishu, feishu doc, feishu wiki, feishu task, feishu calendar."
 ---
 
 # feishu-cli — Feishu Platform CLI

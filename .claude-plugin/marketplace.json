@@ -24,7 +24,7 @@
       "name": "product",
       "source": "./plugins/product",
       "description": "产品经理工具集：需求分析、PRD撰写、用户故事、产品规划，内置规划和架构设计 Agents",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "fawetian"
       },
@@ -41,20 +41,10 @@
       "keywords": ["cli", "feishu", "lark", "aliyun", "alicloud", "ecs", "oss"]
     },
     {
-      "name": "harness",
-      "source": "./plugins/harness",
-      "description": "Claude Code 交付闭环编排：显式触发的 plan -> batch execute -> verify -> review -> docs 工作流",
-      "version": "0.1.0",
-      "author": {
-        "name": "fawetian"
-      },
-      "keywords": ["harness", "workflow", "delivery", "planning", "review", "documentation"]
-    },
-    {
       "name": "devops",
       "source": "./plugins/devops",
       "description": "开发者工具集：文档查询、代码清理、配置优化、循环监控",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "fawetian"
       },

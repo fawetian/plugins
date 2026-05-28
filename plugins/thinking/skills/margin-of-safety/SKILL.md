@@ -1,6 +1,6 @@
 ---
 name: margin-of-safety
-description: Margin of Safety — build buffers into estimates and capacity for unknown unknowns. Use for capacity planning, time estimation, architecture robustness, or any decision under uncertainty. Triggers: "margin of safety", "安全边际", "buffer", "缓冲", "how much headroom", "留多少余量", "worst case", "最坏情况", "over-provision", "contingency".
+description: "Margin of Safety — build buffers into estimates and capacity for unknown unknowns. Use for capacity planning, time estimation, architecture robustness, or any decision under uncertainty. Triggers: \"margin of safety\", \"安全边际\", \"buffer\", \"缓冲\", \"how much headroom\", \"留多少余量\", \"worst case\", \"最坏情况\", \"over-provision\", \"contingency\"."
 userInvocable: true
 ---
 

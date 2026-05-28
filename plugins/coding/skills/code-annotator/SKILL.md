@@ -1,6 +1,6 @@
 ---
 name: code-annotator
-description: Automatically adds comprehensive Chinese comments to source code files. Supports large projects with incremental updates and resume capability. This skill should be used when the user invokes "code-annotator" or "/code-annotator"
+description: "Automatically adds comprehensive Chinese comments to source code files. Supports large projects with incremental updates and resume capability. This skill should be used when the user invokes \"code-annotator\" or \"/code-annotator\""
 userInvocable: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: roadmap-planner
-description: Product roadmap planning and visualization assistant. Use when creating product roadmaps, planning releases, or defining product strategy. Triggers: "roadmap", "product roadmap", "release plan", "product strategy", "quarterly plan".
+description: "Product roadmap planning and visualization assistant. Use when creating product roadmaps, planning releases, or defining product strategy. Triggers: \"roadmap\", \"product roadmap\", \"release plan\", \"product strategy\", \"quarterly plan\"."
 userInvocable: true
 ---
 

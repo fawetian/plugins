@@ -1,6 +1,6 @@
 ---
 name: user-story
-description: User story creation and management assistant. Use when writing user stories, creating acceptance criteria, or managing product backlog. Triggers: "user story", "write stories", "acceptance criteria", "backlog", "user story mapping".
+description: "User story creation and management assistant. Use when writing user stories, creating acceptance criteria, or managing product backlog. Triggers: \"user story\", \"write stories\", \"acceptance criteria\", \"backlog\", \"user story mapping\"."
 userInvocable: true
 ---
 

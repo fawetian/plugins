@@ -1,6 +1,6 @@
-# Claude Code Plugins Marketplace
+# Claude Code / Codex Plugins Marketplace
 
-My personal plugin marketplace for Claude Code.
+My personal plugin marketplace for Claude Code and Codex.
 
 [中文文档](./README_CN.md)
 
@@ -26,15 +26,30 @@ Once the marketplace is added, install plugins:
 /plugin install {plugin-name}@fawetian-plugins
 ```
 
+## Codex Support
+
+This repository also includes a Codex marketplace for skill-based plugins:
+
+```bash
+codex plugin marketplace add .
+codex plugin add coding@fawetian-plugins-codex
+```
+
+Codex currently publishes `coding`, `product`, `cli`, and `thinking`. The `devops` plugin is Claude-only for now because it is agents-only.
+
 ## Structure
 
 ```
 .claude-plugin/
 │   └── marketplace.json    # Marketplace manifest
+.agents/
+│   └── plugins/
+│       └── marketplace.json # Codex marketplace manifest
 plugins/                    # Each subdirectory is a standalone plugin
 ├── coding/                 # Code quality tools (15 skills, 11 agents)
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
+├── thinking/               # Mental model tools (18 skills)
 └── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
 rules/                      # Reusable Claude Code Rules
 ├── common/                 # Language-agnostic principles
@@ -57,7 +72,9 @@ Each plugin follows a standard structure:
 ```
 plugin-name/
 ├── .claude-plugin/
-│   └── plugin.json      # Plugin metadata (required)
+│   └── plugin.json      # Claude plugin metadata
+├── .codex-plugin/
+│   └── plugin.json      # Codex plugin metadata (skill-based plugins)
 ├── .mcp.json            # MCP server configuration (optional)
 ├── commands/            # Slash commands (optional)
 ├── agents/              # Agent definitions (optional)

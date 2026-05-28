@@ -1,0 +1,47 @@
+{
+  "name": "coding",
+  "version": "1.4.0",
+  "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": [
+    "code",
+    "review",
+    "research",
+    "annotation",
+    "simplify",
+    "quality",
+    "translate",
+    "patterns",
+    "tdd",
+    "security",
+    "testing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Coding",
+    "shortDescription": "Code quality, review, research, and engineering workflow skills",
+    "longDescription": "A collection of Codex skills for code research, annotation, review, simplification, translation, documentation, language patterns, TDD, security review, testing, migrations, and architecture diagrams.",
+    "developerName": "fawetian",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Review this code change with the coding skills",
+      "Research this codebase and summarize the architecture",
+      "Guide this task with TDD"
+    ],
+    "brandColor": "#16A34A",
+    "screenshots": []
+  }
+}
