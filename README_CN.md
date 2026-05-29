@@ -161,6 +161,7 @@ model: inherit
 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 宝玉技能集合 |
 | [anthropics/skills](https://github.com/anthropics/skills) | Anthropic 官方技能 |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Claude 官方插件 |
+| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) | Karpathy 风格编程技能集 |
 
 ## 参与贡献
 
