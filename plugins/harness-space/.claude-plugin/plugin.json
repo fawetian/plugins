@@ -1,0 +1,11 @@
+{
+  "name": "harness-space",
+  "version": "0.1.0",
+  "description": "Manage and iterate your AI harness engineering workspace — file-based rule categories and constraints for reliable AI agents",
+  "author": {
+    "name": "fawetian"
+  },
+  "license": "MIT",
+  "keywords": ["harness", "harness-engineering", "rules", "rule-kit", "constraints", "workspace"],
+  "skills": ["./skills/rule-kit"]
+}

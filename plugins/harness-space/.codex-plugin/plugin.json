@@ -1,0 +1,31 @@
+{
+  "name": "harness-space",
+  "version": "0.1.0",
+  "description": "管理 AI harness engineering 工作空间 — 按文件维护 rule 类别和约束",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": ["harness", "harness-engineering", "rules", "rule-kit", "constraints", "workspace"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Harness Space",
+    "shortDescription": "Manage and iterate your AI harness engineering workspace",
+    "longDescription": "持续迭代你的 harness-space：添加、列出、更新、删除和同步约束 AI agent 行为的规则。",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "list all my harness rules",
+      "add a git rule to harness-space",
+      "sync harness-space"
+    ],
+    "brandColor": "#7C3AED",
+    "screenshots": []
+  }
+}

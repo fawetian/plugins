@@ -1,0 +1,29 @@
+{
+  "name": "rule-kit",
+  "version": "1.0.0",
+  "description": "Trigger tests for harness-space rule-kit skill",
+  "evals": [
+    {
+      "name": "trigger-positive",
+      "type": "trigger",
+      "description": "Should trigger on harness-space rule management prompts",
+      "prompts": [
+        { "input": "add a git rule to harness-space", "expected": true, "reason": "Direct rule add request" },
+        { "input": "帮我添加一个 git rule", "expected": true, "reason": "Chinese rule add request" },
+        { "input": "list all my harness rules", "expected": true, "reason": "Rule list request" },
+        { "input": "sync harness-space", "expected": true, "reason": "Sync request" },
+        { "input": "我想加一个 coding style 的规则", "expected": true, "reason": "Adding a new rule" }
+      ]
+    },
+    {
+      "name": "trigger-negative",
+      "type": "trigger",
+      "description": "Should NOT trigger on unrelated prompts",
+      "prompts": [
+        { "input": "帮我创建一个 git branch", "expected": false, "reason": "Git operation, not about harness-space rule management" },
+        { "input": "review this code", "expected": false, "reason": "Code review, unrelated" },
+        { "input": "帮我写一个 function", "expected": false, "reason": "Writing code, not managing harness" }
+      ]
+    }
+  ]
+}
