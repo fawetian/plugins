@@ -63,8 +63,8 @@
     {
       "name": "harness-space",
       "source": "./plugins/harness-space",
-      "description": "管理 AI harness engineering 工作空间 — 按文件维护 rule 类别和约束",
-      "version": "0.1.0",
+      "description": "管理 AI harness engineering 工作空间 — 按文件维护 rule 类别和约束，支持 init/commit 同步 GitHub",
+      "version": "0.2.0",
       "author": {
         "name": "fawetian"
       },

@@ -1,10 +1,12 @@
 ---
 name: rule-kit
-description: "Manage harness-space rules in ~/harness-space/rules/. Each file is one rule category. Add, list, update, remove, or sync rules that shape AI agent behavior. Triggers: rule, add rule, harness, harness-space, list rules, worktree rule, coding style, rule-kit"
+description: "Manage harness-space rules in ~/harness-space/rules/. Each file is one rule category. Init, add, list, update, remove, sync, or commit rules that shape AI agent behavior. Triggers: rule, add rule, harness, harness-space, list rules, sync harness, init harness, commit harness, worktree rule, coding style, rule-kit"
 userInvocable: true
 ---
 
 You manage the user's harness-space at ~/harness-space/rules/. Each file in this directory is one rule category — a persistent, domain-scoped rule set that shapes how AI coding agents behave.
+
+**Repository**: https://github.com/fawetian/harness-space
 
 Rules must be synced to both platform user-level instruction files:
 
@@ -15,6 +17,26 @@ Rules must be synced to both platform user-level instruction files:
 ## Operations
 
 Determine the user's intent from their message and execute one of:
+
+### init
+1. Check if ~/harness-space exists and is a git repository
+2. **Not cloned yet**:
+   - Run `git clone https://github.com/fawetian/harness-space.git ~/harness-space`
+   - If clone fails: inform the user of the error and stop
+   - After clone: report success and show what rule categories exist (if any)
+3. **Already cloned**:
+   - Run `git -C ~/harness-space pull`
+   - Report what changed (new commits) or that it's already up to date
+4. Ensure ~/harness-space/rules/ directory exists
+
+### commit
+1. Verify ~/harness-space exists and is a git repository — if not, suggest running "init" first
+2. Show current git status (`git -C ~/harness-space status --short`)
+3. If nothing to commit: inform the user, offer to push if there are unpushed commits
+4. Stage all changes (`git -C ~/harness-space add -A`)
+5. Commit with a descriptive message based on what changed (e.g. "feat: add git rule", "update: coding-style rule")
+6. Push to remote (`git -C ~/harness-space push`)
+7. Report success with commit hash
 
 ### add
 1. Ask the user for the rule category name (kebab-case, e.g. "git", "coding-style") if not provided

@@ -26,15 +26,19 @@ Invoke the skill with `/rule-kit` followed by your intent:
 
 | Action | Example |
 |--------|---------|
+| Init / pull repo | `/rule-kit` → "init harness-space" |
 | Add a rule | `/rule-kit` → "add a rule named git: always use wt CLI for worktree ops" |
 | List rules | `/rule-kit` → "list all rules" |
 | Update a rule | `/rule-kit` → "update git rule: also enforce conventional commits" |
 | Remove a rule | `/rule-kit` → "remove git" |
 | Sync both platforms | `/rule-kit` → "sync harness-space" |
+| Commit & push | `/rule-kit` → "commit harness-space" |
 
 ## How It Works
 
 Rules live as markdown files in `~/harness-space/rules/` (one file per domain, e.g. `git.md`, `coding-style.md`).
+
+The harness-space repository is version-controlled on GitHub: https://github.com/fawetian/harness-space
 
 The skill keeps two platform instruction files in sync:
 

@@ -1,10 +1,12 @@
 ---
 name: rule-kit
-description: "管理 ~/harness-space/rules/ 中的 harness-space rules。每个文件是一类 rule。添加、列出、更新或删除约束 AI agent 行为的规则。触发词：rule, add rule, harness, harness-space, list rules, worktree rule, coding style, rule-kit"
+description: "管理 ~/harness-space/rules/ 中的 harness-space rules。每个文件是一类 rule。初始化、添加、列出、更新、删除、同步或提交推送约束 AI agent 行为的规则。触发词：rule, add rule, harness, harness-space, list rules, sync harness, init harness, commit harness, worktree rule, coding style, rule-kit"
 userInvocable: true
 ---
 
 你管理用户的 harness-space，位于 ~/harness-space/rules/。该目录下的每个文件都是一类 rule — 一组按领域组织的持久化规则，用于约束 AI coding agent 的行为。
+
+**仓库地址**: https://github.com/fawetian/harness-space
 
 规则需要同步到两个平台的用户级指令文件：
 
@@ -15,6 +17,26 @@ userInvocable: true
 ## 操作
 
 根据用户消息判断意图，执行以下操作之一：
+
+### init（初始化）
+1. 检查 ~/harness-space 是否存在且为 git 仓库
+2. **未克隆**:
+   - 执行 `git clone https://github.com/fawetian/harness-space.git ~/harness-space`
+   - 如克隆失败：告知用户错误信息并停止
+   - 克隆成功后：报告结果并列出已有的 rule 类别（如有）
+3. **已克隆**:
+   - 执行 `git -C ~/harness-space pull`
+   - 报告变更内容（新提交）或已是最新
+4. 确保 ~/harness-space/rules/ 目录存在
+
+### commit（提交推送）
+1. 确认 ~/harness-space 存在且为 git 仓库 — 如不是，建议先执行 "init"
+2. 展示当前 git 状态（`git -C ~/harness-space status --short`）
+3. 如无变更：提示用户，如有未推送的提交则推送
+4. 暂存所有变更（`git -C ~/harness-space add -A`）
+5. 根据变更内容生成描述性提交信息（如 "feat: add git rule"、"update: coding-style rule"）
+6. 推送到远程（`git -C ~/harness-space push`）
+7. 报告成功及提交哈希
 
 ### add（添加）
 1. 如果用户未提供，询问 rule 类别名称（kebab-case，如 "git"、"coding-style"）

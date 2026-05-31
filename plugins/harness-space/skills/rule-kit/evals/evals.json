@@ -12,7 +12,10 @@
         { "input": "帮我添加一个 git rule", "expected": true, "reason": "Chinese rule add request" },
         { "input": "list all my harness rules", "expected": true, "reason": "Rule list request" },
         { "input": "sync harness-space", "expected": true, "reason": "Sync request" },
-        { "input": "我想加一个 coding style 的规则", "expected": true, "reason": "Adding a new rule" }
+        { "input": "我想加一个 coding style 的规则", "expected": true, "reason": "Adding a new rule" },
+        { "input": "init harness-space", "expected": true, "reason": "Init/pull repo request" },
+        { "input": "commit harness-space", "expected": true, "reason": "Commit and push request" },
+        { "input": "commit my harness rules", "expected": true, "reason": "Commit and push request" }
       ]
     },
     {
