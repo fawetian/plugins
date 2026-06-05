@@ -1,0 +1,45 @@
+{
+  "name": "diagrams",
+  "version": "1.0.0",
+  "description": "图表生成工具集：可编辑 draw.io 图表、多风格 SVG/PNG 技术图，覆盖架构图、流程图、数据流、UML、ERD、网络拓扑和 AI 系统图",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": [
+    "diagram",
+    "drawio",
+    "svg",
+    "png",
+    "architecture",
+    "flowchart",
+    "uml",
+    "erd",
+    "visualization"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Diagrams",
+    "shortDescription": "Editable draw.io diagrams and styled SVG/PNG technical graphs",
+    "longDescription": "A collection of diagram generation skills for editable draw.io files, multi-style SVG/PNG technical graphs, architecture diagrams, flowcharts, data-flow diagrams, UML, ERD, network topology, and AI system visuals.",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Create an editable draw.io architecture diagram",
+      "Generate a styled SVG technical graph",
+      "Visualize this system flow as a diagram"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}

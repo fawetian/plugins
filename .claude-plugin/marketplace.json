@@ -14,11 +14,21 @@
       "name": "coding",
       "source": "./plugins/coding",
       "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
-      "version": "1.4.0",
+      "version": "2.0.0",
       "author": {
         "name": "fawetian"
       },
       "keywords": ["code", "review", "research", "annotation", "simplify", "quality"]
+    },
+    {
+      "name": "diagrams",
+      "source": "./plugins/diagrams",
+      "description": "图表生成工具集：可编辑 draw.io 图表、多风格 SVG/PNG 技术图，覆盖架构图、流程图、数据流、UML、ERD、网络拓扑和 AI 系统图",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["diagram", "drawio", "svg", "png", "architecture", "flowchart", "uml", "erd", "visualization"]
     },
     {
       "name": "product",

@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex currently publishes `coding`, `product`, `cli`, and `thinking`. The `devops` plugin is Claude-only for now because it is agents-only.
+Codex currently publishes `coding`, `diagrams`, `product`, `cli`, and `thinking`. The `devops` plugin is Claude-only for now because it is agents-only.
 
 ## Structure
 
@@ -46,7 +46,8 @@ Codex currently publishes `coding`, `product`, `cli`, and `thinking`. The `devop
 │   └── plugins/
 │       └── marketplace.json # Codex marketplace manifest
 plugins/                    # Each subdirectory is a standalone plugin
-├── coding/                 # Code quality tools (15 skills, 11 agents)
+├── coding/                 # Code quality tools (14 skills, 11 agents)
+├── diagrams/               # Diagram generation tools - draw.io and SVG/PNG technical graphs (2 skills)
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
 ├── thinking/               # Mental model tools (18 skills)

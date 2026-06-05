@@ -1,0 +1,14 @@
+{
+  "name": "diagrams",
+  "version": "1.0.0",
+  "description": "图表生成工具集：可编辑 draw.io 图表、多风格 SVG/PNG 技术图，覆盖架构图、流程图、数据流、UML、ERD、网络拓扑和 AI 系统图",
+  "author": {
+    "name": "fawetian"
+  },
+  "license": "MIT",
+  "keywords": ["diagram", "drawio", "svg", "png", "architecture", "flowchart", "uml", "erd", "visualization"],
+  "skills": [
+    "./skills/drawio-skill",
+    "./skills/fireworks-tech-graph"
+  ]
+}

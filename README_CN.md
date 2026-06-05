@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex 当前发布 `coding`、`product`、`cli`、`thinking`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
+Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
 
 ## 目录结构
 
@@ -46,7 +46,8 @@ Codex 当前发布 `coding`、`product`、`cli`、`thinking`。`devops` 暂时�
 │   └── plugins/
 │       └── marketplace.json # Codex 市场清单
 plugins/                    # 每个子目录是一个独立插件
-├── coding/                 # 代码质量工具集（15 个 skill、11 个 agent）
+├── coding/                 # 代码质量工具集（14 个 skill、11 个 agent）
+├── diagrams/               # 图表生成工具 - draw.io 与 SVG/PNG 技术图（2 个 skill）
 ├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
 ├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
 ├── thinking/               # 思维工具集（18 个 skill）

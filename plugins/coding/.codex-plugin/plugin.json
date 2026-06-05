@@ -1,6 +1,6 @@
 {
   "name": "coding",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
@@ -25,7 +25,7 @@
   "interface": {
     "displayName": "Coding",
     "shortDescription": "Code quality, review, research, and engineering workflow skills",
-    "longDescription": "A collection of Codex skills for code research, annotation, review, simplification, translation, documentation, language patterns, TDD, security review, testing, migrations, and architecture diagrams.",
+    "longDescription": "A collection of Codex skills for code research, annotation, review, simplification, translation, documentation, language patterns, TDD, security review, testing, and migrations.",
     "developerName": "fawetian",
     "category": "Coding",
     "capabilities": [
