@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tech Graph"
+  short_description: "Generate polished standalone HTML technical diagrams"
+  default_prompt: "Turn the user's system or workflow description into a polished standalone HTML technical diagram."

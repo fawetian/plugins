@@ -1,53 +1,33 @@
 ---
-name: fireworks-tech-graph
-description: "Create polished standalone SVG/PNG technical illustrations. Use when the user wants a styled technical graph, architecture illustration, data-flow diagram, flowchart, sequence diagram, agent/memory diagram, concept map, comparison, timeline, mind map, or AI/RAG/system visualization as SVG and PNG. Prefer drawio-skill when the user needs editable draw.io/diagrams.net files or exact vendor shape libraries."
+name: tech-graph
+description: "Create polished standalone HTML technical diagrams. Use when the user wants a browser-openable single-file HTML diagram, interactive technical graph, architecture illustration, data-flow diagram, flowchart, sequence diagram, agent/memory diagram, concept map, comparison, timeline, mind map, or AI/RAG/system visualization as HTML."
 ---
 
-# Fireworks Tech Graph
+# Tech Graph
 
-Generate production-quality SVG technical diagrams exported as PNG via `cairosvg` (recommended), `rsvg-convert`, or `puppeteer`.
-
-## Install Source
-
-Install this skill from GitHub:
-
-```bash
-npx skills add yizhiyanhua-ai/fireworks-tech-graph
-```
-
-Public package page:
-
-```text
-https://www.npmjs.com/package/@yizhiyanhua-ai/fireworks-tech-graph
-```
-
-Do not pass `@yizhiyanhua-ai/fireworks-tech-graph` directly to `skills add`, because the CLI expects a GitHub or local repository source.
-
-Update command:
-
-```bash
-npx skills add yizhiyanhua-ai/fireworks-tech-graph --force -g -y
-```
+Generate production-quality technical diagrams as standalone HTML files. The HTML output embeds SVG, CSS, and optional local JavaScript controls in one file, so it can be opened directly in a browser without a server or external CDN.
 
 ## Helper Scripts (Recommended)
 
-Four helper scripts in `scripts/` directory provide stable SVG generation and validation:
+Three helper scripts in `scripts/` directory provide stable SVG-backed HTML generation and validation:
 
-### 1. `generate-diagram.sh` - Validate SVG + export PNG
-```bash
-./scripts/generate-diagram.sh -t architecture -s 1 -o ./output/arch.svg
-```
-- Validates an existing SVG file
-- Exports PNG after validation
-- Example: `./scripts/generate-diagram.sh -t architecture -s 1 -o ./output/arch.svg`
-
-### 2. `generate-from-template.py` - Create starter SVG from template
+### 1. `generate-from-template.py` - Create starter SVG from template
 ```bash
 python3 ./scripts/generate-from-template.py architecture ./output/arch.svg '{"title":"My Diagram","nodes":[],"arrows":[]}'
 ```
 - Loads a built-in SVG template
 - Renders nodes, arrows, and legend entries from JSON input
 - Escapes text content to keep output XML-valid
+
+### 2. `generate-html.py` - Create standalone HTML
+```bash
+python3 ./scripts/generate-html.py architecture ./output/arch.html '{"title":"My Diagram","nodes":[],"arrows":[]}'
+python3 ./scripts/generate-html.py --svg ./output/arch.svg ./output/arch.html
+```
+- Generates a single self-contained HTML file with inline SVG, CSS, zoom controls, normal SVG download, and high-resolution SVG download
+- Accepts the same template JSON as `generate-from-template.py`
+- Can wrap an existing SVG when the visual has already been hand-crafted
+- Use `--no-toolbar` for a static embed-only page; use `--theme light|dark|auto` to control the page chrome
 
 ### 3. `validate-svg.sh` - Validate SVG syntax
 ```bash
@@ -59,20 +39,12 @@ python3 ./scripts/generate-from-template.py architecture ./output/arch.svg '{"ti
 - Checks attribute completeness
 - Validates path data
 
-### 4. `test-all-styles.sh` - Batch test all styles
-```bash
-./scripts/test-all-styles.sh
-```
-- Tests multiple diagram sizes
-- Validates all generated SVGs
-- Generates test report
-
 **When to use scripts:**
 - Use scripts when generating complex SVGs to avoid syntax errors
 - Scripts provide automatic validation and error reporting
 - Recommended for production diagrams
 
-**When to generate SVG directly:**
+**When to hand-craft SVG directly before HTML wrapping:**
 - Simple diagrams with few elements
 - Quick prototypes
 - When you need full control over SVG structure
@@ -87,9 +59,9 @@ python3 ./scripts/generate-from-template.py architecture ./output/arch.svg '{"ti
 6. **Check icon needs** — load `references/icons.md` for known products
 7. **Write SVG** with adaptive strategy (see SVG Generation Strategy below)
 8. **Validate**: Run `python3 -c "import xml.etree.ElementTree as ET; ET.parse('file.svg')"` to check XML syntax
-9. **Export PNG**: Use `cairosvg` (recommended). See **SVG → PNG Conversion** section below for full method comparison
-10. **Report** the generated file paths
-11. **(Optional) Visual self-review** — if your runtime can read images, load the exported PNG back and inspect it. Syntactic validity does not guarantee visual correctness: arrows may cross through component interiors, labels may collide with lifelines or other labels, boxes may overlap, alt-frame text may sit on top of a message, or a legend may cover content. If you see any of these, revise the SVG and re-export; repeat until the rendered image is clean. Common fixes:
+9. **Generate HTML**: run `scripts/generate-html.py` and report the `.html` file path. Keep SVG as an internal intermediate unless the user explicitly asks for it too.
+10. **Report** the generated file path
+11. **(Optional) Visual self-review** — if your runtime can render or screenshot the HTML, inspect it. Syntactic validity does not guarantee visual correctness: arrows may cross through component interiors, labels may collide with lifelines or other labels, boxes may overlap, alt-frame text may sit on top of a message, or a legend may cover content. If you see any of these, revise the SVG/HTML and re-export; repeat until the rendered page is clean. Common fixes:
     - Route arrows through gaps between boxes, not through box interiors
     - Move arrow labels 6-8px away from the arrow line (offset-first); add background rects only when offset is insufficient
     - Widen inter-row/inter-column gutters so same-layer arrows have clear corridors
@@ -442,127 +414,34 @@ python3 -c "import cairosvg; cairosvg.svg2png(url='file.svg', write_to='/tmp/tes
 
 ## Output
 
-- **Default**: `./[derived-name].svg` and `./[derived-name].png` in current directory
+- **Default**: `./[derived-name].html` in current directory
 - **Custom**: user specifies path with `--output /path/` or `输出到 /path/`
-- **PNG export**: see **SVG → PNG Conversion** below
+- **HTML export**: see **HTML Output** below
 
-## SVG → PNG Conversion
+## HTML Output
 
-### Method Comparison
+Use HTML as the primary deliverable when the user asks for a page, browser-openable artifact, shareable single file, interactive diagram, or direct HTML output.
 
-| Tool | Install | Render Quality | Notes |
-|------|---------|----------------|-------|
-| `rsvg-convert` | System (often preinstalled) | ⚠️ Fair | Drops some CSS styles and `<foreignObject>` elements — missing borders/text on complex SVGs |
-| **`cairosvg` (recommended)** | `pip install cairosvg` | ✅ Good | Solid CSS support; clearly better than rsvg-convert |
-| `puppeteer` (headless Chrome) | `npm install puppeteer` | ✅✅ Best | Real browser engine; 100% fidelity but heavy (Node + Chromium) |
-
-### Recommended: cairosvg (Python one-liner)
+Recommended template path:
 
 ```bash
-# Single file (2x resolution for retina/docs)
-python3 -c "import cairosvg; cairosvg.svg2png(url='input.svg', write_to='output.png', scale=2)"
-
-# Batch convert all SVGs in a directory
-python3 -c "
-import cairosvg, os, glob
-d = 'docs/00-core'
-for svg in sorted(glob.glob(os.path.join(d, '*.svg'))):
-    png = svg.replace('.svg', '.png')
-    cairosvg.svg2png(url=svg, write_to=png, scale=2)
-    print(f'Done: {os.path.basename(svg)} -> {os.path.basename(png)}')
-"
+python3 <this-skill-dir>/scripts/generate-html.py architecture ./output/system.html '{"title":"System Architecture","style":7,"nodes":[],"arrows":[]}'
 ```
 
-> `scale=2` produces 2x resolution PNG, ideal for high-DPI screens and embedded docs.
-
-### Fallback: rsvg-convert (simple but may drop styles)
+Recommended wrap-existing-SVG path:
 
 ```bash
-# Single file
-rsvg-convert -w 1920 file.svg -o file.png
-
-# Batch (not recommended — complex SVGs may lose elements)
-for f in docs/00-core/*.svg; do rsvg-convert -o "${f%.svg}.png" "$f"; done
-
-# 2x resolution
-for f in docs/00-core/*.svg; do rsvg-convert -z 2 -o "${f%.svg}.png" "$f"; done
+python3 <this-skill-dir>/scripts/generate-html.py --svg ./output/system.svg ./output/system.html --title "System Architecture"
 ```
 
-### Highest Fidelity: puppeteer (headless Chrome)
+HTML output rules:
 
-```bash
-npm install puppeteer  # auto-downloads Chromium
-node svg2png.js [directory]
-```
-
-<details>
-<summary>svg2png.js — full puppeteer script</summary>
-
-```javascript
-const puppeteer = require('puppeteer');
-const fs = require('fs');
-const path = require('path');
-
-(async () => {
-  const dir = process.argv[2] || '.';
-  const svgFiles = fs.readdirSync(dir).filter(f => f.endsWith('.svg'));
-
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  for (const file of svgFiles) {
-    const svgPath = path.resolve(dir, file);
-    const pngPath = svgPath.replace(/\.svg$/, '.png');
-    const svgContent = fs.readFileSync(svgPath, 'utf-8');
-
-    const wMatch = svgContent.match(/width="(\d+)/);
-    const hMatch = svgContent.match(/height="(\d+)/);
-    const vbMatch = svgContent.match(/viewBox="[^"]*\s(\d+)\s(\d+)"/);
-
-    let width = wMatch ? parseInt(wMatch[1]) : (vbMatch ? parseInt(vbMatch[1]) : 1200);
-    let height = hMatch ? parseInt(hMatch[1]) : (vbMatch ? parseInt(vbMatch[2]) : 800);
-
-    const scale = 2;
-    const page = await browser.newPage();
-    await page.setViewport({ width, height, deviceScaleFactor: scale });
-
-    const html = `<!DOCTYPE html>
-<html><head><style>
-  body { margin: 0; padding: 0; background: transparent; }
-  img { display: block; }
-</style></head>
-<body>
-  <img src="data:image/svg+xml;base64,${Buffer.from(svgContent).toString('base64')}" width="${width}" height="${height}" />
-</body></html>`;
-
-    await page.setContent(html, { waitUntil: 'networkidle0' });
-    await page.screenshot({ path: pngPath, type: 'png', omitBackground: true });
-    await page.close();
-
-    console.log(`Done: ${file} -> ${path.basename(pngPath)} (${width}x${height} @${scale}x)`);
-  }
-
-  await browser.close();
-})();
-```
-
-</details>
-
-### Gotchas (lessons learned)
-
-- `rsvg-convert` renders SVGs containing `<foreignObject>`, CSS `filter`, or complex `<style>` blocks **incompletely** — missing borders / missing text are the typical symptoms
-- `cairosvg` (built on Cairo) has much better CSS support than rsvg and is sufficient for most cases
-- `cairosvg` **may fail to render CJK characters and emoji** in `<text>` elements — Cairo's font API (`cairo_select_font_face`) does not reliably perform system fontconfig fallback, so glyphs not present in the matched font face render as □ (empty box). This commonly affects Chinese/Japanese/Korean text and emoji, depending on system font configuration. **Workaround**: use SVG as primary format for web/GitHub rendering (browsers handle CJK natively); reserve PNG export for Latin-only diagrams, or switch to the puppeteer path for full CJK+emoji fidelity
-- If the SVG was generated by a browser (D3.js, Mermaid, etc.), only headless Chrome (puppeteer) renders it 100% faithfully
-- **Chrome headless CLI `--window-size=W,H` is not the drawable area** — even in `--headless=new` mode, browser chrome (scrollbars, internal UI surfaces) consumes ~15-20% of both width and height, so the actual SVG viewport is only ~0.84×W by ~0.84×H. Symptom: SVG content past `x ≈ 0.84 × W` or `y ≈ 0.84 × H` is cut off and renders as a solid white band, even though the SVG file itself is correct. Typical failure modes: a Legend in the top-right corner loses its right border; a bottom-row container loses its bottom dashed line. Fix: pass window dimensions **≥ SVG width × 1.2 AND SVG height × 1.2**, then crop the raw screenshot back to `(SVG_width × scale, SVG_height × scale)` with PIL or ImageMagick. Example: for a 1280×580 SVG at 3× DPR, use `--window-size=1600,800` then crop the output to 3840×1740. The Puppeteer / `page.setViewport()` path does NOT have this issue — it sets a precise viewport regardless of window UI.
-
-### Picking a Method
-
-1. **Default** → `cairosvg` (pip install once, one-line conversion, good fidelity)
-2. **No Python available** → `rsvg-convert` (acceptable for simple flat-color diagrams)
-3. **Browser-generated SVG or pixel-perfect required** → `puppeteer`
+- Keep the SVG inline so the file is portable and works without a server.
+- Do not reference external fonts, CSS, JavaScript, images, or CDNs unless the user explicitly asks.
+- Prefer the generated toolbar for standalone review pages; use `--no-toolbar` for embeds inside existing sites/docs.
+- Use `--theme auto` by default. Use `--theme light` or `--theme dark` only when the user specifies a page chrome theme.
+- Use the toolbar's `HD SVG` button for a larger downloaded SVG. The default scale is 2x; pass `--download-svg-scale 3` or another positive number when a different export size is needed.
+- If the user asks for clickable nodes, custom tooltips, drill-down panels, or filtering, hand-edit the generated HTML around the inline SVG and keep all JavaScript local to the same file.
 
 ## Styles
 

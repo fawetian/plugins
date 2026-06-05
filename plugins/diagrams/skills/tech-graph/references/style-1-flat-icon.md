@@ -1,6 +1,6 @@
 # Style 1: Flat Icon (Default)
 
-Inspired by draw.io defaults and Apple documentation style.
+Inspired by common diagramming defaults and Apple documentation style.
 
 ## Colors
 

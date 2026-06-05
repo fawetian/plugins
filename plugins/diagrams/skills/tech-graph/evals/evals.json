@@ -1,0 +1,51 @@
+{
+  "name": "tech-graph",
+  "version": "1.0.0",
+  "description": "Evaluations for tech-graph trigger accuracy in the diagrams plugin",
+  "evals": [
+    {
+      "name": "trigger-positive",
+      "type": "trigger",
+      "description": "Skill should trigger for standalone styled HTML technical diagrams",
+      "prompts": [
+        {
+          "input": "Generate an OpenAI-style single-file HTML technical graph for this RAG pipeline",
+          "expected": true,
+          "reason": "Styled standalone HTML technical graph request"
+        },
+        {
+          "input": "用 tech-graph 生成一个单文件 HTML 架构图，展示这个 Agent RAG 系统，但先不要真的写文件",
+          "expected": true,
+          "reason": "Explicit tech-graph skill and standalone HTML architecture diagram request"
+        },
+        {
+          "input": "Create a browser-openable HTML technical diagram for this microservices data flow",
+          "expected": true,
+          "reason": "Standalone HTML technical diagram request"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative",
+      "type": "trigger",
+      "description": "Skill should not trigger for unrelated coding or concept-only tasks",
+      "prompts": [
+        {
+          "input": "Create only a Mermaid diagram for this AWS network topology, do not create HTML",
+          "expected": false,
+          "reason": "Explicitly asks for non-HTML Mermaid output"
+        },
+        {
+          "input": "Refactor this function and add unit tests",
+          "expected": false,
+          "reason": "Coding task, not diagram generation"
+        },
+        {
+          "input": "Explain the difference between SVG and HTML",
+          "expected": false,
+          "reason": "Concept explanation, not generation request"
+        }
+      ]
+    }
+  ]
+}

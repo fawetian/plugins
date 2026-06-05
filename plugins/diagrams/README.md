@@ -1,11 +1,10 @@
 # Diagrams Plugin
 
-Diagram generation skills for editable draw.io files and styled SVG/PNG technical graphs.
+Standalone HTML technical diagram generation.
 
 ## Skills
 
-- `drawio-skill` — creates editable `.drawio` XML diagrams and exports through the draw.io desktop CLI when available. Best for diagrams that need later manual editing, exact vendor shape libraries, UML, ERD, network topology, swimlanes, or draw.io-native deliverables.
-- `fireworks-tech-graph` — creates polished standalone SVG technical illustrations and PNG exports. Best for documentation, technical articles, AI/RAG/agent architecture diagrams, flow diagrams, comparisons, timelines, and multi-style visual explanations.
+- `tech-graph` — creates polished single-file HTML technical diagrams with inline SVG, CSS, and optional local controls. Best for browser-openable architecture diagrams, AI/RAG/agent system diagrams, data flows, process flows, comparisons, timelines, and multi-style technical explanations.
 
 ## Install
 
@@ -21,5 +20,4 @@ codex plugin add diagrams@fawetian-plugins-codex
 
 ## Source Attribution
 
-- `drawio-skill` is integrated from [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) under the MIT License.
-- `fireworks-tech-graph` is integrated from [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) under the MIT License.
+- `tech-graph` is derived from [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) under the MIT License, with this plugin exposing only the standalone HTML diagram workflow.

@@ -23,12 +23,12 @@
     {
       "name": "diagrams",
       "source": "./plugins/diagrams",
-      "description": "图表生成工具集：可编辑 draw.io 图表、多风格 SVG/PNG 技术图，覆盖架构图、流程图、数据流、UML、ERD、网络拓扑和 AI 系统图",
-      "version": "1.0.0",
+      "description": "HTML 技术图生成工具：生成可直接在浏览器打开的单文件架构图、流程图、数据流、UML、ERD、网络拓扑和 AI 系统图",
+      "version": "2.0.0",
       "author": {
         "name": "fawetian"
       },
-      "keywords": ["diagram", "drawio", "svg", "png", "architecture", "flowchart", "uml", "erd", "visualization"]
+      "keywords": ["diagram", "html", "architecture", "flowchart", "uml", "erd", "visualization"]
     },
     {
       "name": "product",
