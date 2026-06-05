@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
+Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`、`read`、`marketing`、`harness-space`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
 
 ## 目录结构
 
@@ -51,6 +51,9 @@ plugins/                    # 每个子目录是一个独立插件
 ├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
 ├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
 ├── thinking/               # 思维工具集（18 个 skill）
+├── read/                   # 阅读工具 - 深度拆书与结构提取（1 个 skill）
+├── marketing/              # 运营内容工具 - 社媒卡片与公众号封面（1 个 skill）
+├── harness-space/          # AI harness engineering 工作空间规则（1 个 skill）
 └── devops/                 # 开发者工具 - 文档查询、代码清理、配置优化（5 个 agent）
 rules/                      # 可复用的 Claude Code Rules
 ├── common/                 # 语言无关的通用规则
@@ -163,6 +166,19 @@ model: inherit
 | [anthropics/skills](https://github.com/anthropics/skills) | Anthropic 官方技能 |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Claude 官方插件 |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) | Karpathy 风格编程技能集 |
+| [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | `diagrams/drawio-skill` 的集成来源（MIT） |
+| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | `diagrams/fireworks-tech-graph` 的集成来源（MIT） |
+| [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | `marketing/social-card` 的上游来源（AGPL-3.0） |
+
+### 外部 Skill 集成范式
+
+如果外部 skill 需要通过本市场暴露，同时还要跟进上游更新，优先采用 wrapper + vendor 范式：
+
+- 只注册 `plugins/<plugin>/skills/<skill>/` 下的本地 wrapper skill。
+- 上游项目原样放入 `plugins/<plugin>/vendor/<upstream-name>/`。
+- 在 `vendor/<upstream-name>/UPSTREAM.md` 记录上游仓库、分支、导入 commit 和更新命令。
+- 本地触发语义、marketplace 元数据、文档、evals 和适配说明放在 wrapper 层。
+- 除非明确要作为独立 plugin 发布，否则不要把 vendored upstream skill 注册成第二个 skill。
 
 ## 参与贡献
 

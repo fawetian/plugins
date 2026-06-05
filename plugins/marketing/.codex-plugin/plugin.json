@@ -1,0 +1,43 @@
+{
+  "name": "marketing",
+  "version": "1.0.0",
+  "description": "运营内容工具集：社媒图文卡片、小红书组图、公众号封面等内容生产工作流",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "marketing",
+    "social-card",
+    "xiaohongshu",
+    "rednote",
+    "wechat",
+    "cover",
+    "content"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Marketing",
+    "shortDescription": "Social card and marketing content production workflows",
+    "longDescription": "A collection of marketing content workflows. Includes a Guizang social card wrapper for Xiaohongshu/Rednote carousel images and WeChat Official Account cover pairs.",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Turn this article into Xiaohongshu social cards",
+      "Create a WeChat 21:9 and 1:1 cover pair",
+      "Generate a Swiss-style Rednote carousel from this product note"
+    ],
+    "brandColor": "#002FA7",
+    "screenshots": []
+  }
+}

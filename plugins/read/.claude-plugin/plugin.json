@@ -1,0 +1,11 @@
+{
+  "name": "read",
+  "version": "1.0.0",
+  "description": "阅读工具集：深度拆书、结构提取与阅读报告生成",
+  "author": { "name": "fawetian" },
+  "license": "MIT",
+  "keywords": ["read", "book", "xray-book", "reading", "structure", "org-mode"],
+  "skills": [
+    "./skills/ljg-xray-book"
+  ]
+}

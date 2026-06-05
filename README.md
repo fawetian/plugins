@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex currently publishes `coding`, `diagrams`, `product`, `cli`, and `thinking`. The `devops` plugin is Claude-only for now because it is agents-only.
+Codex currently publishes `coding`, `diagrams`, `product`, `cli`, `thinking`, `read`, `marketing`, and `harness-space`. The `devops` plugin is Claude-only for now because it is agents-only.
 
 ## Structure
 
@@ -51,6 +51,9 @@ plugins/                    # Each subdirectory is a standalone plugin
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
 ├── thinking/               # Mental model tools (18 skills)
+├── read/                   # Reading tools - book X-ray and structure extraction (1 skill)
+├── marketing/              # Marketing content tools - social cards and WeChat covers (1 skill)
+├── harness-space/          # AI harness engineering workspace rules (1 skill)
 └── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
 rules/                      # Reusable Claude Code Rules
 ├── common/                 # Language-agnostic principles
@@ -163,7 +166,19 @@ Recommended external plugin/skill sources:
 | [anthropics/skills](https://github.com/anthropics/skills) | Official Anthropic skills |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Official Claude plugins |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) | Karpathy 风格编程技能集 |
-| [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | Social card generation skill reference |
+| [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | Integrated source for `diagrams/drawio-skill` (MIT) |
+| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | Integrated source for `diagrams/fireworks-tech-graph` (MIT) |
+| [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | Integrated upstream for `marketing/social-card` (AGPL-3.0) |
+
+### External Skill Integration Pattern
+
+For external skills that should be exposed through this marketplace while still tracking upstream updates, prefer the wrapper plus vendor pattern:
+
+- Register only a local wrapper skill under `plugins/<plugin>/skills/<skill>/`.
+- Store the upstream project unchanged under `plugins/<plugin>/vendor/<upstream-name>/`.
+- Record upstream repository, branch, imported commit, and update commands in `vendor/<upstream-name>/UPSTREAM.md`.
+- Put local trigger wording, marketplace metadata, docs, evals, and adaptation notes in the wrapper layer.
+- Do not register the vendored upstream skill as a second skill unless it is intentionally published as its own plugin.
 
 ## Contributing
 

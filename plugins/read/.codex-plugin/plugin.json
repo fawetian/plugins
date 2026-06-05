@@ -1,0 +1,41 @@
+{
+  "name": "read",
+  "version": "1.0.0",
+  "description": "阅读工具集：深度拆书、结构提取与阅读报告生成",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": [
+    "read",
+    "book",
+    "xray-book",
+    "reading",
+    "structure",
+    "org-mode"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Read",
+    "shortDescription": "Reading skills for book structure extraction and reports",
+    "longDescription": "A collection of reading workflows. Includes LJG X-Ray Book for three-round cognitive compression, structure extraction, and org-mode book reports.",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Use ljg-xray-book to deconstruct this book",
+      "Generate a structured reading report for this book"
+    ],
+    "brandColor": "#16A34A",
+    "screenshots": []
+  }
+}

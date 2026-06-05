@@ -1,0 +1,51 @@
+{
+  "name": "social-card",
+  "version": "1.0.0",
+  "description": "Trigger coverage for Guizang social card marketing image workflows.",
+  "evals": [
+    {
+      "name": "positive-social-card-prompts",
+      "type": "trigger",
+      "description": "Prompts that should route to the Guizang social card wrapper.",
+      "prompts": [
+        {
+          "input": "帮我把这篇文章做成一套小红书图文，5 张，瑞士风，IKB 蓝。",
+          "expected": true,
+          "reason": "Explicit Xiaohongshu carousel and Swiss social card request."
+        },
+        {
+          "input": "Create a WeChat Official Account cover pair: one 21:9 main cover and one 1:1 square card from this product note.",
+          "expected": true,
+          "reason": "Explicit WeChat cover-pair workflow."
+        },
+        {
+          "input": "基于这份产品测评生成 Rednote 3:4 social cards，带截图说明。",
+          "expected": true,
+          "reason": "Explicit Rednote social card generation from product review and screenshots."
+        }
+      ]
+    },
+    {
+      "name": "negative-non-marketing-prompts",
+      "type": "trigger",
+      "description": "Prompts that should not route to the social card wrapper.",
+      "prompts": [
+        {
+          "input": "帮我写一个后端 API 的安全审查报告。",
+          "expected": false,
+          "reason": "Code security review belongs to coding skills, not social card generation."
+        },
+        {
+          "input": "把这个功能点整理成 PRD 和用户故事。",
+          "expected": false,
+          "reason": "Product requirement writing belongs to product skills."
+        },
+        {
+          "input": "请把这本书做三轮深度拆解并输出 org-mode 读书笔记。",
+          "expected": false,
+          "reason": "Book x-ray workflow belongs to reading skills."
+        }
+      ]
+    }
+  ]
+}

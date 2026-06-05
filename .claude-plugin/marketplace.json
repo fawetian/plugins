@@ -71,6 +71,26 @@
       "keywords": ["thinking", "mental-models", "first-principles", "systems-thinking", "decision-making"]
     },
     {
+      "name": "read",
+      "source": "./plugins/read",
+      "description": "阅读工具集：深度拆书、结构提取与阅读报告生成",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["read", "book", "xray-book", "reading", "structure", "org-mode"]
+    },
+    {
+      "name": "marketing",
+      "source": "./plugins/marketing",
+      "description": "运营内容工具集：社媒图文卡片、小红书组图、公众号封面等内容生产工作流",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["marketing", "social-card", "xiaohongshu", "rednote", "wechat", "cover", "content"]
+    },
+    {
       "name": "harness-space",
       "source": "./plugins/harness-space",
       "description": "管理 AI harness engineering 工作空间 — 按文件维护 rule 类别和约束，支持 init/commit 同步 GitHub",

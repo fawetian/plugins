@@ -1,0 +1,13 @@
+{
+  "name": "marketing",
+  "version": "1.0.0",
+  "description": "运营内容工具集：社媒图文卡片、小红书组图、公众号封面等内容生产工作流",
+  "author": {
+    "name": "fawetian"
+  },
+  "license": "AGPL-3.0",
+  "keywords": ["marketing", "social-card", "xiaohongshu", "rednote", "wechat", "cover", "content"],
+  "skills": [
+    "./skills/social-card"
+  ]
+}
