@@ -32,6 +32,18 @@
 - 目标：总结推荐阅读顺序
 - 输出：docs/code-research/06_learning_path.md
 
+### 专题 G：系统演进历史
+- 目标：基于 Git commit history 和关键 diff 梳理系统真实演进路线、阶段性问题和演进原因
+- 输出：docs/code-research/07_evolution_history.md
+
+### 专题 H：实现地图
+- 目标：把历史演进中的核心能力映射到当前模块、接口、数据结构、运行时组件和存储/状态
+- 输出：docs/code-research/08_implementation_map.md
+
+### 专题 I：从 0 设计这套系统
+- 目标：从第一性原理出发，按“最小设计 → 暴露问题 → 新增设计 → 复杂度代价 → 当前代码落点”重新推演系统设计
+- 输出：docs/code-research/09_design_evolution.md
+
 ## 待解决疑问
 
 （研究过程中添加，不要跳过）

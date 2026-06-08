@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
+description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、演进历史、实现地图、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
 ---
 
 # Code Research 代码研究
@@ -61,6 +61,8 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 | 特定模块/机制 | mechanism + data_flow | architecture, dependencies, learning_path |
 | 某功能的端到端流程 | workflow + architecture(局部) | dependencies, learning_path |
 | 某模块的数据建模 | data_flow + dependencies | workflow, learning_path |
+| 系统如何演进而来 | evolution_history + implementation_map | learning_path，除非需要否则跳过 dependencies |
+| 如何从 0 设计某系统/机制 | design_evolution + mechanism | dependencies, learning_path |
 | 对比两种实现方案 | mechanism × 2 | 其余全部 |
 
 **子目录工作流**：
@@ -73,7 +75,13 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 
 ### Phase 1：快速扫描，制定研究计划
 
-读 README、目录结构、入口文件、依赖文件，对项目建立初步认知。
+读 README、目录结构、入口文件、依赖文件和 Git 历史，对项目建立初步认知。
+
+Git 历史分析必须针对被研究的目标项目，而不是本 skill：
+- 用 `git log --oneline --decorate --max-count=80` 了解整体时间线。
+- 快速扫描识别关键目录后，对这些目录使用 `git log --name-status --format=...`。
+- 按能力变化、模块边界变化、数据模型变化和大型重构识别里程碑 commit。
+- 记录每个结论是 commit/diff 直接证明的事实，还是基于变更顺序和当前代码做出的推断。
 
 然后创建 `docs/code-research/RESEARCH_PLAN.md`，把研究任务拆成若干**独立专题**。参考模板：[templates/research_plan.md](templates/research_plan.md)
 
@@ -97,10 +105,35 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 - [templates/dependencies.md](templates/dependencies.md) — 依赖与生态
 - [templates/workflow.md](templates/workflow.md) — 核心工作流
 - [templates/learning_path.md](templates/learning_path.md) — 学习路径
+- [templates/evolution_history.md](templates/evolution_history.md) — 基于 Git commit 的系统演进历史
+- [templates/implementation_map.md](templates/implementation_map.md) — 连接历史演进与当前代码的实现地图
+- [templates/design_evolution.md](templates/design_evolution.md) — 从第一性原理出发的设计演进推演
+
+完整研究默认输出：
+1. `01_architecture.md`
+2. `02_mechanism_[名称].md`
+3. `03_data_flow.md`
+4. `04_dependencies.md`
+5. `05_workflow.md`
+6. `06_learning_path.md`
+7. `07_evolution_history.md`
+8. `08_implementation_map.md`
+9. `09_design_evolution.md`
+
+新增综合专题的依赖规则：
+- `07_evolution_history.md` 必须基于目标项目的 Git history 和 diff，不能只根据当前代码反推历史。
+- `08_implementation_map.md` 要把 `07_evolution_history.md` 中的历史阶段映射到当前模块、接口、数据结构、运行时组件和存储/状态。
+- `09_design_evolution.md` 不按 commit 时间线写，而是按第一性原理推演：最小设计 → 暴露问题 → 新增设计 → 复杂度代价 → 当前代码落点。
+- 如果 Explore Agent 之间不能保证依赖顺序，就在 Phase 3 等事实专题完成后，由主 Agent 汇总写 07/08/09。
 
 ### Phase 3：汇总整合
 
 所有专题完成后，在 `docs/code-research/RESEARCH_PLAN.md` 顶部补充研究摘要：项目核心价值、各专题文档索引、最值得关注的设计亮点。
+
+完整研究的汇总必须包含：
+- 来自 `07_evolution_history.md` 的主要历史演进路线
+- 来自 `08_implementation_map.md` 的当前实现地图亮点
+- 来自 `09_design_evolution.md` 的第一性原理设计路线
 
 ---
 
@@ -122,4 +155,6 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 - **"我想理解 X 功能"** → 重点拆分 X 的机制专题
 - **"我想贡献代码"** → 完整执行所有专题
 - **"我想理解系统怎么运转的"** → 架构专题 + 工作流专题
+- **"这个系统是怎么演进成这样的"** → 演进历史专题 + 实现地图专题
+- **"如果从 0 设计这套系统"** → 第一性原理设计演进专题
 - **"对比两个项目"** → 对两个项目各做架构专题，再写对比分析

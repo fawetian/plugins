@@ -32,6 +32,21 @@
           "input": "Give me a comprehensive understanding of how this project works, including key algorithms and architectural decisions",
           "expected": true,
           "reason": "Deep understanding request covering architectural decisions and algorithms"
+        },
+        {
+          "input": "分析这个项目的 commit history，梳理系统的演进路线和演进原因",
+          "expected": true,
+          "reason": "Request to research system evolution history and rationale from commits"
+        },
+        {
+          "input": "从第一性原理出发，重新思考如果从 0 设计这套系统应该怎么演进",
+          "expected": true,
+          "reason": "Request for first-principles design evolution analysis"
+        },
+        {
+          "input": "Map the historical evolution of this codebase to the current implementation structure",
+          "expected": true,
+          "reason": "Request for implementation map connecting history to current code"
         }
       ]
     },

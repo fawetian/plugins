@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, core mechanisms, data flow, or key algorithms. Trigger: code-research."
+description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, evolution history, implementation map, core mechanisms, data flow, or key algorithms. Trigger: code-research."
 userInvocable: true
 ---
 
@@ -62,6 +62,8 @@ The main directory already provides the global view. The subdirectory should foc
 | A specific module/mechanism | mechanism + data_flow | architecture, dependencies, learning_path |
 | How X works end-to-end | workflow + architecture(local) | dependencies, learning_path |
 | Data modeling of X | data_flow + dependencies | workflow, learning_path |
+| How the system evolved | evolution_history + implementation_map | learning_path, dependencies unless needed |
+| How to design X from scratch | design_evolution + mechanism | dependencies, learning_path |
 | Comparing two approaches | mechanism × 2 | everything else |
 
 **Subdirectory workflow**:
@@ -74,7 +76,13 @@ The main directory already provides the global view. The subdirectory should foc
 
 ### Phase 1: Quick Scan, Create Research Plan
 
-Read README, directory structure, entry files, dependency files to establish initial understanding of the project.
+Read README, directory structure, entry files, dependency files, and Git history to establish initial understanding of the project.
+
+For Git history, inspect the target project, not this skill:
+- Use `git log --oneline --decorate --max-count=80` for the overall timeline.
+- Use `git log --name-status --format=...` on key directories after the quick scan identifies them.
+- Identify milestone commits by capability changes, module boundary changes, data model changes, and large refactors.
+- Record when a conclusion is explicit from commits vs. inferred from diff order and current code.
 
 Then create `docs/code-research/RESEARCH_PLAN.md`, breaking down research tasks into several **independent topics**. Reference template: [templates/research_plan.md](templates/research_plan.md)
 
@@ -98,10 +106,35 @@ Output templates for each topic are in the `templates/` directory:
 - [templates/dependencies.md](templates/dependencies.md) — Dependencies & Ecosystem
 - [templates/workflow.md](templates/workflow.md) — Core Workflows
 - [templates/learning_path.md](templates/learning_path.md) — Learning Path
+- [templates/evolution_history.md](templates/evolution_history.md) — Evolution History from Git commits
+- [templates/implementation_map.md](templates/implementation_map.md) — Implementation Map connecting evolution to current code
+- [templates/design_evolution.md](templates/design_evolution.md) — First-principles design evolution
+
+The default full research output is:
+1. `01_architecture.md`
+2. `02_mechanism_[name].md`
+3. `03_data_flow.md`
+4. `04_dependencies.md`
+5. `05_workflow.md`
+6. `06_learning_path.md`
+7. `07_evolution_history.md`
+8. `08_implementation_map.md`
+9. `09_design_evolution.md`
+
+Dependency rules for the new synthesis topics:
+- `07_evolution_history.md` must be based on the target project's Git history and diffs. Do not reconstruct history from current code alone.
+- `08_implementation_map.md` should connect the historical stages from `07_evolution_history.md` to current modules, interfaces, data structures, runtime components, and storage/state.
+- `09_design_evolution.md` should ignore chronological commit order and reason from first principles: minimal design → exposed problem → added design → complexity cost → current code anchor.
+- If Explore Agents cannot depend on each other, write 07/08/09 during Phase 3 after the factual topics are complete.
 
 ### Phase 3: Summary & Integration
 
 After all topics are complete, add a research summary at the top of `docs/code-research/RESEARCH_PLAN.md`: project core value, index of each topic document, design highlights worth noting.
+
+For full research, the summary must include:
+- the main historical evolution route from `07_evolution_history.md`
+- the current implementation map highlights from `08_implementation_map.md`
+- the first-principles design route from `09_design_evolution.md`
 
 ---
 
@@ -123,4 +156,6 @@ After all topics are complete, add a research summary at the top of `docs/code-r
 - **"I want to understand feature X"** → Focus on breaking down X's mechanism topic
 - **"I want to contribute code"** → Complete all topics
 - **"How does this system work?"** → Architecture topic + Workflow topic
+- **"How did this system evolve?"** → Evolution History topic + Implementation Map topic
+- **"How would we design this from scratch?"** → First-principles Design Evolution topic
 - **"Compare two projects"** → Do architecture topic for both projects, then write comparison analysis
