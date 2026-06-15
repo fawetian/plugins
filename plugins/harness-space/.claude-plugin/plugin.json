@@ -1,6 +1,6 @@
 {
   "name": "harness-space",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Manage and iterate your AI harness engineering workspace — file-based rule categories and constraints for reliable AI agents",
   "author": {
     "name": "fawetian"

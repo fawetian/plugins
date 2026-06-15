@@ -1,14 +1,15 @@
 {
   "name": "coding",
-  "version": "2.0.0",
-  "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
+  "version": "2.1.0",
+  "description": "代码质量工具集：代码研究、技术方案、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
   },
   "license": "MIT",
-  "keywords": ["code", "review", "research", "annotation", "simplify", "quality", "translate", "patterns", "tdd", "security", "testing"],
+  "keywords": ["code", "review", "research", "technical-design", "architecture", "annotation", "simplify", "quality", "translate", "patterns", "tdd", "security", "testing"],
   "skills": [
     "./skills/code-research",
+    "./skills/technical-design",
     "./skills/code-annotator",
     "./skills/code-review",
     "./skills/code-simplifier",

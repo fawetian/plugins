@@ -1,0 +1,95 @@
+{
+  "name": "technical-design",
+  "version": "1.0.0",
+  "description": "Evaluations for technical-design skill trigger accuracy and output quality",
+  "evals": [
+    {
+      "name": "trigger-positive-design-requests",
+      "type": "trigger",
+      "description": "Skill should trigger for technical design, RFC, ADR, and implementation plan requests",
+      "prompts": [
+        {
+          "input": "technical-design 给认证模块重构写一份技术方案",
+          "expected": true,
+          "reason": "Explicit skill name with technical design request"
+        },
+        {
+          "input": "帮我写一个技术方案，设计订单状态机和迁移计划",
+          "expected": true,
+          "reason": "Chinese technical design request"
+        },
+        {
+          "input": "Write an implementation plan for migrating this service from polling to webhooks",
+          "expected": true,
+          "reason": "Implementation plan for a production architecture change"
+        },
+        {
+          "input": "Create an RFC for splitting the monolith into modules",
+          "expected": true,
+          "reason": "RFC request for architectural change"
+        },
+        {
+          "input": "写一个 ADR，说明为什么选择 PostgreSQL 而不是 MongoDB",
+          "expected": true,
+          "reason": "ADR request for technical decision"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-other-workflows",
+      "type": "trigger",
+      "description": "Skill should not trigger for PRD writing, code research, code review, or direct simple bug fixes",
+      "prompts": [
+        {
+          "input": "写一份 PRD，描述会员权益和用户故事",
+          "expected": false,
+          "reason": "Product requirement writing belongs to product skills"
+        },
+        {
+          "input": "code-research 帮我理解这个项目的数据流",
+          "expected": false,
+          "reason": "Existing-code research belongs to code-research"
+        },
+        {
+          "input": "Run code-review on my latest changes",
+          "expected": false,
+          "reason": "Code review belongs to code-review"
+        },
+        {
+          "input": "Fix this null pointer bug in the parser",
+          "expected": false,
+          "reason": "Direct bug fix without a design document request"
+        },
+        {
+          "input": "Explain what this function does",
+          "expected": false,
+          "reason": "Code explanation is not technical design writing"
+        }
+      ]
+    },
+    {
+      "name": "output-quality-technical-design",
+      "type": "output",
+      "description": "Verify technical design output contains practical engineering sections",
+      "prompt": "technical-design 给支付回调幂等处理写一份技术方案",
+      "checks": [
+        {
+          "name": "has-current-state",
+          "description": "Output should distinguish verified current system state from assumptions"
+        },
+        {
+          "name": "has-detailed-design",
+          "description": "Output should include detailed design covering modules, data, APIs or workflows"
+        },
+        {
+          "name": "has-rollout-and-tests",
+          "description": "Output should include rollout or migration plan and validation tests"
+        },
+        {
+          "name": "has-risks-open-questions",
+          "description": "Output should include risks, mitigations, and unresolved questions"
+        }
+      ]
+    }
+  ]
+}

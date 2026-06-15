@@ -46,14 +46,14 @@ Codex currently publishes `coding`, `diagrams`, `product`, `cli`, `thinking`, `r
 │   └── plugins/
 │       └── marketplace.json # Codex marketplace manifest
 plugins/                    # Each subdirectory is a standalone plugin
-├── coding/                 # Code quality tools (14 skills, 11 agents)
+├── coding/                 # Code quality tools (15 skills, 11 agents)
 ├── diagrams/               # Diagram generation tools - draw.io and SVG/PNG technical graphs (2 skills)
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
 ├── thinking/               # Mental model tools (18 skills)
 ├── read/                   # Reading tools - book X-ray and structure extraction (1 skill)
 ├── marketing/              # Marketing content tools - social cards and WeChat covers (1 skill)
-├── harness-space/          # AI harness engineering workspace rules (1 skill)
+├── harness-space/          # AI harness engineering workspace rules and Codex-only goal contracts (2 skills)
 └── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
 rules/                      # Reusable Claude Code Rules
 ├── common/                 # Language-agnostic principles
@@ -169,6 +169,7 @@ Recommended external plugin/skill sources:
 | [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | Integrated source for `diagrams/drawio-skill` (MIT) |
 | [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | Integrated source for `diagrams/fireworks-tech-graph` (MIT) |
 | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | Integrated upstream for `marketing/social-card` (AGPL-3.0) |
+| [joeseesun/qiaomu-goal-meta-skill](https://github.com/joeseesun/qiaomu-goal-meta-skill) | Integrated upstream for `harness-space/goal-meta` (MIT) |
 
 ### External Skill Integration Pattern
 

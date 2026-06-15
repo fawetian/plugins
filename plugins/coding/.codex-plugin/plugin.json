@@ -1,7 +1,7 @@
 {
   "name": "coding",
-  "version": "2.0.0",
-  "description": "代码质量工具集：代码研究、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
+  "version": "2.1.0",
+  "description": "代码质量工具集：代码研究、技术方案、注释、审查、简化、模式指南，内置专项审查和构建修复 Agents",
   "author": {
     "name": "fawetian"
   },
@@ -12,6 +12,8 @@
     "code",
     "review",
     "research",
+    "technical-design",
+    "architecture",
     "annotation",
     "simplify",
     "quality",
@@ -24,8 +26,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Coding",
-    "shortDescription": "Code quality, review, research, and engineering workflow skills",
-    "longDescription": "A collection of Codex skills for code research, annotation, review, simplification, translation, documentation, language patterns, TDD, security review, testing, and migrations.",
+    "shortDescription": "Code quality, technical design, review, research, and engineering workflow skills",
+    "longDescription": "A collection of Codex skills for code research, technical design writing, annotation, review, simplification, translation, documentation, language patterns, TDD, security review, testing, and migrations.",
     "developerName": "fawetian",
     "category": "Coding",
     "capabilities": [
@@ -38,6 +40,7 @@
     "termsOfServiceURL": "https://github.com/fawetian/plugins",
     "defaultPrompt": [
       "Review this code change with the coding skills",
+      "Write a technical design for this feature",
       "Research this codebase and summarize the architecture",
       "Guide this task with TDD"
     ],

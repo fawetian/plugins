@@ -1,0 +1,134 @@
+{
+  "name": "goal-meta",
+  "version": "1.0.0",
+  "description": "Evaluations for goal-meta trigger boundaries and output contract",
+  "evals": [
+    {
+      "name": "trigger-positive",
+      "type": "trigger",
+      "description": "Should trigger when the user explicitly asks for a Codex /goal or bounded agent goal",
+      "prompts": [
+        {
+          "input": "goal-meta 帮我把这个需求写成 Codex /goal：我要做一个 iOS 提词器 MVP",
+          "expected": true,
+          "reason": "Explicit skill name and Codex /goal request"
+        },
+        {
+          "input": "帮我把这个模糊任务转成 /goal，包含验证、边界和暂停条件",
+          "expected": true,
+          "reason": "Direct /goal drafting request"
+        },
+        {
+          "input": "写一个 Goal 指令，让 agent 修这个 bug，但不能乱动生产配置",
+          "expected": true,
+          "reason": "Chinese Goal instruction request with boundaries"
+        },
+        {
+          "input": "这个是医疗相关工具，先帮我写 discovery-first 的 agent goal",
+          "expected": true,
+          "reason": "Specialized domain goal drafting request"
+        },
+        {
+          "input": "我要开发一个网页游戏，给我推荐执行版中文 goal 和英文兼容版",
+          "expected": true,
+          "reason": "Requests the bilingual goal output shape"
+        },
+        {
+          "input": "为这个发布任务写一个不能直接推主分支的 /goal",
+          "expected": true,
+          "reason": "Release goal with branch constraint"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative",
+      "type": "trigger",
+      "description": "Should not trigger for adjacent planning, product, design, or direct execution requests",
+      "prompts": [
+        {
+          "input": "帮我写一份 PRD，描述会员权益和用户故事",
+          "expected": false,
+          "reason": "PRD writing belongs to product skills"
+        },
+        {
+          "input": "technical-design 给登录态刷新机制写一份技术方案",
+          "expected": false,
+          "reason": "Technical design belongs to technical-design"
+        },
+        {
+          "input": "直接帮我实现这个 bug 修复",
+          "expected": false,
+          "reason": "The user wants execution, not a goal draft"
+        },
+        {
+          "input": "review this code for security issues",
+          "expected": false,
+          "reason": "Code review should use review/security skills"
+        },
+        {
+          "input": "给我列一个 Q3 产品路线图",
+          "expected": false,
+          "reason": "Product roadmap planning belongs to roadmap-planner"
+        },
+        {
+          "input": "帮我定义这个功能的验收标准",
+          "expected": false,
+          "reason": "Ordinary acceptance criteria without a /goal request should not trigger"
+        },
+        {
+          "input": "翻译这句话：hello world",
+          "expected": false,
+          "reason": "Simple translation does not need a durable agent goal"
+        }
+      ]
+    },
+    {
+      "name": "output-contract",
+      "type": "output",
+      "description": "Generated goals should include the required Chinese contract fields and English mirror",
+      "prompt": "goal-meta 把“做一个本地网页游戏 MVP”写成可直接复制的 /goal",
+      "checks": [
+        {
+          "name": "contains-goal-prefix",
+          "description": "Output starts from an executable /goal command",
+          "pattern": "/goal"
+        },
+        {
+          "name": "contains-verification",
+          "description": "Output includes verification evidence",
+          "pattern": "验证："
+        },
+        {
+          "name": "contains-constraints",
+          "description": "Output includes constraints",
+          "pattern": "约束："
+        },
+        {
+          "name": "contains-boundaries",
+          "description": "Output includes write boundaries",
+          "pattern": "边界："
+        },
+        {
+          "name": "contains-iteration-policy",
+          "description": "Output includes bounded iteration policy",
+          "pattern": "迭代策略："
+        },
+        {
+          "name": "contains-stop-condition",
+          "description": "Output includes completion conditions",
+          "pattern": "完成条件："
+        },
+        {
+          "name": "contains-pause-condition",
+          "description": "Output includes pause conditions",
+          "pattern": "暂停条件："
+        },
+        {
+          "name": "contains-english-mirror",
+          "description": "Output includes the English-compatible mirror for Chinese users",
+          "pattern": "Goal Draft \\(English-compatible\\)"
+        }
+      ]
+    }
+  ]
+}
