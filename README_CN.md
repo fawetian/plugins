@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`、`read`、`marketing`、`harness-space`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
+Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`、`read`、`marketing`、`harness-space`、`yao-meta-skill`。`devops` 暂时只支持 Claude，因为它目前只有 agents。
 
 ## 目录结构
 
@@ -47,13 +47,14 @@ Codex 当前发布 `coding`、`diagrams`、`product`、`cli`、`thinking`、`rea
 │       └── marketplace.json # Codex 市场清单
 plugins/                    # 每个子目录是一个独立插件
 ├── coding/                 # 代码质量工具集（15 个 skill、11 个 agent）
-├── diagrams/               # 图表生成工具 - draw.io 与 SVG/PNG 技术图（2 个 skill）
+├── diagrams/               # 单文件 HTML 技术图生成工具（1 个 skill）
 ├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
 ├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
 ├── thinking/               # 思维工具集（18 个 skill）
 ├── read/                   # 阅读工具 - 深度拆书与结构提取（1 个 skill）
 ├── marketing/              # 运营内容工具 - 社媒卡片与公众号封面（1 个 skill）
 ├── harness-space/          # AI harness engineering 工作空间规则与 Codex-only goal 契约（2 个 skill）
+├── yao-meta-skill/         # Skill 工程、评估与打包工作流（1 个 skill）
 └── devops/                 # 开发者工具 - 文档查询、代码清理、配置优化（5 个 agent）
 rules/                      # 可复用的 Claude Code Rules
 ├── common/                 # 语言无关的通用规则
@@ -166,10 +167,10 @@ model: inherit
 | [anthropics/skills](https://github.com/anthropics/skills) | Anthropic 官方技能 |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Claude 官方插件 |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) | Karpathy 风格编程技能集 |
-| [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | `diagrams/drawio-skill` 的集成来源（MIT） |
-| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | `diagrams/fireworks-tech-graph` 的集成来源（MIT） |
+| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | `diagrams/tech-graph` 的集成来源（MIT），已适配为本地单文件 HTML 工作流 |
 | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | `marketing/social-card` 的上游来源（AGPL-3.0） |
 | [joeseesun/qiaomu-goal-meta-skill](https://github.com/joeseesun/qiaomu-goal-meta-skill) | `harness-space/goal-meta` 的上游来源（MIT） |
+| [yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill) | `yao-meta-skill/yao-meta-skill` 的上游来源（MIT） |
 
 ### 外部 Skill 集成范式
 

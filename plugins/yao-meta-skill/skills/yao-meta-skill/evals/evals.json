@@ -1,0 +1,54 @@
+{
+  "name": "yao-meta-skill",
+  "version": "1.1.0",
+  "description": "Trigger coverage for skill creation, refactoring, evaluation, packaging, and exclusion boundaries.",
+  "evals": [
+    {
+      "name": "trigger-positive-skill-authoring",
+      "type": "trigger",
+      "prompts": [
+        {
+          "input": "把这个客服 SOP 变成一个可复用 agent skill，并补上触发边界和 evals",
+          "expected": true,
+          "reason": "The user is asking to create a reusable agent skill package from a workflow."
+        },
+        {
+          "input": "Refactor these prompt notes into a team-ready skill with trigger tests and output quality gates.",
+          "expected": true,
+          "reason": "The task is skill refactoring with eval and release-quality requirements."
+        },
+        {
+          "input": "Audit this existing SKILL.md for trigger drift, packaging readiness, and missing governance evidence.",
+          "expected": true,
+          "reason": "The task is an existing skill audit against routing, package, and governance criteria."
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-boundaries",
+      "type": "trigger",
+      "prompts": [
+        {
+          "input": "帮我写一个用户增长功能的 PRD",
+          "expected": false,
+          "reason": "PRDs are product documentation, not skill engineering."
+        },
+        {
+          "input": "code-review 这个 pull request，重点看安全和测试缺口",
+          "expected": false,
+          "reason": "Code review belongs to code-review or security-review workflows."
+        },
+        {
+          "input": "把这个模糊任务写成 Codex /goal 指令",
+          "expected": false,
+          "reason": "Codex /goal command drafting belongs to goal-meta, not general skill engineering."
+        },
+        {
+          "input": "帮我安装 diagrams plugin 并确认能不能用",
+          "expected": false,
+          "reason": "Plugin installation and availability checks alone are not skill creation or evaluation."
+        }
+      ]
+    }
+  ]
+}

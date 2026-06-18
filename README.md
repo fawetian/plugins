@@ -35,7 +35,7 @@ codex plugin marketplace add .
 codex plugin add coding@fawetian-plugins-codex
 ```
 
-Codex currently publishes `coding`, `diagrams`, `product`, `cli`, `thinking`, `read`, `marketing`, and `harness-space`. The `devops` plugin is Claude-only for now because it is agents-only.
+Codex currently publishes `coding`, `diagrams`, `product`, `cli`, `thinking`, `read`, `marketing`, `harness-space`, and `yao-meta-skill`. The `devops` plugin is Claude-only for now because it is agents-only.
 
 ## Structure
 
@@ -47,13 +47,14 @@ Codex currently publishes `coding`, `diagrams`, `product`, `cli`, `thinking`, `r
 │       └── marketplace.json # Codex marketplace manifest
 plugins/                    # Each subdirectory is a standalone plugin
 ├── coding/                 # Code quality tools (15 skills, 11 agents)
-├── diagrams/               # Diagram generation tools - draw.io and SVG/PNG technical graphs (2 skills)
+├── diagrams/               # Standalone HTML technical diagram generation (1 skill)
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
 ├── thinking/               # Mental model tools (18 skills)
 ├── read/                   # Reading tools - book X-ray and structure extraction (1 skill)
 ├── marketing/              # Marketing content tools - social cards and WeChat covers (1 skill)
 ├── harness-space/          # AI harness engineering workspace rules and Codex-only goal contracts (2 skills)
+├── yao-meta-skill/         # Skill engineering, evaluation, and packaging workflow (1 skill)
 └── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
 rules/                      # Reusable Claude Code Rules
 ├── common/                 # Language-agnostic principles
@@ -166,10 +167,10 @@ Recommended external plugin/skill sources:
 | [anthropics/skills](https://github.com/anthropics/skills) | Official Anthropic skills |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | Official Claude plugins |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) | Karpathy 风格编程技能集 |
-| [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | Integrated source for `diagrams/drawio-skill` (MIT) |
-| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | Integrated source for `diagrams/fireworks-tech-graph` (MIT) |
+| [yizhiyanhua-ai/fireworks-tech-graph](https://github.com/yizhiyanhua-ai/fireworks-tech-graph) | Integrated source for `diagrams/tech-graph` (MIT), adapted to the local standalone HTML workflow |
 | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | Integrated upstream for `marketing/social-card` (AGPL-3.0) |
 | [joeseesun/qiaomu-goal-meta-skill](https://github.com/joeseesun/qiaomu-goal-meta-skill) | Integrated upstream for `harness-space/goal-meta` (MIT) |
+| [yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill) | Integrated upstream for `yao-meta-skill/yao-meta-skill` (MIT) |
 
 ### External Skill Integration Pattern
 

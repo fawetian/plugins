@@ -1,0 +1,42 @@
+{
+  "name": "yao-meta-skill",
+  "version": "1.1.0",
+  "description": "Skill engineering workflow for creating, refactoring, evaluating, and packaging reusable agent skills",
+  "author": {
+    "name": "Yao Team"
+  },
+  "homepage": "https://github.com/yaojingang/yao-meta-skill",
+  "repository": "https://github.com/yaojingang/yao-meta-skill",
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "agent-skills",
+    "skill-engineering",
+    "evals",
+    "packaging",
+    "governance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Yao Meta Skill",
+    "shortDescription": "Skill engineering, evaluation, and packaging workflow",
+    "longDescription": "A wrapper around yaojingang/yao-meta-skill for turning workflows, prompts, transcripts, docs, or notes into reusable agent skills with trigger boundaries, evals, package evidence, and governed release checks.",
+    "developerName": "Yao Team",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/yaojingang/yao-meta-skill",
+    "privacyPolicyURL": "https://github.com/yaojingang/yao-meta-skill",
+    "termsOfServiceURL": "https://github.com/yaojingang/yao-meta-skill",
+    "defaultPrompt": [
+      "Turn this workflow into a reusable agent skill",
+      "Refactor this prompt into a team-ready skill with evals",
+      "Audit this skill for trigger drift and packaging readiness"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}

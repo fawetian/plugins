@@ -99,6 +99,16 @@
         "name": "fawetian"
       },
       "keywords": ["harness", "harness-engineering", "rules", "rule-kit", "constraints", "workspace"]
+    },
+    {
+      "name": "yao-meta-skill",
+      "source": "./plugins/yao-meta-skill",
+      "description": "Skill 工程工具：创建、重构、评估并打包可复用 agent skills",
+      "version": "1.1.0",
+      "author": {
+        "name": "Yao Team"
+      },
+      "keywords": ["skill", "agent-skills", "skill-engineering", "evals", "packaging", "governance"]
     }
   ]
 }
