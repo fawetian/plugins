@@ -6,6 +6,7 @@ Rules are organized into a **common** layer plus **language-specific** directori
 ```
 rules/
 ├── common/              # Language-agnostic principles (always install)
+│   ├── agent-discipline.md
 │   ├── agents.md
 │   ├── coding-style.md
 │   ├── development-workflow.md
@@ -76,6 +77,10 @@ cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 - **Skills** (`skills/` directory) provide deep, actionable reference material for specific tasks (e.g., `python-patterns`, `golang-testing`).
 
 Language-specific rule files reference relevant skills where appropriate. Rules tell you *what* to do; skills tell you *how* to do it.
+
+## Rule Sources
+
+- `common/agent-discipline.md` is adapted from [multica-ai/andrej-karpathy-skills README.zh.md](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) and its [CLAUDE.md](https://raw.githubusercontent.com/multica-ai/andrej-karpathy-skills/main/CLAUDE.md). The local version rewrites the idea as a repo-native common rule instead of vendoring the upstream prompt verbatim.
 
 ## Adding a New Language
 

@@ -7,6 +7,7 @@
 ```
 rules/
 ├── common/              # 语言无关的原则（始终安装）
+│   ├── agent-discipline.md
 │   ├── agents.md
 │   ├── coding-style.md
 │   ├── development-workflow.md
@@ -76,6 +77,10 @@ cp rules/me/TOOLS.md  ~/.claude/TOOLS.md
 - **Skills**（`skills/` 目录）为特定任务提供深入、可操作的参考资料（例如，`python-patterns`、`golang-testing`）。
 
 语言专用规则文件在适当的地方引用相关技能。Rules 告诉你*做什么*；skills 告诉你*怎么做*。
+
+## 规则来源
+
+- `common/agent-discipline.md` 改写自 [multica-ai/andrej-karpathy-skills README.zh.md](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.zh.md) 及其 [CLAUDE.md](https://raw.githubusercontent.com/multica-ai/andrej-karpathy-skills/main/CLAUDE.md)。本仓库版本将其整理为本地通用 rule，没有逐字 vendoring 上游提示词。
 
 ## 添加新语言
 
