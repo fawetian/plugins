@@ -1,0 +1,42 @@
+{
+  "name": "design",
+  "version": "1.0.0",
+  "description": "视觉设计工具集：从 awesome-design-md 选择并应用 DESIGN.md 风格档案",
+  "author": {
+    "name": "fawetian"
+  },
+  "homepage": "https://github.com/fawetian/plugins",
+  "repository": "https://github.com/fawetian/plugins",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "design-md",
+    "ui",
+    "visual-style",
+    "frontend",
+    "brand-style"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design",
+    "shortDescription": "Select and apply DESIGN.md visual style profiles",
+    "longDescription": "A small design workflow plugin. It selects the three closest DESIGN.md files from VoltAgent/awesome-design-md, asks for confirmation, then applies the confirmed file to the current project.",
+    "developerName": "fawetian",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fawetian/plugins",
+    "privacyPolicyURL": "https://github.com/fawetian/plugins",
+    "termsOfServiceURL": "https://github.com/fawetian/plugins",
+    "defaultPrompt": [
+      "Pick three DESIGN.md styles for this landing page",
+      "Find a visual style for this SaaS dashboard",
+      "Choose and apply a DESIGN.md for this frontend project"
+    ],
+    "brandColor": "#111827",
+    "screenshots": []
+  }
+}

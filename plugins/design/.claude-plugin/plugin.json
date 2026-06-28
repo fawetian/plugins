@@ -1,0 +1,13 @@
+{
+  "name": "design",
+  "version": "1.0.0",
+  "description": "视觉设计工具集：从 awesome-design-md 选择并应用 DESIGN.md 风格档案",
+  "author": {
+    "name": "fawetian"
+  },
+  "license": "MIT",
+  "keywords": ["design", "design-md", "ui", "visual-style", "frontend", "brand-style"],
+  "skills": [
+    "./skills/design-md-selector"
+  ]
+}

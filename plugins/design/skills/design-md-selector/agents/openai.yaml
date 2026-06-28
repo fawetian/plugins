@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design.md Selector"
+  short_description: "Pick and apply a matching DESIGN.md from awesome-design-md"
+  default_prompt: "Pick three DESIGN.md options for this UI and ask before applying one"

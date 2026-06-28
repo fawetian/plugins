@@ -1,0 +1,61 @@
+{
+  "name": "design-md-selector",
+  "version": "1.0.0",
+  "description": "Evaluations for design-md-selector trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-design-md-selection",
+      "type": "trigger",
+      "description": "Skill should trigger when the user asks to choose or apply a DESIGN.md visual style",
+      "prompts": [
+        {
+          "input": "Pick three DESIGN.md styles for this AI agent landing page and ask me which one to apply",
+          "expected": true,
+          "reason": "Explicit DESIGN.md selection and apply flow"
+        },
+        {
+          "input": "帮我从 awesome-design-md 里找 3 个最适合这个 SaaS dashboard 的设计风格",
+          "expected": true,
+          "reason": "Explicit upstream style selection request"
+        },
+        {
+          "input": "给这个前端项目选一个接近 Linear/Vercel 的视觉风格，确认后应用",
+          "expected": true,
+          "reason": "Visual style selection before frontend work"
+        },
+        {
+          "input": "Find a DESIGN.md that fits a premium fintech onboarding site",
+          "expected": true,
+          "reason": "Explicit request to find a matching DESIGN.md"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-other-workflows",
+      "type": "trigger",
+      "description": "Skill should not trigger for product docs, social cards, or generic frontend implementation",
+      "prompts": [
+        {
+          "input": "Write a PRD for a fintech onboarding flow",
+          "expected": false,
+          "reason": "PRD writing belongs to product skills"
+        },
+        {
+          "input": "Create Xiaohongshu carousel cards from this article",
+          "expected": false,
+          "reason": "Social card generation belongs to marketing skills"
+        },
+        {
+          "input": "Implement the login page from this Figma screenshot",
+          "expected": false,
+          "reason": "Generic UI implementation without DESIGN.md style selection"
+        },
+        {
+          "input": "Generate a company logo and brand assets",
+          "expected": false,
+          "reason": "Brand asset creation is outside this skill"
+        }
+      ]
+    }
+  ]
+}

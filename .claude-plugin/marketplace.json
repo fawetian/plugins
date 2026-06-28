@@ -41,6 +41,16 @@
       "keywords": ["product", "prd", "requirements", "user-story", "roadmap", "analysis", "agile", "agents", "planning", "architecture"]
     },
     {
+      "name": "design",
+      "source": "./plugins/design",
+      "description": "视觉设计工具集：从 awesome-design-md 选择并应用 DESIGN.md 风格档案",
+      "version": "1.0.0",
+      "author": {
+        "name": "fawetian"
+      },
+      "keywords": ["design", "design-md", "ui", "visual-style", "frontend", "brand-style"]
+    },
+    {
       "name": "cli",
       "source": "./plugins/cli",
       "description": "本地 CLI 工具集：飞书、阿里云等命令行工具的 AI 使用指南",
