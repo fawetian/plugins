@@ -1,0 +1,43 @@
+{
+  "name": "sequenzy",
+  "version": "1.0.0",
+  "description": "Sequenzy email marketing operations for lifecycle, campaign, and transactional email workflows via MCP and agent skills",
+  "author": {
+    "name": "Sequenzy"
+  },
+  "homepage": "https://github.com/Sequenzy/skills",
+  "repository": "https://github.com/Sequenzy/skills",
+  "license": "MIT",
+  "keywords": [
+    "sequenzy",
+    "mcp",
+    "email-marketing",
+    "lifecycle-email",
+    "transactional-email",
+    "campaigns",
+    "marketing-automation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sequenzy",
+    "shortDescription": "Operate lifecycle, campaign, and transactional email workflows from agents",
+    "longDescription": "Sequenzy exposes permissioned email marketing operations to Claude Code, Codex, and other agent runtimes: subscribers, lists, segments, campaigns, sequences, templates, transactional email, inbox replies, webhooks, and stats.",
+    "developerName": "Sequenzy",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://sequenzy.com",
+    "privacyPolicyURL": "https://sequenzy.com/privacy",
+    "termsOfServiceURL": "https://sequenzy.com/terms",
+    "defaultPrompt": [
+      "Create a lifecycle segment in Sequenzy and draft a campaign for approval",
+      "Review Sequenzy onboarding campaign performance and summarize issues",
+      "Send a transactional email through Sequenzy and verify delivery status"
+    ],
+    "brandColor": "#111827",
+    "screenshots": []
+  }
+}

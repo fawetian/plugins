@@ -1,0 +1,34 @@
+{
+  "name": "sequenzy-email-marketing",
+  "version": "1.0.0",
+  "description": "Trigger coverage for Sequenzy email marketing operations",
+  "evals": [
+    {
+      "name": "sequenzy-operations-trigger",
+      "type": "trigger",
+      "description": "Triggers on permissioned Sequenzy email operations and avoids unrelated marketing requests",
+      "prompts": [
+        {
+          "input": "Use Sequenzy to create a segment of activated trial users and draft an onboarding campaign for approval.",
+          "expected": true,
+          "reason": "Direct Sequenzy lifecycle campaign workflow"
+        },
+        {
+          "input": "Check yesterday's Sequenzy transactional email delivery stats and summarize failures.",
+          "expected": true,
+          "reason": "Sequenzy transactional email and delivery stats workflow"
+        },
+        {
+          "input": "Configure the @sequenzy/mcp server in my Claude Desktop config.",
+          "expected": true,
+          "reason": "Sequenzy MCP setup request"
+        },
+        {
+          "input": "Create a generic social media content calendar for LinkedIn.",
+          "expected": false,
+          "reason": "Marketing request not involving Sequenzy email workflows"
+        }
+      ]
+    }
+  ]
+}

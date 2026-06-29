@@ -55,6 +55,7 @@ plugins/                    # Each subdirectory is a standalone plugin
 ├── marketing/              # Marketing content tools - social cards and WeChat covers (1 skill)
 ├── harness-space/          # AI harness engineering workspace rules and Codex-only goal contracts (2 skills)
 ├── yao-meta-skill/         # Skill engineering, evaluation, and packaging workflow (1 skill)
+├── sequenzy/               # Sequenzy lifecycle, campaign, and transactional email operations (1 skill + MCP)
 └── devops/                 # Dev tools - doc lookup, refactor, optimization (5 agents)
 rules/                      # Reusable Claude Code Rules
 ├── common/                 # Language-agnostic principles

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sequenzy": {
+      "command": "npx",
+      "args": ["-y", "@sequenzy/mcp"],
+      "env": {
+        "SEQUENZY_API_KEY": "${SEQUENZY_API_KEY}"
+      }
+    }
+  }
+}

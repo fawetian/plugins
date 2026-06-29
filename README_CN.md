@@ -55,6 +55,7 @@ plugins/                    # 每个子目录是一个独立插件
 ├── marketing/              # 运营内容工具 - 社媒卡片与公众号封面（1 个 skill）
 ├── harness-space/          # AI harness engineering 工作空间规则与 Codex-only goal 契约（2 个 skill）
 ├── yao-meta-skill/         # Skill 工程、评估与打包工作流（1 个 skill）
+├── sequenzy/               # Sequenzy 生命周期、营销活动和交易邮件操作（1 个 skill + MCP）
 └── devops/                 # 开发者工具 - 文档查询、代码清理、配置优化（5 个 agent）
 rules/                      # 可复用的 Claude Code Rules
 ├── common/                 # 语言无关的通用规则
