@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, Day 0 product and technical-solution intent, evolution history, implementation map, source reading path, source-backed quality map, core mechanisms, data flow, or key algorithms. Trigger: code-research."
+description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, Day 0 product and technical-solution intent, evolution history, implementation map, source reading path, prerequisite knowledge modules, source-backed quality map, core mechanisms, data flow, or key algorithms. Trigger: code-research."
 userInvocable: true
 ---
 
@@ -63,6 +63,7 @@ The main directory already provides the global view. The subdirectory should foc
 | How X works end-to-end | workflow + architecture(local) | dependencies, learning_path |
 | Data modeling of X | data_flow + dependencies | workflow, learning_path |
 | How to read the source code | learning_path + architecture | dependencies unless needed |
+| What foundation knowledge is needed to understand the project | learning_path + dependencies | workflow unless needed |
 | How the system evolved | evolution_history + implementation_map | learning_path, dependencies unless needed |
 | How to design X from scratch | design_evolution + mechanism | dependencies, learning_path |
 | What the author would design on Day 0 | day0_product_technical_design + design_evolution | dependencies unless needed |
@@ -108,7 +109,7 @@ Output templates for each topic are in the `templates/` directory:
 - [templates/data_flow.md](templates/data_flow.md) — Data Flow & State
 - [templates/dependencies.md](templates/dependencies.md) — Dependencies & Ecosystem
 - [templates/workflow.md](templates/workflow.md) — Core Workflows
-- [templates/learning_path.md](templates/learning_path.md) — Source Reading Path from directory and code structure
+- [templates/learning_path.md](templates/learning_path.md) — Source Reading Path and prerequisite knowledge modules from directory and code structure
 - [templates/evolution_history.md](templates/evolution_history.md) — Evolution History from Git commits
 - [templates/implementation_map.md](templates/implementation_map.md) — Implementation Map connecting evolution to current code
 - [templates/design_evolution.md](templates/design_evolution.md) — First-principles design evolution
@@ -121,7 +122,7 @@ The default full research output is:
 3. `03_data_flow.md`
 4. `04_dependencies.md`
 5. `05_workflow.md`
-6. `06_learning_path.md` — analyze project directories and code structure, then plan a source-reading route
+6. `06_learning_path.md` — analyze prerequisite knowledge, project directories, and code structure, then plan a source-reading route
 7. `07_evolution_history.md`
 8. `08_implementation_map.md`
 9. `09_design_evolution.md`
@@ -129,7 +130,7 @@ The default full research output is:
 11. `11_quality_map.md`
 
 Dependency rules for the new synthesis topics:
-- `06_learning_path.md` must be a standalone source-reading path file. It should explain the directory structure from a reader's perspective, identify entry files and core modules, order the files to read, and mark which directories can be skipped at first.
+- `06_learning_path.md` must be a standalone source-reading path file. It should explain prerequisite knowledge modules needed to understand the project, adapt the list to the user's background when given (for example backend engineer with weak frontend basics), explain the directory structure from a reader's perspective, identify entry files and core modules, order the files to read, and mark which directories can be skipped at first.
 - `07_evolution_history.md` must be based on the target project's Git history and diffs. Do not reconstruct history from current code alone.
 - `08_implementation_map.md` should connect the historical stages from `07_evolution_history.md` to current modules, interfaces, data structures, runtime components, and storage/state.
 - `09_design_evolution.md` should ignore chronological commit order and reason from first principles: minimal design → exposed problem → added design → complexity cost → current code anchor.
@@ -143,7 +144,7 @@ Dependency rules for the new synthesis topics:
 After all topics are complete, add a research summary at the top of `docs/code-research/RESEARCH_PLAN.md`: project core value, index of each topic document, design highlights worth noting.
 
 For full research, the summary must include:
-- the source-reading route and directory-structure highlights from `06_learning_path.md`
+- the prerequisite knowledge modules, source-reading route, and directory-structure highlights from `06_learning_path.md`
 - the main historical evolution route from `07_evolution_history.md`
 - the current implementation map highlights from `08_implementation_map.md`
 - the first-principles design route from `09_design_evolution.md`
@@ -170,6 +171,7 @@ For full research, the summary must include:
 - **"I want to understand feature X"** → Focus on breaking down X's mechanism topic
 - **"I want to contribute code"** → Complete all topics
 - **"I want to read the source code"** → Learning Path topic + Architecture topic
+- **"I am a backend engineer and my frontend basics are weak"** → Learning Path topic + Dependencies topic
 - **"How does this system work?"** → Architecture topic + Workflow topic
 - **"How did this system evolve?"** → Evolution History topic + Implementation Map topic
 - **"How would we design this from scratch?"** → First-principles Design Evolution topic

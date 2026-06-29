@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、Day 0 产品和技术方案意图、演进历史、实现地图、源码阅读路径、基于源码证据的代码质量地图、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
+description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、Day 0 产品和技术方案意图、演进历史、实现地图、源码阅读路径、前置基础知识模块、基于源码证据的代码质量地图、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
 ---
 
 # Code Research 代码研究
@@ -62,6 +62,7 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 | 某功能的端到端流程 | workflow + architecture(局部) | dependencies, learning_path |
 | 某模块的数据建模 | data_flow + dependencies | workflow, learning_path |
 | 如何阅读项目源码 | learning_path + architecture | 除非需要否则跳过 dependencies |
+| 深入理解项目需要哪些基础知识 | learning_path + dependencies | 除非需要否则跳过 workflow |
 | 系统如何演进而来 | evolution_history + implementation_map | learning_path，除非需要否则跳过 dependencies |
 | 如何从 0 设计某系统/机制 | design_evolution + mechanism | dependencies, learning_path |
 | 想站在作者 Day 0 视角理解需求和技术方案 | day0_product_technical_design + design_evolution | 除非需要否则跳过 dependencies |
@@ -107,7 +108,7 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 - [templates/data_flow.md](templates/data_flow.md) — 数据流与状态
 - [templates/dependencies.md](templates/dependencies.md) — 依赖与生态
 - [templates/workflow.md](templates/workflow.md) — 核心工作流
-- [templates/learning_path.md](templates/learning_path.md) — 基于目录结构和代码结构的源码阅读路径
+- [templates/learning_path.md](templates/learning_path.md) — 基于目录结构和代码结构的源码阅读路径与前置基础知识模块
 - [templates/evolution_history.md](templates/evolution_history.md) — 基于 Git commit 的系统演进历史
 - [templates/implementation_map.md](templates/implementation_map.md) — 连接历史演进与当前代码的实现地图
 - [templates/design_evolution.md](templates/design_evolution.md) — 从第一性原理出发的设计演进推演
@@ -120,7 +121,7 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 3. `03_data_flow.md`
 4. `04_dependencies.md`
 5. `05_workflow.md`
-6. `06_learning_path.md` — 分析项目目录和代码结构，并规划源码阅读路线
+6. `06_learning_path.md` — 分析前置基础知识、项目目录和代码结构，并规划源码阅读路线
 7. `07_evolution_history.md`
 8. `08_implementation_map.md`
 9. `09_design_evolution.md`
@@ -128,7 +129,7 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 11. `11_quality_map.md`
 
 新增综合专题的依赖规则：
-- `06_learning_path.md` 必须作为独立的源码阅读路径文件产出。它需要从阅读源码的角度解释目录结构、识别入口文件和核心模块、给出文件阅读顺序，并标出第一轮可以暂时跳过的目录。
+- `06_learning_path.md` 必须作为独立的源码阅读路径文件产出。它需要说明深入理解项目所需的前置基础知识模块；如果用户提供了自身背景（例如后端工程师、前端基础薄弱），要按这个背景调整补齐顺序；同时从阅读源码的角度解释目录结构、识别入口文件和核心模块、给出文件阅读顺序，并标出第一轮可以暂时跳过的目录。
 - `07_evolution_history.md` 必须基于目标项目的 Git history 和 diff，不能只根据当前代码反推历史。
 - `08_implementation_map.md` 要把 `07_evolution_history.md` 中的历史阶段映射到当前模块、接口、数据结构、运行时组件和存储/状态。
 - `09_design_evolution.md` 不按 commit 时间线写，而是按第一性原理推演：最小设计 → 暴露问题 → 新增设计 → 复杂度代价 → 当前代码落点。
@@ -142,7 +143,7 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 所有专题完成后，在 `docs/code-research/RESEARCH_PLAN.md` 顶部补充研究摘要：项目核心价值、各专题文档索引、最值得关注的设计亮点。
 
 完整研究的汇总必须包含：
-- 来自 `06_learning_path.md` 的源码阅读路线和目录结构重点
+- 来自 `06_learning_path.md` 的前置基础知识模块、源码阅读路线和目录结构重点
 - 来自 `07_evolution_history.md` 的主要历史演进路线
 - 来自 `08_implementation_map.md` 的当前实现地图亮点
 - 来自 `09_design_evolution.md` 的第一性原理设计路线
@@ -169,6 +170,7 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 - **"我想理解 X 功能"** → 重点拆分 X 的机制专题
 - **"我想贡献代码"** → 完整执行所有专题
 - **"我想阅读源码"** → 学习路径专题 + 架构专题
+- **"我是后端工程师，前端基础比较薄弱"** → 学习路径专题 + 依赖与生态专题
 - **"我想理解系统怎么运转的"** → 架构专题 + 工作流专题
 - **"这个系统是怎么演进成这样的"** → 演进历史专题 + 实现地图专题
 - **"如果从 0 设计这套系统"** → 第一性原理设计演进专题

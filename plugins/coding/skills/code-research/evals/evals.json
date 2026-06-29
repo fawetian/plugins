@@ -54,6 +54,11 @@
           "reason": "Request for source reading path and directory structure analysis"
         },
         {
+          "input": "code-research 我是后端工程师，前端基础比较薄弱，深入理解这个项目需要补哪些基础知识模块",
+          "expected": true,
+          "reason": "Request for prerequisite knowledge modules adapted to user background"
+        },
+        {
           "input": "code-research 站在源码作者 Day 0 视角，分析这套系统的需求、MVP 边界和技术方案",
           "expected": true,
           "reason": "Request for author Day 0 product and technical-solution reconstruction"
