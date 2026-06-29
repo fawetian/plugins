@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、演进历史、实现地图、源码阅读路径、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
+description: 深度研究和理解当前项目。当用户想要深入理解某个开源项目的设计思路、架构决策、Day 0 产品和技术方案意图、演进历史、实现地图、源码阅读路径、基于源码证据的代码质量地图、核心机制、数据流或关键算法时，必须使用此 skill。触发词：code-research。
 ---
 
 # Code Research 代码研究
@@ -64,6 +64,8 @@ description: 深度研究和理解当前项目。当用户想要深入理解某�
 | 如何阅读项目源码 | learning_path + architecture | 除非需要否则跳过 dependencies |
 | 系统如何演进而来 | evolution_history + implementation_map | learning_path，除非需要否则跳过 dependencies |
 | 如何从 0 设计某系统/机制 | design_evolution + mechanism | dependencies, learning_path |
+| 想站在作者 Day 0 视角理解需求和技术方案 | day0_product_technical_design + design_evolution | 除非需要否则跳过 dependencies |
+| 代码质量和可维护性风险 | quality_map + implementation_map | 除非需要否则跳过 dependencies |
 | 对比两种实现方案 | mechanism × 2 | 其余全部 |
 
 **子目录工作流**：
@@ -109,6 +111,8 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 - [templates/evolution_history.md](templates/evolution_history.md) — 基于 Git commit 的系统演进历史
 - [templates/implementation_map.md](templates/implementation_map.md) — 连接历史演进与当前代码的实现地图
 - [templates/design_evolution.md](templates/design_evolution.md) — 从第一性原理出发的设计演进推演
+- [templates/day0_product_technical_design.md](templates/day0_product_technical_design.md) — 基于源码证据复原 Day 0 产品需求和技术方案
+- [templates/quality_map.md](templates/quality_map.md) — 基于源码证据的代码质量和可维护性风险地图
 
 完整研究默认输出：
 1. `01_architecture.md`
@@ -120,13 +124,18 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 7. `07_evolution_history.md`
 8. `08_implementation_map.md`
 9. `09_design_evolution.md`
+10. `10_day0_product_technical_design.md`
+11. `11_quality_map.md`
 
 新增综合专题的依赖规则：
 - `06_learning_path.md` 必须作为独立的源码阅读路径文件产出。它需要从阅读源码的角度解释目录结构、识别入口文件和核心模块、给出文件阅读顺序，并标出第一轮可以暂时跳过的目录。
 - `07_evolution_history.md` 必须基于目标项目的 Git history 和 diff，不能只根据当前代码反推历史。
 - `08_implementation_map.md` 要把 `07_evolution_history.md` 中的历史阶段映射到当前模块、接口、数据结构、运行时组件和存储/状态。
 - `09_design_evolution.md` 不按 commit 时间线写，而是按第一性原理推演：最小设计 → 暴露问题 → 新增设计 → 复杂度代价 → 当前代码落点。
-- 如果 Explore Agent 之间不能保证依赖顺序，就在 Phase 3 等事实专题完成后，由主 Agent 汇总写 07/08/09。
+- `10_day0_product_technical_design.md` 要复原作者 Day 0 视角：需求起点、目标用户、MVP 边界、初始技术方案、后续产品压力如何逼出技术选择，以及每个判断的证据等级。它是对现有项目的反向研究，不是面向未来新功能的实施方案；如果用户要写 RFC、ADR 或 implementation plan，应改用 `technical-design`。
+- `11_quality_map.md` 必须直接阅读目标项目源码。已有研究只能用于定位文件，不能作为证据。每个结论都必须落到具体文件路径，以及函数、类型、配置或调用链，并说明观察到的代码现象。高风险判断至少需要 2 个源码证据点；中/低风险判断至少需要 1 个源码证据点。没有源码证据的判断只能放入待解决疑问。
+- 质量地图只识别基于源码证据的可维护性风险，不做逐行审查、漏洞扫描、性能 profiling 或代码修改。不要输出总分，只按模块给低/中/高风险等级。
+- 如果 Explore Agent 之间不能保证依赖顺序，就在 Phase 3 等事实专题完成后，由主 Agent 汇总写 07/08/09/10/11。
 
 ### Phase 3：汇总整合
 
@@ -137,12 +146,14 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 - 来自 `07_evolution_history.md` 的主要历史演进路线
 - 来自 `08_implementation_map.md` 的当前实现地图亮点
 - 来自 `09_design_evolution.md` 的第一性原理设计路线
+- 来自 `10_day0_product_technical_design.md` 的作者 Day 0 产品和技术方案复原
+- 来自 `11_quality_map.md` 的源码证据驱动的质量和可维护性风险重点
 
 ---
 
 ## 研究策略
 
-**忽略的文件**：测试文件（`*_test.*`、`__tests__/`、`tests/`、`spec/`）、依赖目录（`node_modules/`、`vendor/`、`dist/`）、锁文件。
+**忽略的文件**：测试文件（`*_test.*`、`__tests__/`、`tests/`、`spec/`）、依赖目录（`node_modules/`、`vendor/`、`dist/`）、锁文件。例外：`11_quality_map.md` 可以读取测试文件和测试配置，但只用于判断测试覆盖缺口。
 
 **读代码的顺序**：接口/协议定义 → 核心数据结构 → 主流程 → 边界处理
 
@@ -161,4 +172,6 @@ Git 历史分析必须针对被研究的目标项目，而不是本 skill：
 - **"我想理解系统怎么运转的"** → 架构专题 + 工作流专题
 - **"这个系统是怎么演进成这样的"** → 演进历史专题 + 实现地图专题
 - **"如果从 0 设计这套系统"** → 第一性原理设计演进专题
+- **"我想站在源码作者 Day 0 视角理解需求和技术方案"** → Day 0 产品与技术方案专题 + 设计演进专题
+- **"这个项目代码质量怎么样"** → 质量地图专题 + 实现地图专题
 - **"对比两个项目"** → 对两个项目各做架构专题，再写对比分析

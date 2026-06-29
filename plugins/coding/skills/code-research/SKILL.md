@@ -1,6 +1,6 @@
 ---
 name: code-research
-description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, evolution history, implementation map, source reading path, core mechanisms, data flow, or key algorithms. Trigger: code-research."
+description: "Deep research and understanding of the current project. Use this skill when the user wants to deeply understand a project's design philosophy, architectural decisions, Day 0 product and technical-solution intent, evolution history, implementation map, source reading path, source-backed quality map, core mechanisms, data flow, or key algorithms. Trigger: code-research."
 userInvocable: true
 ---
 
@@ -65,6 +65,8 @@ The main directory already provides the global view. The subdirectory should foc
 | How to read the source code | learning_path + architecture | dependencies unless needed |
 | How the system evolved | evolution_history + implementation_map | learning_path, dependencies unless needed |
 | How to design X from scratch | design_evolution + mechanism | dependencies, learning_path |
+| What the author would design on Day 0 | day0_product_technical_design + design_evolution | dependencies unless needed |
+| Code quality and maintainability risks | quality_map + implementation_map | dependencies unless needed |
 | Comparing two approaches | mechanism × 2 | everything else |
 
 **Subdirectory workflow**:
@@ -110,6 +112,8 @@ Output templates for each topic are in the `templates/` directory:
 - [templates/evolution_history.md](templates/evolution_history.md) — Evolution History from Git commits
 - [templates/implementation_map.md](templates/implementation_map.md) — Implementation Map connecting evolution to current code
 - [templates/design_evolution.md](templates/design_evolution.md) — First-principles design evolution
+- [templates/day0_product_technical_design.md](templates/day0_product_technical_design.md) — Day 0 product requirements and technical-solution reconstruction from source evidence
+- [templates/quality_map.md](templates/quality_map.md) — Source-backed code quality and maintainability risk map
 
 The default full research output is:
 1. `01_architecture.md`
@@ -121,13 +125,18 @@ The default full research output is:
 7. `07_evolution_history.md`
 8. `08_implementation_map.md`
 9. `09_design_evolution.md`
+10. `10_day0_product_technical_design.md`
+11. `11_quality_map.md`
 
 Dependency rules for the new synthesis topics:
 - `06_learning_path.md` must be a standalone source-reading path file. It should explain the directory structure from a reader's perspective, identify entry files and core modules, order the files to read, and mark which directories can be skipped at first.
 - `07_evolution_history.md` must be based on the target project's Git history and diffs. Do not reconstruct history from current code alone.
 - `08_implementation_map.md` should connect the historical stages from `07_evolution_history.md` to current modules, interfaces, data structures, runtime components, and storage/state.
 - `09_design_evolution.md` should ignore chronological commit order and reason from first principles: minimal design → exposed problem → added design → complexity cost → current code anchor.
-- If Explore Agents cannot depend on each other, write 07/08/09 during Phase 3 after the factual topics are complete.
+- `10_day0_product_technical_design.md` should reconstruct the author's Day 0 view: requirement origin, target users, MVP boundary, initial technical solution, product pressures that forced later technical choices, and evidence level. It is reverse research of the existing project, not a new future implementation plan. If the user asks to design a new feature or write an RFC/ADR/implementation plan, use `technical-design` instead.
+- `11_quality_map.md` must read the target source code directly. Previous research may guide file selection, but it is not evidence. Every conclusion must cite concrete file paths plus functions, types, configs, or call chains and the observed code behavior. High-risk findings require at least two source evidence points; medium/low findings require at least one. Findings without source evidence must go to unresolved questions.
+- Quality Map identifies maintainability risks from source evidence; it does not perform line-by-line review, vulnerability scanning, profiling, or code changes. Do not produce a total score. Use module-level Low/Medium/High risk levels.
+- If Explore Agents cannot depend on each other, write 07/08/09/10/11 during Phase 3 after the factual topics are complete.
 
 ### Phase 3: Summary & Integration
 
@@ -138,12 +147,14 @@ For full research, the summary must include:
 - the main historical evolution route from `07_evolution_history.md`
 - the current implementation map highlights from `08_implementation_map.md`
 - the first-principles design route from `09_design_evolution.md`
+- the author-perspective Day 0 product and technical-solution reconstruction from `10_day0_product_technical_design.md`
+- the source-backed quality and maintainability risk highlights from `11_quality_map.md`
 
 ---
 
 ## Research Strategy
 
-**Files to ignore**: Test files (`*_test.*`, `__tests__/`, `tests/`, `spec/`), dependency directories (`node_modules/`, `vendor/`, `dist/`), lock files.
+**Files to ignore**: Test files (`*_test.*`, `__tests__/`, `tests/`, `spec/`), dependency directories (`node_modules/`, `vendor/`, `dist/`), lock files. Exception: `11_quality_map.md` may read test files and test configuration only to assess test coverage gaps.
 
 **Code reading order**: Interface/Protocol definitions → Core data structures → Main flow → Boundary handling
 
@@ -162,4 +173,6 @@ For full research, the summary must include:
 - **"How does this system work?"** → Architecture topic + Workflow topic
 - **"How did this system evolve?"** → Evolution History topic + Implementation Map topic
 - **"How would we design this from scratch?"** → First-principles Design Evolution topic
+- **"I want the author's Day 0 perspective"** → Day 0 Product & Technical Solution topic + Design Evolution topic
+- **"How is this codebase's quality?"** → Quality Map topic + Implementation Map topic
 - **"Compare two projects"** → Do architecture topic for both projects, then write comparison analysis

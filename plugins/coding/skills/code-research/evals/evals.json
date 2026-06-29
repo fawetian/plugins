@@ -52,6 +52,26 @@
           "input": "code-research 分析这个项目的代码目录和结构，规划一条源码阅读路径",
           "expected": true,
           "reason": "Request for source reading path and directory structure analysis"
+        },
+        {
+          "input": "code-research 站在源码作者 Day 0 视角，分析这套系统的需求、MVP 边界和技术方案",
+          "expected": true,
+          "reason": "Request for author Day 0 product and technical-solution reconstruction"
+        },
+        {
+          "input": "code-research 帮我分析这个项目的代码质量，给我一份质量地图",
+          "expected": true,
+          "reason": "Request for source-backed code quality map"
+        },
+        {
+          "input": "深入研究这个仓库，顺便告诉我哪些模块最难维护",
+          "expected": true,
+          "reason": "Request for deep repository research plus maintainability risk analysis"
+        },
+        {
+          "input": "I want a source-backed maintainability quality map for this codebase",
+          "expected": true,
+          "reason": "Request for quality map grounded in source evidence"
         }
       ]
     },
@@ -74,6 +94,21 @@
           "input": "How do I install this project?",
           "expected": false,
           "reason": "Installation question, not deep code research"
+        },
+        {
+          "input": "review 当前 diff 找 bug",
+          "expected": false,
+          "reason": "Diff bug review belongs to code-review, not code-research"
+        },
+        {
+          "input": "扫一下安全漏洞",
+          "expected": false,
+          "reason": "Security vulnerability scanning belongs to security-review"
+        },
+        {
+          "input": "帮我重构这段代码",
+          "expected": false,
+          "reason": "Refactoring request is code modification, not research"
         }
       ]
     }
