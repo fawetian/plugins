@@ -47,6 +47,11 @@
           "input": "Map the historical evolution of this codebase to the current implementation structure",
           "expected": true,
           "reason": "Request for implementation map connecting history to current code"
+        },
+        {
+          "input": "code-research 分析这个项目的代码目录和结构，规划一条源码阅读路径",
+          "expected": true,
+          "reason": "Request for source reading path and directory structure analysis"
         }
       ]
     },
