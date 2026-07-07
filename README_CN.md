@@ -50,7 +50,7 @@ plugins/                    # 每个子目录是一个独立插件
 ├── diagrams/               # 单文件 HTML 技术图生成工具（1 个 skill）
 ├── product/                # 产品经理工具集（4 个 skill、2 个 agent）
 ├── cli/                    # 本地 CLI 工具 - 飞书、阿里云（2 个 skill）
-├── thinking/               # 思维工具集（18 个 skill）
+├── thinking/               # 思维工具集（19 个 skill）
 ├── read/                   # 阅读工具 - 深度拆书与结构提取（1 个 skill）
 ├── marketing/              # 运营内容工具 - 社媒卡片与公众号封面（1 个 skill）
 ├── harness-space/          # AI harness engineering 工作空间规则与 Codex-only goal 契约（2 个 skill）

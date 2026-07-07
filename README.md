@@ -50,7 +50,7 @@ plugins/                    # Each subdirectory is a standalone plugin
 ├── diagrams/               # Standalone HTML technical diagram generation (1 skill)
 ├── product/                # Product manager tools (4 skills, 2 agents)
 ├── cli/                    # Local CLI tools - Feishu, Aliyun (2 skills)
-├── thinking/               # Mental model tools (18 skills)
+├── thinking/               # Mental model tools (19 skills)
 ├── read/                   # Reading tools - book X-ray and structure extraction (1 skill)
 ├── marketing/              # Marketing content tools - social cards and WeChat covers (1 skill)
 ├── harness-space/          # AI harness engineering workspace rules and Codex-only goal contracts (2 skills)

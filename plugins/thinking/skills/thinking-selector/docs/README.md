@@ -35,7 +35,7 @@ Don't know which thinking tool to use? Start here. The selector analyzes your pr
 
 ```
 问题类型？
-├── 需要拆解 → first-principles / mece / five-whys / feynman-technique
+├── 需要拆解/澄清 → first-principles / mece / 5w2h / five-whys / feynman-technique
 ├── 需要决策 → ooda-loop / occam-hanlon-razor / pareto-principle / eisenhower-matrix
 ├── 需要预判风险 → inversion / second-order-thinking / systems-thinking / margin-of-safety / pre-mortem
 └── 需要对抗偏见/审计论证 → scout-mindset / steelmanning / circle-of-competence / critical-thinking

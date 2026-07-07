@@ -16,6 +16,7 @@ A curated collection of mental model skills for Claude Code — structured think
 |-------|---------|
 | `first-principles` | 第一性原理 — 回到不可再分的事实重新构建方案 |
 | `mece` | MECE 互斥完全 — 结构化拆分，避免遗漏与重复 |
+| `5w2h` | 5W2H — 用 What/Why/Who/When/Where/How/How much 澄清模糊任务 |
 | `five-whys` | 五个为什么 — 连续追问根因 |
 | `feynman-technique` | 费曼学习法 — 用简单语言发现知识空洞 |
 

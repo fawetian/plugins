@@ -25,6 +25,7 @@ userInvocable: true
 ├── 需要拆解 → 进入「分解与澄清」
 │   ├── 挑战现有假设/行业惯例？ → first-principles (第一性原理)
 │   ├── 需要不重不漏地分类？ → mece (MECE)
+│   ├── 需求/任务/项目还没讲清楚？ → 5w2h (5W2H 澄清法)
 │   ├── 反复出现的故障/问题？ → five-whys (五个为什么)
 │   └── 学习新领域/验证理解？ → feynman-technique (费曼学习法)
 │
@@ -52,7 +53,7 @@ userInvocable: true
 
 推荐前检查：
 1. **时间约束**：< 30 分钟决策推荐快框架（OODA、Pareto），否则可用深框架
-2. **信息完备度**：信息不足时，先用 Five Whys / Feynman 收集，再用决策框架
+2. **信息完备度**：任务背景不足时，先用 5W2H；根因信息不足用 Five Whys；概念理解不足用 Feynman
 3. **利益相关方**：多方参与时优先 MECE + Steelmanning
 
 ### 第三步：输出推荐

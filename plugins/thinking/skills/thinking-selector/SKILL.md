@@ -25,6 +25,7 @@ Ask yourself: **这个问题的本质是什么？**
 ├── 需要拆解 → 进入「分解与澄清」
 │   ├── 挑战现有假设/行业惯例？ → first-principles (第一性原理)
 │   ├── 需要不重不漏地分类？ → mece (MECE)
+│   ├── 需求/任务/项目还没讲清楚？ → 5w2h (5W2H 澄清法)
 │   ├── 反复出现的故障/问题？ → five-whys (五个为什么)
 │   └── 学习新领域/验证理解？ → feynman-technique (费曼学习法)
 │
@@ -52,7 +53,7 @@ Ask yourself: **这个问题的本质是什么？**
 
 Before recommending, check:
 1. **时间约束**：如果 < 30 分钟决策，推荐快框架（OODA、Pareto）而非深框架（Systems Thinking）
-2. **信息完备度**：信息不足时，先用 Five Whys / Feynman 收集，再用决策框架
+2. **信息完备度**：任务背景不足时，先用 5W2H；根因信息不足用 Five Whys；概念理解不足用 Feynman
 3. **利益相关方**：多方参与时优先 MECE + Steelmanning 保证公平性
 
 ### Step 3: Output Recommendation

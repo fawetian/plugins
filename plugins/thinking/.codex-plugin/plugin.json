@@ -1,7 +1,7 @@
 {
   "name": "thinking",
-  "version": "0.2.0",
-  "description": "思维工具集：第一性原理、系统思考、反向思维、OODA 等 17 个心智模型，覆盖技术决策、产品决策、通用问题求解",
+  "version": "0.3.0",
+  "description": "思维工具集：5W2H、第一性原理、系统思考、反向思维、OODA 等 18 个思维工具 + 选择器，覆盖技术决策、产品决策、通用问题求解",
   "author": {
     "name": "fawetian"
   },
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Thinking",
     "shortDescription": "Mental model skills for decisions, analysis, and problem solving",
-    "longDescription": "A curated collection of thinking frameworks including first principles, MECE, five whys, Feynman technique, OODA, systems thinking, inversion, premortems, and critical thinking.",
+    "longDescription": "A curated collection of thinking frameworks including 5W2H, first principles, MECE, five whys, Feynman technique, OODA, systems thinking, inversion, premortems, and critical thinking.",
     "developerName": "fawetian",
     "category": "Productivity",
     "capabilities": [
@@ -33,6 +33,7 @@
     "termsOfServiceURL": "https://github.com/fawetian/plugins",
     "defaultPrompt": [
       "Choose a thinking framework for this problem",
+      "Clarify this requirement with 5W2H",
       "Analyze this decision with first principles",
       "Run a premortem for this plan"
     ],

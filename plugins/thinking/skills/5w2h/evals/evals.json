@@ -1,0 +1,61 @@
+{
+  "name": "5w2h",
+  "version": "1.0.0",
+  "description": "Evaluations for 5w2h skill trigger accuracy",
+  "evals": [
+    {
+      "name": "trigger-positive-explicit",
+      "type": "trigger",
+      "description": "Skill should trigger when user wants 5W2H clarification",
+      "prompts": [
+        {
+          "input": "用 5W2H 帮我澄清这个需求",
+          "expected": true,
+          "reason": "Exact trigger '5W2H' plus requirement clarification"
+        },
+        {
+          "input": "这个项目还很模糊，先把 what why who when where how how much 问清楚",
+          "expected": true,
+          "reason": "Explicit seven-question 5W2H pattern"
+        },
+        {
+          "input": "帮我做任务澄清：谁做什么，什么时候交付，怎么做，要多少成本？",
+          "expected": true,
+          "reason": "Chinese task clarification with who/what/when/how/how much"
+        },
+        {
+          "input": "Before writing the PRD, clarify who does what by when and how much it costs",
+          "expected": true,
+          "reason": "English delegation and planning trigger before PRD"
+        }
+      ]
+    },
+    {
+      "name": "trigger-negative-nearby",
+      "type": "trigger",
+      "description": "Skill should NOT trigger for root cause, categorization, prioritization, or code tasks",
+      "prompts": [
+        {
+          "input": "这个 bug 为什么反复出现？做五个为什么分析",
+          "expected": false,
+          "reason": "Root cause analysis should trigger five-whys"
+        },
+        {
+          "input": "用 MECE 把用户流失原因分类",
+          "expected": false,
+          "reason": "Structured categorization should trigger MECE"
+        },
+        {
+          "input": "帮我用艾森豪威尔矩阵排一下任务优先级",
+          "expected": false,
+          "reason": "Task prioritization should trigger eisenhower-matrix"
+        },
+        {
+          "input": "Write unit tests for the auth module",
+          "expected": false,
+          "reason": "Code task, not 5W2H clarification"
+        }
+      ]
+    }
+  ]
+}
