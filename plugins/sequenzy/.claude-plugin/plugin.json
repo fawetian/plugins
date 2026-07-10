@@ -1,0 +1,21 @@
+{
+  "name": "sequenzy",
+  "version": "1.0.0",
+  "description": "Sequenzy email marketing operations for lifecycle, campaign, and transactional email workflows via MCP and agent skills",
+  "author": {
+    "name": "Sequenzy"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sequenzy",
+    "mcp",
+    "email-marketing",
+    "lifecycle-email",
+    "transactional-email",
+    "campaigns",
+    "marketing-automation"
+  ],
+  "skills": [
+    "./skills/sequenzy-email-marketing"
+  ]
+}

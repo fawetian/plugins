@@ -119,6 +119,16 @@
         "name": "Yao Team"
       },
       "keywords": ["skill", "agent-skills", "skill-engineering", "evals", "packaging", "governance"]
+    },
+    {
+      "name": "sequenzy",
+      "source": "./plugins/sequenzy",
+      "description": "Sequenzy email marketing operations for lifecycle, campaign, and transactional email workflows via MCP and agent skills",
+      "version": "1.0.0",
+      "author": {
+        "name": "Sequenzy"
+      },
+      "keywords": ["sequenzy", "mcp", "email-marketing", "lifecycle-email", "transactional-email", "campaigns", "marketing-automation"]
     }
   ]
 }
